@@ -5,19 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.apache.skywalking</groupId>
-    <artifactId>nutz-1.x-scenario</artifactId>
+    <artifactId>nutz-scenario</artifactId>
     <version>5.0.0</version>
 
-    <name>skywalking-nutz-1.x-scenario</name>
+    <name>skywalking-nutz-scenario</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <test.framework.version>3.0.0</test.framework.version>
         <docker.image.version>${test.framework.version}</docker.image.version>
-
-        <log4j.version>1.2.17</log4j.version>
-        <nutz.version>1.r.63.r3</spring.version>
+        <nutz.version>1.r.63.r3</nutz.version>
     </properties>
 
     <dependencies>
@@ -26,7 +23,13 @@
             <artifactId>nutz</artifactId>
             <version>${nutz.version}</version>
         </dependency>
-        
+
+        <dependency>
+        	<groupId>javax.servlet</groupId>
+        	<artifactId>javax.servlet-api</artifactId>
+        	<version>3.1.0</version>
+        	<scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -74,4 +77,5 @@
         </plugins>
     </build>
 
+    <packaging>war</packaging>
 </project>

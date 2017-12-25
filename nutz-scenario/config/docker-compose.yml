@@ -1,7 +1,7 @@
 version: '2.1'
 services:
-  okhttp-scenario:
-    image:  skywalking/okhttp-scenario:{CASES_IMAGE_VERSION}
+  h2-testcase:
+    image: skywalking/nutz-scenario:{CASES_IMAGE_VERSION}
     expose:
       - "8080"
     ports:
@@ -11,10 +11,9 @@ services:
     links:
       - mock-collector
     volumes:
-     - {AGENT_FILE_PATH}:/usr/local/okhttp-scenario/agent
+      - {AGENT_FILE_PATH}:/usr/local/tomcat/agent
     depends_on:
-      mock-collector:
-        condition: service_healthy
+      - mock-collector
 
   mock-collector:
     image: skywalking/skywalking-mock-collector:{COLLECTOR_IMAGE_VERSION}
@@ -26,6 +25,6 @@ services:
       - "{COLLECTOR_OUTPUT_PORT}:12800"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:12800/receiveData"]
-      interval: 5s
+      interval: 10s
       timeout: 10s
       retries: 5

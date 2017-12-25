@@ -7,7 +7,7 @@ testcase:
   #
   # The request url of current test cases.
   #
-  request_url: http://localhost:{SERVER_OUTPUT_PORT}/nutz-case/case/nutz-case
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/nutz-case/case/nutz
   #
   # The framework name that need tested.
   #
