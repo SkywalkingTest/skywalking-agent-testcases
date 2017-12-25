@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@EnableAutoConfiguration()
+@EnableAutoConfiguration
 public class BackController {
     private static Logger logger = Logger.getLogger(BackController.class);
 
