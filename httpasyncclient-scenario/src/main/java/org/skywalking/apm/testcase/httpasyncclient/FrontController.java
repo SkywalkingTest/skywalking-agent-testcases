@@ -25,7 +25,7 @@ public class FrontController {
 
     @RequestMapping("/front")
     public String front() throws Exception {
-        Utils.init();
+        SQLUtils.init();
         String content = asyncRequest3("http://127.0.0.1:8080/back");
         System.out.println(content);
         return content;
@@ -50,7 +50,6 @@ public class FrontController {
 
             @Override
             protected void onCharReceived(final CharBuffer buf, final IOControl ioctrl) throws IOException {
-                // Do something useful
 
             }
 
@@ -73,8 +72,8 @@ public class FrontController {
                 } catch (IOException e) {
                     logger.error("Httpclient  close failed" + e);
                 }
-                Utils.query();
-                Utils.drop();
+                SQLUtils.query();
+                SQLUtils.drop();
             }
 
             public void failed(final Exception ex) {

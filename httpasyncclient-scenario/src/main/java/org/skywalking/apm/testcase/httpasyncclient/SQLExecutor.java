@@ -38,7 +38,6 @@ public class SQLExecutor {
     public void queryData(String sql, String id) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, id);
-//        PreparedStatement pst = conn.prepareStatement(sql);
         ResultSet rs = preparedStatement.executeQuery();
         while (rs.next()) {
             logger.info(rs.getString(1) );

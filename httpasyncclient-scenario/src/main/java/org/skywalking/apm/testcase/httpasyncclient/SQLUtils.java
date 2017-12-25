@@ -3,8 +3,8 @@ package org.skywalking.apm.testcase.httpasyncclient;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
-public class Utils {
-    private static Logger logger = Logger.getLogger(Utils.class);
+public class SQLUtils {
+    private static Logger logger = Logger.getLogger(SQLUtils.class);
 
     public static void init() {
         final String CREATE_TABLE_SQL = "CREATE TABLE test_01(\n" +
@@ -51,13 +51,11 @@ public class Utils {
 
     public static void drop() {
 
-//        String QUERY_DATA_SQL = "SELECT id, value FROM test_01 WHERE id=?";
         String DELETE_DATA_SQL = "DELETE FROM test_01 WHERE id=?";
         String DROP_TABLE_SQL = "DROP table test_01";
         SQLExecutor sqlExecute = null;
         try {
             sqlExecute = new SQLExecutor();
-//            sqlExecute.queryData(QUERY_DATA_SQL, "1");
             sqlExecute.dropTable(DROP_TABLE_SQL);
 
         } catch (SQLException e) {
