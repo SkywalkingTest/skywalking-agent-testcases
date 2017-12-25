@@ -26,7 +26,7 @@ public class FrontController {
     @RequestMapping("/front")
     public String front() throws Exception {
         SQLUtils.init();
-        String content = asyncRequest3("http://127.0.0.1:8080/back");
+        String content = asyncRequest3("http://127.0.0.1:8080/httpasyncclient/back");
         return content;
     }
 
