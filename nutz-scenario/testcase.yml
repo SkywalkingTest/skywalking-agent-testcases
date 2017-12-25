@@ -14,7 +14,15 @@ testcase:
   test_framework: Nutz
   #
   # The framework version list of current test case supported
+  # http://jfrog.nutz.cn/artifactory/jcenter/org/nutz/nutz/
   #
   support_versions:
     - 1.r.63.r3
+    - 1.r.63.r2
+    - 1.r.63
+    - 1.r.62
+    - 1.r.61.r2
+    - 1.r.60
+    - 1.r.59
+    - 1.r.58
    
