@@ -1,4 +1,4 @@
-package org.apache.skywalking.testcase.httpclientasync;
+package org.apache.skywalking.testcase.httpasyncclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

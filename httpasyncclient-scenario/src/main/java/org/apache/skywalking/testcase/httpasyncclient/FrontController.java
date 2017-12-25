@@ -1,4 +1,4 @@
-package org.apache.skywalking.testcase.httpclientasync;
+package org.apache.skywalking.testcase.httpasyncclient;
 
 import java.io.IOException;
 import java.nio.CharBuffer;

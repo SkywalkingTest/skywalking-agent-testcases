@@ -1,4 +1,4 @@
-package org.apache.skywalking.testcase.httpclientasync;
+package org.apache.skywalking.testcase.httpasyncclient;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +23,7 @@ public class MysqlConfig {
 
         url = properties.getProperty("mysql.url");
         userName = properties.getProperty("mysql.username");
-        password = null;
+        password = properties.getProperty("mysql.password");
     }
 
     public static String getUrl() {
