@@ -3,3 +3,5 @@ target/
 testcases/
 *.iml
 .runtime/
+.idea/
+dependency-reduced-pom.xml
