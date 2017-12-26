@@ -13,17 +13,17 @@ import org.apache.http.nio.client.methods.HttpAsyncMethods;
 import org.apache.http.nio.protocol.HttpAsyncRequestProducer;
 import org.apache.http.protocol.HttpContext;
 import org.apache.log4j.Logger;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@EnableAutoConfiguration
 public class FrontController {
 
     private static Logger logger = Logger.getLogger(FrontController.class);
 
     @RequestMapping("/front")
+    @ResponseBody
     public String front() throws Exception {
         SQLUtils.init();
         String content = asyncRequest3("http://127.0.0.1:8080/httpasyncclient/back");

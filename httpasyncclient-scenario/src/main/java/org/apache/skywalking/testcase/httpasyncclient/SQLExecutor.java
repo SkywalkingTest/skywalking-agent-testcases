@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 public class SQLExecutor {
     private Connection connection;
     private static Logger logger = Logger.getLogger(SQLExecutor.class);
+
     public SQLExecutor() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -40,7 +41,7 @@ public class SQLExecutor {
         preparedStatement.setString(1, id);
         ResultSet rs = preparedStatement.executeQuery();
         while (rs.next()) {
-            logger.info(rs.getString(1) );
+            logger.info(rs.getString(1));
         }
         preparedStatement.close();
     }
