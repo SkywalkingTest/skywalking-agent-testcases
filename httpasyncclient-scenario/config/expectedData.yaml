@@ -1,0 +1,144 @@
+registryItems:
+  applications:
+  - {httpasyncclient-case: nq 0}
+  instances:
+  - {httpasyncclient-case: 1}
+  operationNames:
+  - httpasyncclient-case: [HttpAsyncClient/execute,httpasyncclient/DefaultConnectingIOReactor,httpasyncclient/request,/httpasyncclient-case/front,future/Callback,/httpasyncclient-case/back,]
+segmentItems:
+- applicationCode: httpasyncclient-case
+  segmentSize: 4
+  segments:
+    - segmentId: not null
+      spans:
+        -
+          operationName: HttpAsyncClient/execute
+          operationId: eq 0
+          parentSpanId: 0
+          spanId: 1
+          startTime: nq 0
+          endTime: nq 0
+          isError: false
+          spanLayer: Http
+          spanType: Local
+          componentName: httpasyncclient
+          componentId: eq 26
+          tags:
+            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient-case/front'}
+          logs: []
+          peer: null
+          peerId: eq 0
+        -
+          operationName: /httpasyncclient/front
+          operationId: eq 0
+          parentSpanId: -1
+          spanId: 0
+          startTime: nq 0
+          endTime: nq 0
+          spanLayer: Http
+          isError: false
+          spanType: Entry
+          componentName: null
+          componentId: 1
+          tags:
+            - {key: url, value: 'http://localhost:8080/httpasyncclient-case/front'}
+            - {key: http.method, value: GET}
+          logs: []
+          peer: null
+          peerId: eq 0
+    - segmentId: not null
+          spans:
+            -
+              operationName: httpasyncclient/DefaultConnectingIOReactor
+              operationId: eq 0
+              parentSpanId: -1
+              spanId: 0
+              startTime: nq 0
+              endTime: nq 0
+              isError: false
+              spanLayer: Http
+              spanType: Local
+              componentName: httpasyncclient
+              componentId: eq 26
+              tags:
+                - {}
+              logs: []
+              peer: null
+              peerId: eq 0
+    - segmentId: not null
+          spans:
+            -
+              operationName: future/Callback
+              operationId: eq 0
+              parentSpanId: 1
+              spanId: 2
+              startTime: nq 0
+              endTime: nq 0
+              isError: false
+              spanLayer: Http
+              spanType: Local
+              componentName: httpasyncclient
+              componentId: eq 26
+              tags:
+                - {}
+              logs: []
+              peer: null
+              peerId: eq 0
+            -
+              operationName: httpasyncclient-case/front
+              operationId: eq 0
+              parentSpanId: 0
+              spanId: 1
+              startTime: nq 0
+              endTime: nq 0
+              isError: false
+              spanLayer: Http
+              spanType: Exit
+              componentName: httpasyncclient
+              componentId: eq 26
+              tags:
+                - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient-case/front'}
+                - {key: http.method, value: GET}
+              logs: []
+              peer: null
+              peerId: eq 0
+            -
+              operationName: httpasyncclient/request
+              operationId: eq 0
+              parentSpanId: -1
+              spanId: 0
+              startTime: nq 0
+              endTime: nq 0
+              spanLayer: Http
+              isError: false
+              spanType: Local
+              componentName: null
+              componentId: 1
+              tags:
+                - {}
+              logs: []
+              peer: null
+              peerId: eq 0
+      
+    - segmentId: not null
+      spans:
+        -
+          operationName: /httpasyncclient-case/case/context-propagate
+          operationId: eq 0
+          parentSpanId: -1
+          spanId: 0
+          tags: 
+            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient-case/front'}
+            - {key: http.method, value: GET}
+          logs: []
+          startTime: nq 0
+          endTime: nq 0
+          spanLayer: Http
+          isError: false
+          spanType: Entry
+          componentName: null
+          componentId: 1
+          peer: null
+          peerId: eq 0
+          refs: 
+            - {parentSpanId: 1, parentTraceSegmentId: "${httpasyncclient-case[3]}", entryServiceName: "/httpasyncclient-case/back", networkAddress: "127.0.0.1:8080",parentServiceName: "/httpasyncclient-case/front",entryApplicationInstanceId: nq 0 }
