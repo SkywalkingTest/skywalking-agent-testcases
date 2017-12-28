@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {httpasyncclient-case: 1}
   operationNames:
-  - httpasyncclient-case: [HttpAsyncClient/execute,httpasyncclient/DefaultConnectingIOReactor,httpasyncclient/request,/httpasyncclient-case/front,future/Callback,/httpasyncclient-case/back,]
+  - httpasyncclient-case: [HttpAsyncClient/execute,httpasyncclient/,httpasyncclient/requestCompleted,/httpasyncclient-case/front,future/Callback,/httpasyncclient-case/back,]
 segmentItems:
 - applicationCode: httpasyncclient-case
   segmentSize: 4
@@ -12,7 +12,7 @@ segmentItems:
     - segmentId: not null
       spans:
         -
-          operationName: HttpAsyncClient/execute
+          operationName: httpasyncclient/execute
           operationId: eq 0
           parentSpanId: 0
           spanId: 1
@@ -21,15 +21,16 @@ segmentItems:
           isError: false
           spanLayer: Http
           spanType: Local
-          componentName: httpasyncclient
+          componentName:
           componentId: eq 26
           tags:
-            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient-case/front'}
+            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient/front'}
+            - {key: http.method, value: GET}
           logs: []
           peer: null
           peerId: eq 0
         -
-          operationName: /httpasyncclient/front
+          operationName: /front
           operationId: eq 0
           parentSpanId: -1
           spanId: 0
@@ -41,104 +42,181 @@ segmentItems:
           componentName: null
           componentId: 1
           tags:
-            - {key: url, value: 'http://localhost:8080/httpasyncclient-case/front'}
+            - {key: url, value: 'http://localhost:8080/httpasyncclient/front'}
             - {key: http.method, value: GET}
           logs: []
           peer: null
           peerId: eq 0
-    - segmentId: not null
-          spans:
-            -
-              operationName: httpasyncclient/DefaultConnectingIOReactor
-              operationId: eq 0
-              parentSpanId: -1
-              spanId: 0
-              startTime: nq 0
-              endTime: nq 0
-              isError: false
-              spanLayer: Http
-              spanType: Local
-              componentName: httpasyncclient
-              componentId: eq 26
-              tags:
-                - {}
-              logs: []
-              peer: null
-              peerId: eq 0
-    - segmentId: not null
-          spans:
-            -
-              operationName: future/Callback
-              operationId: eq 0
-              parentSpanId: 1
-              spanId: 2
-              startTime: nq 0
-              endTime: nq 0
-              isError: false
-              spanLayer: Http
-              spanType: Local
-              componentName: httpasyncclient
-              componentId: eq 26
-              tags:
-                - {}
-              logs: []
-              peer: null
-              peerId: eq 0
-            -
-              operationName: httpasyncclient-case/front
-              operationId: eq 0
-              parentSpanId: 0
-              spanId: 1
-              startTime: nq 0
-              endTime: nq 0
-              isError: false
-              spanLayer: Http
-              spanType: Exit
-              componentName: httpasyncclient
-              componentId: eq 26
-              tags:
-                - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient-case/front'}
-                - {key: http.method, value: GET}
-              logs: []
-              peer: null
-              peerId: eq 0
-            -
-              operationName: httpasyncclient/request
-              operationId: eq 0
-              parentSpanId: -1
-              spanId: 0
-              startTime: nq 0
-              endTime: nq 0
-              spanLayer: Http
-              isError: false
-              spanType: Local
-              componentName: null
-              componentId: 1
-              tags:
-                - {}
-              logs: []
-              peer: null
-              peerId: eq 0
-      
     - segmentId: not null
       spans:
         -
-          operationName: /httpasyncclient-case/case/context-propagate
+          operationName: httpasyncclient/processEvent
           operationId: eq 0
           parentSpanId: -1
           spanId: 0
-          tags: 
-            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient-case/front'}
-            - {key: http.method, value: GET}
-          logs: []
           startTime: nq 0
           endTime: nq 0
-          spanLayer: Http
           isError: false
-          spanType: Entry
-          componentName: null
-          componentId: 1
-          peer: null
+          spanLayer: Http
+          spanType: Local
+          componentName:
+          componentId: eq 26
+          tags: null
+          logs: []
+          peer: 127.0.0.1:8080
           peerId: eq 0
-          refs: 
-            - {parentSpanId: 1, parentTraceSegmentId: "${httpasyncclient-case[3]}", entryServiceName: "/httpasyncclient-case/back", networkAddress: "127.0.0.1:8080",parentServiceName: "/httpasyncclient-case/front",entryApplicationInstanceId: nq 0 }
+          refs:
+          - {parentServiceId: 0, parentServiceName: /front, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: "${httpasyncclient-case[0]}", parentApplicationInstanceId: nq 0, networkAddress: '', entryServiceName: /front, entryApplicationInstanceId: nq 0}
+
+    - segmentId: not null
+      spans:
+      -
+        operationName: Mysql/JDBI/PreparedStatement/executeQuery
+        operationId: eq 0
+        parentSpanId: 2
+        spanId: 3
+        tags:
+        - {key: "db.type", value: "sql"}
+        - {key: "db.instance", value: "sky"}
+        - {key: "db.statement", value: "SELECT id, value FROM test_01 WHERE id=?"}
+        logs: []
+        startTime: nq 0
+        endTime: nq 0
+        isError: false
+        spanLayer: Database
+        spanType: Exit
+        componentName: null
+        componentId: 5
+        peer: mysql-server:3306
+        peerId: eq 0
+      -
+        operationName: Mysql/JDBI/Connection/close
+        operationId: eq 0
+        parentSpanId: 2
+        spanId: 4
+        tags:
+        - {key: "db.type", value: "sql"}
+        - {key: "db.instance", value: "sky"}
+        - {key: "db.statement", value: ""}
+        logs: []
+        startTime: nq 0
+        endTime: nq 0
+        isError: false
+        spanLayer: Database
+        spanType: Exit
+        componentName: null
+        componentId: 5
+        peer: mysql-server:3306
+        peerId: eq 0
+      -
+        operationName: /httpasyncclient/back
+        operationId: eq 0
+        parentSpanId: 0
+        spanId: 1
+        startTime: nq 0
+        endTime: nq 0
+        isError: false
+        spanLayer: Http
+        spanType: Exit
+        componentName:
+        componentId: eq 26
+        tags:
+        - {key: url, value: 'http://localhost:8080/httpasyncclient/back'}
+        - {key: http.method, value: GET}
+        logs: []
+        peer: 127.0.0.1:8080
+        peerId: eq 0
+      -
+        operationName: callback:/httpasyncclient/back
+        operationId: eq 0
+        parentSpanId: 0
+        spanId: 2
+        startTime: nq 0
+        endTime: nq 0
+        isError: false
+        spanLayer: Http
+        spanType: Local
+        componentName:
+        componentId: eq 26
+        tags: null
+        logs: []
+        peer: null
+        peerId: eq 0
+      -
+        operationName: httpasyncclient/requestCompleted
+        operationId: eq 0
+        parentSpanId: -1
+        spanId: 0
+        startTime: nq 0
+        endTime: nq 0
+        spanLayer: Http
+        isError: false
+        spanType: Local
+        componentName: null
+        componentId: 1
+        tags: null
+        logs: []
+        peer: null
+        peerId: eq 0
+        refs:
+        - {parentServiceId: 0, parentServiceName: /front, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: "${httpasyncclient-case[0]}", parentApplicationInstanceId: nq 0, networkAddress: '', entryServiceName: /front, entryApplicationInstanceId: nq 0}
+    - segmentId: not null
+      spans:
+      -
+        operationName: Mysql/JDBI/PreparedStatement/executeQuery
+        operationId: eq 0
+        parentSpanId: 0
+        spanId: 1
+        tags:
+        - {key: "db.type", value: "sql"}
+        - {key: "db.instance", value: "sky"}
+        - {key: "db.statement", value: "SELECT id, value FROM test_01 WHERE id=?"}
+        logs: []
+        startTime: nq 0
+        endTime: nq 0
+        isError: false
+        spanLayer: Database
+        spanType: Exit
+        componentName: null
+        componentId: 5
+        peer: mysql-server:3306
+        peerId: eq 0
+      -
+        operationName: Mysql/JDBI/Connection/close
+        operationId: eq 0
+        parentSpanId: 0
+        spanId: 2
+        tags:
+        - {key: "db.type", value: "sql"}
+        - {key: "db.instance", value: "sky"}
+        - {key: "db.statement", value: ""}
+        logs: []
+        startTime: nq 0
+        endTime: nq 0
+        isError: false
+        spanLayer: DB
+        spanType: Exit
+        componentName: null
+        componentId: 5
+        peer: mysql-server:3306
+        peerId: eq 0
+      -
+        operationName: /back
+        operationId: eq 0
+        parentSpanId: -1
+        spanId: 0
+        tags:
+          - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient/back'}
+          - {key: http.method, value: GET}
+        logs: []
+        startTime: nq 0
+        endTime: nq 0
+        spanLayer: Http
+        isError: false
+        spanType: Entry
+        componentName: null
+        componentId: 1
+        peer: null
+        peerId: eq 0
+        refs:
+          - {parentServiceId: 0, parentServiceName: httpasyncclient/requestCompleted , networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${resttemplate-case[0]}', parentApplicationInstanceId: nq 0, networkAddress: 'localhost:8080', entryServiceName: /front, entryApplicationInstanceId: nq 0}

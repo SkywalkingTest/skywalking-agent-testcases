@@ -2,6 +2,8 @@ package org.apache.skywalking.testcase.httpasyncclient;
 
 import java.io.IOException;
 import java.nio.CharBuffer;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.concurrent.FutureCallback;
@@ -25,7 +27,6 @@ public class FrontController {
     @RequestMapping("/front")
     @ResponseBody
     public String front() throws Exception {
-        SQLUtils.init();
         String content = asyncRequest3("http://127.0.0.1:8080/httpasyncclient/back");
         return content;
     }
@@ -72,31 +73,30 @@ public class FrontController {
                     logger.error("Httpclient  close failed" + e);
                 }
                 SQLUtils.query();
-                SQLUtils.drop();
             }
 
             public void failed(final Exception ex) {
                 logger.error(request3.getRequestLine() + "->" + ex);
-                try {
-                    httpclient.close();
-                } catch (IOException e) {
-                    logger.error("Httpclient  close failed" + e);
-                }
             }
 
             public void cancelled() {
                 logger.error(request3.getRequestLine() + " cancelled");
-                try {
-                    httpclient.close();
-                } catch (IOException e) {
-                    logger.error("Httpclient  close failed" + e);
-                }
-
             }
 
         });
 
-        return "asyncRequest3 done";
+        return "asyncRequest done";
     }
 
+    @PostConstruct
+    public void start() throws Exception {
+        SQLUtils.init();
+
+    }
+
+    @PreDestroy
+    public void drop() throws Exception {
+        SQLUtils.drop();
+
+    }
 }
