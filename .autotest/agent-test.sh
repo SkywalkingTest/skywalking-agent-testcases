@@ -254,11 +254,11 @@ deployTestCase(){
 	eval sed -i -e 's/\{SERVER_OUTPUT_PORT\}/$SERVER_OUTPUT_PORT/' $CASE_DIR/expectedData.yaml # replace value of `{SERVER_OUTPUT_PORT}` parameter in testcase.desc
 	eval sed -i -e 's/\{AGENT_FILE_PATH\}/$ESCAPE_PATH/' $CASE_DIR/docker-compose.yml 
 	#
-	cd $CASE_DIR && docker-compose rm -s -f
+	cd $CASE_DIR && docker-compose rm -s -f -v 
 	
 	echo "start docker container"
 	docker-compose -f $CASE_DIR/docker-compose.yml up -d
-	sleep 40
+	sleep 60
 
 	CASE_REQUEST_URL=$(grep "case.request_url" $CASE_DIR/testcase.desc | awk -F '=' '{print $2}')
 	echo $CASE_REQUEST_URL
@@ -353,3 +353,8 @@ if [ "$SKIP_REPORT" = "false" ]; then
 else
 	echo "skipt push report"
 fi
+
+#
+# clear unused images
+#
+docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi -f
