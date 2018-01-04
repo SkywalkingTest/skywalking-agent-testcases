@@ -143,7 +143,7 @@ segmentItems:
         peer: null
         peerId: eq 0
       -
-        operationName: httpasyncclient/requestCompleted
+        operationName: execute asynchronous request thread
         operationId: eq 0
         parentSpanId: -1
         spanId: 0
