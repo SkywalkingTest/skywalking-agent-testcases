@@ -37,7 +37,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 public class RestCaseController {
 
-    private static final Map<Integer, User> users = new ConcurrentHashMap<>();
+    private static final Map<Integer, User> users = new ConcurrentHashMap<Integer, User>();
 
     @GetMapping(value = "/get/{id}")
     @ResponseBody
@@ -66,7 +66,7 @@ public class RestCaseController {
 
     @DeleteMapping(value = "/delete/{id}")
     @ResponseBody
-    public ResponseEntity<User> deleteUser(@PathVariable("id") int id) throws InterruptedException {
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") int id) throws InterruptedException {
         User currentUser = users.get(id);
         if (currentUser == null) {
             return ResponseEntity.noContent().build();
