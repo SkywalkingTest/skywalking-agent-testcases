@@ -1,30 +1,18 @@
 package org.apache.skywalking.testcase.httpasyncclient;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 
+@PropertySource("classpath:application.properties")
 public class MysqlConfig {
-    private static Logger logger = LogManager.getLogger(MysqlConfig.class);
-    private static String url;
+
+    @Value(value = "${mysql.host}")
+    private static String host;
+    @Value(value = "${mysql.username}")
     private static String userName;
+    @Value(value = "${mysql.password}")
     private static String password;
-
-    static {
-        InputStream inputStream = MysqlConfig.class.getClassLoader().getResourceAsStream("jdbc.properties");
-        Properties properties = new Properties();
-        try {
-            properties.load(inputStream);
-        } catch (IOException e) {
-            logger.error("Failed to load config", e);
-        }
-
-        url = properties.getProperty("mysql.url");
-        userName = properties.getProperty("mysql.username");
-        password = properties.getProperty("mysql.password");
-    }
+    private static String url = "jdbc:mysql://" + host + "/sky?useUnicode=true&characterEncoding=UTF-8";
 
     public static String getUrl() {
         return url;
