@@ -4,10 +4,10 @@ registryItems:
   instances:
   - {httpasyncclient-case: 1}
   operationNames:
-  - httpasyncclient-case: [HttpAsyncClient/execute,httpasyncclient/,httpasyncclient/requestCompleted,/httpasyncclient-case/front,future/Callback,/httpasyncclient-case/back,]
+  - httpasyncclient-case: [/front,HttpAsyncClient/execute,AsyncThread/execute,/back]
 segmentItems:
 - applicationCode: httpasyncclient-case
-  segmentSize: 4
+  segmentSize: ge 3
   segments:
     - segmentId: not null
       spans:
@@ -47,26 +47,6 @@ segmentItems:
           logs: []
           peer: null
           peerId: eq 0
-    - segmentId: not null
-      spans:
-        -
-          operationName: httpasyncclient/processEvent
-          operationId: eq 0
-          parentSpanId: -1
-          spanId: 0
-          startTime: nq 0
-          endTime: nq 0
-          isError: false
-          spanLayer: Http
-          spanType: Local
-          componentName:
-          componentId: eq 26
-          tags: null
-          logs: []
-          peer: 127.0.0.1:8080
-          peerId: eq 0
-          refs:
-          - {parentServiceId: 0, parentServiceName: /front, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: "${httpasyncclient-case[0]}", parentApplicationInstanceId: nq 0, networkAddress: '', entryServiceName: /front, entryApplicationInstanceId: nq 0}
 
     - segmentId: not null
       spans:
