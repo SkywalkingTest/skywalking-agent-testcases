@@ -7,22 +7,21 @@ import org.springframework.context.annotation.PropertySource;
 public class MysqlConfig {
 
     @Value(value = "${mysql.host}")
-    private static String host;
+    private  String host;
     @Value(value = "${mysql.username}")
-    private static String userName;
+    private  String userName;
     @Value(value = "${mysql.password}")
-    private static String password;
-    private static String url = "jdbc:mysql://" + host + "/sky?useUnicode=true&characterEncoding=UTF-8";
+    private  String password;
 
-    public static String getUrl() {
-        return url;
+    public  String getUrl() {
+        return String url = "jdbc:mysql://" + host + "/sky?useUnicode=true&characterEncoding=UTF-8";
     }
 
-    public static String getUserName() {
+    public  String getUserName() {
         return userName;
     }
 
-    public static String getPassword() {
+    public  String getPassword() {
         return password;
     }
 }

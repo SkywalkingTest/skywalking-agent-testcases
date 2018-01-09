@@ -1,12 +1,12 @@
 registryItems:
   applications:
-  - {httpasyncclient-case: nq 0}
+  - {httpasyncclient-scenario: nq 0}
   instances:
-  - {httpasyncclient-case: 1}
+  - {httpasyncclient-scenario: 1}
   operationNames:
-  - httpasyncclient-case: [/front,HttpAsyncClient/execute,AsyncThread/execute,/back]
+  - httpasyncclient-scenario: [/front,httpasyncclient/execute,AsyncThread/execute,/back]
 segmentItems:
-- applicationCode: httpasyncclient-case
+- applicationCode: httpasyncclient-scenario
   segmentSize: ge 3
   segments:
     - segmentId: not null
@@ -24,8 +24,8 @@ segmentItems:
           componentName:
           componentId: eq 26
           tags:
-            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient/front'}
             - {key: http.method, value: GET}
+            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient/front'}
           logs: []
           peer: null
           peerId: eq 0
@@ -40,9 +40,9 @@ segmentItems:
           isError: false
           spanType: Entry
           componentName: null
-          componentId: 1
+          componentId: 14
           tags:
-            - {key: url, value: 'http://localhost:8080/httpasyncclient/front'}
+            - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/httpasyncclient/front'}
             - {key: http.method, value: GET}
           logs: []
           peer: null
