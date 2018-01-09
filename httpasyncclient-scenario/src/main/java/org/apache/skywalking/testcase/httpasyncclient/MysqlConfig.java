@@ -18,7 +18,7 @@ public class MysqlConfig {
     private String password;
 
     public  String getUrl() {
-        String url = "jdbc:mysql://" + host + "/test?useUnicode=true&characterEncoding=UTF-8";
+        String url = "jdbc:mysql://" + host + "/sky?useUnicode=true&characterEncoding=UTF-8";
         return url;
     }
 
