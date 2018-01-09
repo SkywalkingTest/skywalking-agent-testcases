@@ -90,11 +90,6 @@ public class FrontController {
         return "asyncRequest done";
     }
 
-    @PostConstruct
-    public void start() throws Exception {
-        SQLUtils.init();
-
-    }
 
     @PreDestroy
     public void drop() throws Exception {

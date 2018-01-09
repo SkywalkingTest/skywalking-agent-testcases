@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:application.properties")
 public class MysqlConfig {
 
-    @Value(value = "${mysql.host}")
+    @Value(value = "${mysql.host:127.0.0.1:3306}")
     private String host;
-    @Value(value = "${mysql.username}")
+    @Value(value = "${mysql.username:root}")
     private String userName;
-    @Value(value = "${mysql.password}")
+    @Value(value = "${mysql.password:root}")
     private String password;
 
     public  String getUrl() {
-        String url = "jdbc:mysql://" + host + "/sky?useUnicode=true&characterEncoding=UTF-8";
+        String url = "jdbc:mysql://" + host + "/test?useUnicode=true&characterEncoding=UTF-8";
         return url;
     }
 
