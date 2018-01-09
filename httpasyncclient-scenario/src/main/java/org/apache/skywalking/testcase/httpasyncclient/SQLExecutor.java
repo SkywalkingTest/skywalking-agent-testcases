@@ -8,18 +8,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SQLExecutor {
     private Connection connection;
     private static Logger logger = Logger.getLogger(SQLExecutor.class);
-
+    @Autowired
+    MysqlConfig mysqlConfig;
     public SQLExecutor() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             logger.error(e);
         }
-        connection = DriverManager.getConnection(MysqlConfig.getUrl(), MysqlConfig.getUserName(), MysqlConfig.getPassword());
+        connection = DriverManager.getConnection(mysqlConfig.getUrl(), mysqlConfig.getUserName(), mysqlConfig.getPassword());
     }
 
     public void createTable(String sql) throws SQLException {
