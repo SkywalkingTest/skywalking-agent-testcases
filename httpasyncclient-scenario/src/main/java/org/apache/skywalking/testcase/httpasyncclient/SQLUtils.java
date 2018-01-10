@@ -18,17 +18,18 @@ public class SQLUtils {
     @PostConstruct
     public void setUp() {
         sqlExecute = sqlExecutor;
-        drop();
         init();
     }
 
     public static void init() {
-        final String CREATE_TABLE_SQL = "CREATE TABLE test_01(\n" +
+        final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS test_01(\n" +
             "id VARCHAR(1) PRIMARY KEY, \n" +
             "value VARCHAR(1) NOT NULL)";
         String INSERT_DATA_SQL = "INSERT INTO test_01(id, value) VALUES(?,?)";
+        String DELETE_DATA_SQL = "DELETE FROM test_01";
         try {
             sqlExecute.createTable(CREATE_TABLE_SQL);
+            sqlExecute.deleteTable(DELETE_DATA_SQL);
             sqlExecute.insertData(INSERT_DATA_SQL, "1", "1");
         } catch (SQLException e) {
             logger.error("Failed to execute sql.", e);
@@ -47,23 +48,6 @@ public class SQLUtils {
         String QUERY_DATA_SQL = "SELECT id, value FROM test_01 WHERE id=?";
         try {
             sqlExecute.queryData(QUERY_DATA_SQL, "1");
-        } catch (SQLException e) {
-            logger.error("Failed to execute sql.", e);
-        } finally {
-            if (sqlExecute != null) {
-                try {
-                    sqlExecute.closeConnection();
-                } catch (SQLException e) {
-                    logger.error("Failed to close connection.", e);
-                }
-            }
-        }
-    }
-
-    public static void drop() {
-        String DROP_TABLE_SQL = "DROP table test_01";
-        try {
-            sqlExecute.dropTable(DROP_TABLE_SQL);
         } catch (SQLException e) {
             logger.error("Failed to execute sql.", e);
         } finally {

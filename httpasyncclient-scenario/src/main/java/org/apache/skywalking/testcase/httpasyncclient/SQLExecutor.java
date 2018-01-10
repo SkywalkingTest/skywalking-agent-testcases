@@ -18,6 +18,7 @@ public class SQLExecutor {
     private static Logger logger = Logger.getLogger(SQLExecutor.class);
     @Autowired
     MysqlConfig mysqlConfig;
+
     public SQLExecutor() throws SQLException {
     }
 
@@ -62,7 +63,7 @@ public class SQLExecutor {
         preparedStatement.close();
     }
 
-    public void dropTable(String sql) throws SQLException {
+    public void deleteTable(String sql) throws SQLException {
         initConnection();
         Statement preparedStatement = connection.createStatement();
         preparedStatement.execute(sql);
