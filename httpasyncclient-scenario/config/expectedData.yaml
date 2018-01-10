@@ -51,6 +51,24 @@ segmentItems:
     - segmentId: not null
       spans:
       -
+        operationName: /httpasyncclient/back
+        operationId: eq 0
+        parentSpanId: 0
+        spanId: 1
+        startTime: nq 0
+        endTime: nq 0
+        isError: false
+        spanLayer: Http
+        spanType: Exit
+        componentName:
+        componentId: eq 26
+        tags:
+        - {key: url, value: 'http://localhost:8080/httpasyncclient/back'}
+        - {key: http.method, value: GET}
+        logs: []
+        peer: 127.0.0.1:8080
+        peerId: eq 0
+      -
         operationName: Mysql/JDBI/PreparedStatement/executeQuery
         operationId: eq 0
         parentSpanId: 2
@@ -88,24 +106,7 @@ segmentItems:
         componentId: 5
         peer: mysql-server:3306
         peerId: eq 0
-      -
-        operationName: /httpasyncclient/back
-        operationId: eq 0
-        parentSpanId: 0
-        spanId: 1
-        startTime: nq 0
-        endTime: nq 0
-        isError: false
-        spanLayer: Http
-        spanType: Exit
-        componentName:
-        componentId: eq 26
-        tags:
-        - {key: url, value: 'http://localhost:8080/httpasyncclient/back'}
-        - {key: http.method, value: GET}
-        logs: []
-        peer: 127.0.0.1:8080
-        peerId: eq 0
+
       -
         operationName: callback:/httpasyncclient/back
         operationId: eq 0

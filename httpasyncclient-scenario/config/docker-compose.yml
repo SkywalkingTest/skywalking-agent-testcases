@@ -8,10 +8,10 @@ services:
     expose:
       - "3306"
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping","--silent"]
-      interval: 5s
-      timeout: 10s
-      retries: 5
+      test: mysqladmin -uroot -proot ping
+      interval: 2s
+      timeout: 5s
+      retries: 30
 
   httpasyncclient-scenario:
     image:  skywalking/httpasyncclient-scenario:{CASES_IMAGE_VERSION}
@@ -28,8 +28,10 @@ services:
     volumes:
       - {AGENT_FILE_PATH}:/usr/local/httpasyncclient-scenario/agent
     depends_on:
-      - mock-collector
-      - mysql-server
+      mysql-server:
+        condition: service_healthy
+      mock-collector:
+        condition: service_healthy
 
   mock-collector:
     image: skywalking/skywalking-mock-collector:{COLLECTOR_IMAGE_VERSION}
