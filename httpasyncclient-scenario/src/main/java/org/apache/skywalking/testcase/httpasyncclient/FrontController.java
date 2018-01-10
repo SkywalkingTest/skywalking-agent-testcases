@@ -2,8 +2,6 @@ package org.apache.skywalking.testcase.httpasyncclient;
 
 import java.io.IOException;
 import java.nio.CharBuffer;
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.concurrent.FutureCallback;
@@ -90,10 +88,4 @@ public class FrontController {
         return "asyncRequest done";
     }
 
-
-    @PreDestroy
-    public void drop() throws Exception {
-        SQLUtils.drop();
-
-    }
 }
