@@ -25,7 +25,7 @@ segmentItems:
           componentId: eq 26
           tags:
             - {key: http.method, value: GET}
-            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient/front'}
+            - {key: url, value: 'http://127.0.0.1:8080/httpasyncclient/back'}
           logs: []
           peer: null
           peerId: eq 0
@@ -63,7 +63,7 @@ segmentItems:
         componentName:
         componentId: eq 26
         tags:
-        - {key: url, value: 'http://localhost:8080/httpasyncclient/back'}
+        - {key: url, value: 'http://1270.0.1:8080/httpasyncclient/back'}
         - {key: http.method, value: GET}
         logs: []
         peer: 127.0.0.1:8080
@@ -134,13 +134,13 @@ segmentItems:
         isError: false
         spanType: Local
         componentName: null
-        componentId: 1
+        componentId: 26
         tags: null
         logs: []
         peer: null
         peerId: eq 0
         refs:
-        - {parentServiceId: 0, parentServiceName: /front, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: "${httpasyncclient-case[0]}", parentApplicationInstanceId: nq 0, networkAddress: '', entryServiceName: /front, entryApplicationInstanceId: nq 0}
+        - {parentServiceId: 0, parentServiceName: /front, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: "${httpasyncclient-scenario[0]}", parentApplicationInstanceId: 0, networkAddress: '', entryServiceName: /front, entryApplicationInstanceId: nq 0}
     - segmentId: not null
       spans:
       -
@@ -175,7 +175,7 @@ segmentItems:
         startTime: nq 0
         endTime: nq 0
         isError: false
-        spanLayer: DB
+        spanLayer: Database
         spanType: Exit
         componentName: null
         componentId: 5
@@ -196,8 +196,8 @@ segmentItems:
         isError: false
         spanType: Entry
         componentName: null
-        componentId: 1
+        componentId: 14
         peer: null
         peerId: eq 0
         refs:
-          - {parentServiceId: 0, parentServiceName: httpasyncclient/requestCompleted , networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${resttemplate-case[0]}', parentApplicationInstanceId: nq 0, networkAddress: 'localhost:8080', entryServiceName: /front, entryApplicationInstanceId: nq 0}
+          - {parentServiceId: 0, parentServiceName: AsyncThread/execute , networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${httpasyncclient-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: '127.0.0.1:8080', entryServiceName: /front, entryApplicationInstanceId: nq 0}
