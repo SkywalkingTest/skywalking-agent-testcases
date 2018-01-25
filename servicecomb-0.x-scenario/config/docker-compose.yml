@@ -1,0 +1,49 @@
+version: '2.1'
+services:
+
+  servicecomb-consumer:
+    image: skywalking/servicecomb-consumer-scenario:{CASES_IMAGE_VERSION}
+    expose:
+      - "8080"
+    ports:
+      - "{SERVER_OUTPUT_PORT}:8080"
+    environment:
+      - COLLECTOR_SERVER=mock-collector:12800
+    links:
+      - servicecomb-provider
+      - mock-collector
+    volumes:
+     - {AGENT_FILE_PATH}:/usr/local/servicecomb-consumer/agent
+    depends_on:
+      mock-collector:
+        condition: service_healthy
+
+  servicecomb-provider:
+    image: skywalking/servicecomb-provider-scenario:{CASES_IMAGE_VERSION}
+    environment:
+      - COLLECTOR_SERVER=mock-collector:12800
+    expose:
+      - "8080"
+      - "7070"
+    volumes:
+     - {AGENT_FILE_PATH}:/usr/local/servicecomb-provider/agent
+    links:
+      - zk-server
+      - mock-collector
+    depends_on:
+      mock-collector:
+        condition: service_healthy
+
+  mock-collector:
+    image: skywalking/skywalking-mock-collector:{COLLECTOR_IMAGE_VERSION}
+    environment:
+      - GRPC_BIND_HOST=mock-collector
+    expose:
+      - "12800"
+    ports:
+      - "{COLLECTOR_OUTPUT_PORT}:12800"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:12800/receiveData"]
+      interval: 5s
+      timeout: 10s
+      retries: 5

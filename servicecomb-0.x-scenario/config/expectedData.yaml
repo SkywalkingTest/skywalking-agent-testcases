@@ -1,0 +1,58 @@
+registryItems:
+  applications:
+  - {servicecomb-provider: nq 0}
+  - {servicecomb-consumer: nq 0}
+  instances:
+  - {servicecomb-provider: 1}
+  - {servicecomb-consumer: 1}
+  operationNames:
+  - dubbo-consumer: [sayHi]
+  - dubbo-provider: [sayHi]
+segmentItems:
+- applicationCode: servicecomb-consumer
+  segmentSize: ge 1
+  segments:
+    - segmentId: not null
+      spans:
+        -
+          operationName: sayHi
+          operationId: eq 0
+          parentSpanId: -1
+          spanId: 0
+          tags: 
+          - {key: "url", value: /sayHi}
+          logs: []
+          startTime: nq 0
+          endTime: nq 0
+          isError: false
+          spanLayer: RPCFramework
+          spanType: Exit
+          componentName: null
+          componentId: 27
+          peer: not null
+          peerId: eq 0
+
+- applicationCode: servicecomb-provider
+  segmentSize: ge 1
+  segments:      
+    - segmentId: not null
+      spans:
+        -
+          operationName: sayHi
+          operationId: eq 0
+          parentSpanId: -1
+          spanId: 0
+          tags: 
+            - {key: "url", value: /sayHi}
+          logs: []
+          startTime: nq 0
+          endTime: nq 0
+          spanLayer: null
+          isError: false
+          spanType: Entry
+          componentName: null
+          componentId: 27
+          peer: null
+          peerId: eq 0
+          refs: 
+            - {parentSpanId: 0, parentTraceSegmentId: "${servicecomb-consumer[0]}", entryServiceName: "sayHi", networkAddress: not null, parentServiceName: "sayHi",refType: not null,entryApplicationInstanceId: nq 0 }
