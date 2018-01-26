@@ -58,7 +58,38 @@
             <version>${test.framework.version}</version>
         </dependency>
     </dependencies>
-
+    <profiles>
+        <profile>
+            <id>servicecomb-provider-0.5.0</id>
+            <properties>
+                <test.framework.version>0.5.0</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>servicecomb-provider-0.4.0</id>
+            <properties>
+                <test.framework.version>0.4.0</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>servicecomb-provider-0.3.0</id>
+            <properties>
+                <test.framework.version>0.3.0</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>servicecomb-provider-0.2.0</id>
+            <properties>
+                <test.framework.version>0.2.0</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>servicecomb-provider-0.1.0</id>
+            <properties>
+                <test.framework.version>0.1.0</test.framework.version>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <finalName>servicecomb-provider</finalName>
         <plugins>

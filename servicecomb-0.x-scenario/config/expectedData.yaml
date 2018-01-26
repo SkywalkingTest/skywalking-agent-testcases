@@ -6,8 +6,8 @@ registryItems:
   - {servicecomb-provider: 1}
   - {servicecomb-consumer: 1}
   operationNames:
-  - dubbo-consumer: [sayHi]
-  - dubbo-provider: [sayHi]
+  - dubbo-consumer: [CONSUMER rest codefirst.codeFirstHello.sayHi]
+  - dubbo-provider: [CONSUMER rest codefirst.codeFirstHello.sayHi]
 segmentItems:
 - applicationCode: servicecomb-consumer
   segmentSize: ge 1
@@ -15,7 +15,7 @@ segmentItems:
     - segmentId: not null
       spans:
         -
-          operationName: sayHi
+          operationName: CONSUMER rest codefirst.codeFirstHello.sayHi
           operationId: eq 0
           parentSpanId: -1
           spanId: 0
@@ -38,7 +38,7 @@ segmentItems:
     - segmentId: not null
       spans:
         -
-          operationName: sayHi
+          operationName: CONSUMER rest codefirst.codeFirstHello.sayHi
           operationId: eq 0
           parentSpanId: -1
           spanId: 0
@@ -55,4 +55,4 @@ segmentItems:
           peer: null
           peerId: eq 0
           refs: 
-            - {parentSpanId: 0, parentTraceSegmentId: "${servicecomb-consumer[0]}", entryServiceName: "sayHi", networkAddress: not null, parentServiceName: "sayHi",refType: not null,entryApplicationInstanceId: nq 0 }
+            - {parentSpanId: 0, parentTraceSegmentId: "${servicecomb-consumer[0]}", entryServiceName: "CONSUMER rest codefirst.codeFirstHello.sayHi", networkAddress: not null, parentServiceName: "CONSUMER rest codefirst.codeFirstHello.sayHi",refType: not null,entryApplicationInstanceId: nq 0 }

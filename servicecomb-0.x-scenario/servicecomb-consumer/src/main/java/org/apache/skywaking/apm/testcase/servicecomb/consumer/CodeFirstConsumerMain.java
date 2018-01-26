@@ -18,12 +18,15 @@ package org.apache.skywaking.apm.testcase.servicecomb.consumer;
 import io.servicecomb.foundation.common.utils.BeanUtils;
 import io.servicecomb.foundation.common.utils.Log4jUtils;
 import io.servicecomb.provider.pojo.RpcReference;
+import org.apache.log4j.Logger;
 import org.apache.skywaking.apm.testcase.servicecomb.schemma.Hello;
 import org.springframework.stereotype.Component;
 
+import static java.lang.Thread.sleep;
+
 @Component
 public class CodeFirstConsumerMain {
-
+    private static Logger logger = Logger.getLogger(CodeFirstConsumerMain.class);
     @RpcReference(microserviceName = "codefirst", schemaId = "codeFirstJaxrsHello")
     private static Hello jaxrsHello;
 
@@ -35,13 +38,12 @@ public class CodeFirstConsumerMain {
 
     public static void main(String[] args) throws Exception {
         init();
-        System.out.println(hello.sayHi("Java Chassis"));
-        System.out.println(hello.sayHi("Java Chassis"));
-        System.out.println(hello.sayHi("Java Chassis"));
-        System.out.println(hello.sayHi("Java Chassis"));
-        System.out.println(hello.sayHi("Java Chassis"));
-        System.out.println(jaxrsHello.sayHi("Java Chassis"));
-        System.out.println(springmvcHello.sayHi("Java Chassis"));
+        for(int i=0; i<20;i++)
+        {
+            sleep(1000);
+            logger.info( hello.sayHi("Java Chassis"));
+
+        }
     }
 
     public static void init() throws Exception {

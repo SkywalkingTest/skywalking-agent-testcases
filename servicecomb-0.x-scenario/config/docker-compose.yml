@@ -34,6 +34,13 @@ services:
       mock-collector:
         condition: service_healthy
 
+  service-center:
+    image: servicecomb/service-center:0.4.0
+    expose:
+      - "30100"
+    ports:
+      - "127.0.0.1:30100"
+
   mock-collector:
     image: skywalking/skywalking-mock-collector:{COLLECTOR_IMAGE_VERSION}
     environment:
