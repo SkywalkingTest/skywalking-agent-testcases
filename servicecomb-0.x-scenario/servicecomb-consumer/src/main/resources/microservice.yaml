@@ -12,3 +12,5 @@ cse:
   references:
     codefirst:
       version-rule: 0.0.1
+  rest:
+    address: 127.0.0.1:9090

@@ -57,6 +57,12 @@
             <artifactId>common-schema</artifactId>
             <version>${test.framework.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.servicecomb</groupId>
+            <artifactId>provider-springmvc</artifactId>
+            <version>${test.framework.version}</version>
+        </dependency>
     </dependencies>
 
     <profiles>

@@ -7,7 +7,7 @@ registryItems:
   - {servicecomb-consumer: 1}
   operationNames:
   - dubbo-consumer: [CONSUMER rest codefirst.codeFirstHello.sayHi]
-  - dubbo-provider: [CONSUMER rest codefirst.codeFirstHello.sayHi]
+  - dubbo-provider: [PRODUCER rest codefirst.codeFirstHello.sayHi]
 segmentItems:
 - applicationCode: servicecomb-consumer
   segmentSize: ge 1
@@ -38,7 +38,7 @@ segmentItems:
     - segmentId: not null
       spans:
         -
-          operationName: CONSUMER rest codefirst.codeFirstHello.sayHi
+          operationName: PRODUCER rest codefirst.codeFirstHello.sayHi
           operationId: eq 0
           parentSpanId: -1
           spanId: 0
