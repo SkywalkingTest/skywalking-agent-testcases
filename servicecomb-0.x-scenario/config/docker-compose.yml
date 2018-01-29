@@ -4,11 +4,13 @@ services:
   servicecomb-consumer:
     image: skywalking/servicecomb-consumer-scenario:{CASES_IMAGE_VERSION}
     expose:
-      - "8080"
+      - "9090"
     ports:
-      - "{SERVER_OUTPUT_PORT}:8080"
+      - "{SERVER_OUTPUT_PORT}:9090"
     environment:
       - COLLECTOR_SERVER=mock-collector:12800
+      - SERVICE_CENTER_HOST=servie-center
+      - PROVIDER_REST_BIND_HOST=servicecomb-consumer
     links:
       - servicecomb-provider
       - mock-collector
