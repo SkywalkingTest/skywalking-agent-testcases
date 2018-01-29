@@ -1,15 +1,19 @@
 FROM openjdk:8u111-jdk
 
-ADD startup.sh /usr/local/skywalking-servicecomb-scenario/
-ADD servicecomb-provider-scenario.jar /usr/local/skywalking-servicecomb-scenario/
+SERVICE_CENTER_HOST=127.0.0.1:30100 \
+    PROVIDER_REST_BIND_HOST=0.0.0.0:8080 \
+    COLLECTOR_SERVER=127.0.0.1:12800
 
-ADD docker-entrypoint.sh /
-RUN chmod +x /usr/local/skywalking-servicecomb-scenario/startup.sh && chmod +x /docker-entrypoint.sh
+ADD servicecomb-provider-scenario.jar /usr/local
+
+COPY docker-entrypoint.sh /
+COPY microservice.yaml /usr/local/servicecomb-provider/config/
+
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 8080
-EXPOSE 7070
 
-VOLUME /usr/local/skywalking-servicecomb-scenario/agent
+VOLUME /usr/local/servicecomb-provider/agent
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["/usr/local/skywalking-servicecomb-scenario/startup.sh"]
+CMD ["/usr/local/servicecomb-provider/bin/servicecomb-service.sh"]
 
