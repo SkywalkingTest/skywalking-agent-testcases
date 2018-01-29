@@ -1,10 +1,10 @@
 FROM openjdk:8u111-jdk
 
-SERVICE_CENTER_HOST=127.0.0.1:30100 \
-    PROVIDER_REST_BIND_HOST=0.0.0.0:8080 \
+ENV SERVICE_CENTER_HOST=127.0.0.1 \
+    PROVIDER_REST_BIND_HOST=0.0.0.0 \
     COLLECTOR_SERVER=127.0.0.1:12800
 
-ADD servicecomb-provider-scenario.jar /usr/local
+ADD servicecomb-provider-scenario.tar.gz /usr/local
 
 COPY docker-entrypoint.sh /
 COPY microservice.yaml /usr/local/servicecomb-provider/config/

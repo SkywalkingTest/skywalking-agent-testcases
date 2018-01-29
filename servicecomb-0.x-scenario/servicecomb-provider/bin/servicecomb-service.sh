@@ -7,7 +7,7 @@ PRGDIR=`dirname "$PRG"`
 AGENT_FILE_PATH=$SERVICECOMB_PROVIDER_HOME/agent
 
 if [ -f "$AGENT_FILE_PATH/skywalking-agent.jar" ];then
-    SERVICECOMB_PROVIDER_OPTS=" -javaagent:$AGENT_FILE_PATH/skywalking-agent.jar -Dconfig=/usr/local/SERVICECOMBx-provider/agent-config"
+    SERVICECOMB_PROVIDER_OPTS=" -javaagent:$AGENT_FILE_PATH/skywalking-agent.jar -Dconfig=/usr/local/servicecomb-provider/agent-config"
 fi
 
 _RUNJAVA=${JAVA_HOME}/bin/java
@@ -21,4 +21,4 @@ done
 
 JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Dskywalking.collector.grpc_channel_check_interval=2 -Dskywalking.collector.app_and_service_register_check_interval=2 -Dcollector.discovery_check_interval=2 -Dskywalking.collector.servers=${COLLECTOR_SERVER} -Dskywalking.agent.application_code=servicecomb-provider -Xms256m -Xmx256m -XX:PermSize=64M -XX:MaxPermSize=64"
 
-$JAVA_HOME/bin/java $JAVA_OPTS -classpath "$CLASSPATH" $DUBBO_PROVIDER_OPTS org.apache.skywaking.apm.testcase.servicecomb.provider.CodeFirstProviderMain
+$JAVA_HOME/bin/java $JAVA_OPTS -classpath "$CLASSPATH" $SERVICECOMB_PROVIDER_OPTS org.apache.skywaking.apm.testcase.servicecomb.provider.CodeFirstProviderMain

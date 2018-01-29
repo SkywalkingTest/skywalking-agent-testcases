@@ -12,6 +12,7 @@ services:
     links:
       - servicecomb-provider
       - mock-collector
+      - service-center
     volumes:
      - {AGENT_FILE_PATH}:/usr/local/servicecomb-consumer/agent
     depends_on:
@@ -22,14 +23,16 @@ services:
     image: skywalking/servicecomb-provider-scenario:{CASES_IMAGE_VERSION}
     environment:
       - COLLECTOR_SERVER=mock-collector:12800
+      - SERVICE_CENTER_HOST=servie-center
+      - PROVIDER_REST_BIND_HOST=servicecomb-provider
     expose:
       - "8080"
-      - "7070"
     volumes:
      - {AGENT_FILE_PATH}:/usr/local/servicecomb-provider/agent
     links:
       - zk-server
       - mock-collector
+      - service-center
     depends_on:
       mock-collector:
         condition: service_healthy
