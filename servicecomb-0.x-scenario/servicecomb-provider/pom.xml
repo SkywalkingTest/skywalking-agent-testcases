@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.apache.skywalking</groupId>
@@ -24,8 +24,8 @@
     </parent>
     <artifactId>servicecomb-provider</artifactId>
     <properties>
-         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-</properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>io.servicecomb</groupId>
@@ -103,7 +103,8 @@
                     </excludes>
                     <archive>
                         <manifest>
-                            <mainClass>org.apache.skywaking.apm.testcase.servicecomb.provider.CodeFirstProviderMain</mainClass>
+                            <mainClass>org.apache.skywaking.apm.testcase.servicecomb.provider.CodeFirstProviderMain
+                            </mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -146,8 +147,9 @@
                             <dockerDirectory>${project.basedir}/docker</dockerDirectory>
                             <resources>
                                 <resource>
-                                    <targetPath>/${build.finalName}</targetPath>
-                                    <directory>${project.build.directory}/${build.finalName}</directory>
+                                    <targetPath>/</targetPath>
+                                    <directory>${project.build.directory}</directory>
+                                    <include>${project.build.finalName}.tar.gz</include>
                                 </resource>
                             </resources>
                         </configuration>
