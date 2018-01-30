@@ -138,7 +138,7 @@
                             <goal>build</goal>
                         </goals>
                         <configuration>
-                            <skipDocker>true</skipDocker>
+                            <skipDocker>false</skipDocker>
                             <imageName>skywalking/servicecomb-provider-scenario</imageName>
                             <imageTags>
                                 <imageTag>${docker.image.version}</imageTag>
