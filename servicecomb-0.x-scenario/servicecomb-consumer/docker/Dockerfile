@@ -4,7 +4,7 @@ ENV SERVICE_CENTER_HOST=127.0.0.1 \
     CONSUMER_REST_BIND_HOST=127.0.0.1 \
     COLLECTOR_SERVER=127.0.0.1:12800
 
-ADD servicecomb-consumer-scenario.tar.gz /usr/local
+ADD servicecomb-consumer.tar.gz /usr/local
 
 COPY docker-entrypoint.sh /
 COPY microservice.yaml /usr/local/servicecomb-consumer/config/
