@@ -28,11 +28,6 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>io.servicecomb.samples</groupId>
-            <artifactId>commmon-schema</artifactId>
-            <version>${test.framework.version}</version>
-        </dependency>
-        <dependency>
             <groupId>io.servicecomb</groupId>
             <artifactId>provider-pojo</artifactId>
             <version>${test.framework.version}</version>
@@ -156,8 +151,9 @@
                             <dockerDirectory>${project.basedir}/docker</dockerDirectory>
                             <resources>
                                 <resource>
-                                    <targetPath>/${build.finalName}</targetPath>
-                                    <directory>${project.build.directory}/${build.finalName}</directory>
+                                    <targetPath>/</targetPath>
+                                    <directory>${project.build.directory}</directory>
+                                    <include>${project.build.finalName}.tar.gz</include>
                                 </resource>
                             </resources>
                         </configuration>
