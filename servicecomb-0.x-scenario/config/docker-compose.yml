@@ -32,7 +32,6 @@ services:
     volumes:
      - {AGENT_FILE_PATH}:/usr/local/servicecomb-provider/agent
     links:
-      - zk-server
       - mock-collector
       - service-center
     depends_on:
