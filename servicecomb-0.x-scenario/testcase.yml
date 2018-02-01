@@ -7,7 +7,7 @@ testcase:
   #
   # The request url of current test cases.
   #
-  request_url:  http://localhost:{SERVER_OUTPUT_PORT}/serviccecomb/case
+  request_url:  http://localhost:{SERVER_OUTPUT_PORT}/servicecomb/case
   #
   # The framework name that need tested.
   #
