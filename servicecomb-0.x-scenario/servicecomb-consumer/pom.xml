@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.apache.skywalking</groupId>
             <artifactId>common-schema</artifactId>
-            <version>${test.framework.version}</version>
+            <version>0.5.0</version>
         </dependency>
 
         <dependency>
@@ -59,40 +59,6 @@
             <version>${test.framework.version}</version>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>servicecomb-consumer-0.5.0</id>
-            <properties>
-                <test.framework.version>0.5.0</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>servicecomb-consumer-0.4.0</id>
-            <properties>
-                <test.framework.version>0.4.0</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>servicecomb-consumer-0.3.0</id>
-            <properties>
-                <test.framework.version>0.3.0</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>servicecomb-consumer-0.2.0</id>
-            <properties>
-                <test.framework.version>0.2.0</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>servicecomb-consumer-0.1.0</id>
-            <properties>
-                <test.framework.version>0.1.0</test.framework.version>
-            </properties>
-        </profile>
-    </profiles>
-
 
     <build>
         <finalName>servicecomb-consumer</finalName>
