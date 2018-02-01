@@ -6,8 +6,8 @@ registryItems:
   - {servicecomb-provider: 1}
   - {servicecomb-consumer: 1}
   operationNames:
-  - dubbo-consumer: [codefirst.codeFirstHello.sayHi]
-  - dubbo-provider: [codefirst.codeFirstHello.sayHi]
+  - servicecomb-consumer: [codefirst.codeFirstHello.sayHi]
+  - servicecomb-provider: [codefirst.codeFirstHello.sayHi]
 segmentItems:
 - applicationCode: servicecomb-consumer
   segmentSize: ge 1
