@@ -6,7 +6,7 @@ registryItems:
   - {servicecomb-provider: 1}
   - {servicecomb-consumer: 1}
   operationNames:
-  - servicecomb-consumer: [codefirst.codeFirstHello.sayHi]
+  - servicecomb-consumer: [codefirstClient.codeFirstSpringmvcHello.say, codefirst.codeFirstHello.sayHi]
   - servicecomb-provider: [codefirst.codeFirstHello.sayHi]
 segmentItems:
 - applicationCode: servicecomb-consumer
@@ -15,11 +15,28 @@ segmentItems:
     - segmentId: not null
       spans:
         -
-          operationName: codefirst.codeFirstHello.sayHi
+          operationName: codefirstClient.codeFirstSpringmvcHello.say
           operationId: eq 0
           parentSpanId: -1
           spanId: 0
           tags: 
+          - {key: "url", value: /case}
+          logs: []
+          startTime: nq 0
+          endTime: nq 0
+          isError: false
+          spanLayer: RPCFramework
+          spanType: Entry
+          componentName: null
+          componentId: 28
+          peer: not null
+          peerId: eq 0
+        -
+          operationName: codefirst.codeFirstHello.sayHi
+          operationId: eq 0
+          parentSpanId: 0
+          spanId: 1
+          tags:
           - {key: "url", value: /sayHi}
           logs: []
           startTime: nq 0
@@ -55,4 +72,4 @@ segmentItems:
           peer: null
           peerId: eq 0
           refs: 
-            - {parentSpanId: 0, parentTraceSegmentId: "${servicecomb-consumer[0]}", entryServiceName: "codefirst.codeFirstHello.sayHi", networkAddress: not null, parentServiceName: "codefirst.codeFirstHello.sayHi",refType: not null,entryApplicationInstanceId: nq 0 }
+            - {parentSpanId: 0, parentTraceSegmentId: "${servicecomb-consumer[0]}", entryServiceName: "codefirstClient.codeFirstSpringmvcHello.say", networkAddress: not null, parentServiceName: "codefirstClient.codeFirstSpringmvcHello.say",refType: not null,entryApplicationInstanceId: nq 0 }
