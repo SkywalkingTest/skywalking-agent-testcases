@@ -15,23 +15,6 @@ segmentItems:
     - segmentId: not null
       spans:
         -
-          operationName: codefirstClient.codeFirstSpringmvcHello.say
-          operationId: eq 0
-          parentSpanId: -1
-          spanId: 0
-          tags: 
-          - {key: "url", value: /case}
-          logs: []
-          startTime: nq 0
-          endTime: nq 0
-          isError: false
-          spanLayer: RPCFramework
-          spanType: Entry
-          componentName: null
-          componentId: 28
-          peer: not null
-          peerId: eq 0
-        -
           operationName: codefirst.codeFirstHello.sayHi
           operationId: eq 0
           parentSpanId: 0
@@ -44,6 +27,23 @@ segmentItems:
           isError: false
           spanLayer: RPCFramework
           spanType: Exit
+          componentName: null
+          componentId: 28
+          peer: not null
+          peerId: eq 0
+        -
+          operationName: codefirstClient.codeFirstSpringmvcHello.say
+          operationId: eq 0
+          parentSpanId: -1
+          spanId: 0
+          tags:
+          - {key: "url", value: /case}
+          logs: []
+          startTime: nq 0
+          endTime: nq 0
+          isError: false
+          spanLayer: RPCFramework
+          spanType: Entry
           componentName: null
           componentId: 28
           peer: not null
