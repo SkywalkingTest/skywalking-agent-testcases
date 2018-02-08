@@ -1,4 +1,4 @@
-﻿APPLICATION_ID: codefirsttest
+APPLICATION_ID: codefirsttest
 service_description:
   name: codefirstClient
   version: 0.0.1
@@ -13,4 +13,4 @@ cse:
     codefirst:
       version-rule: 0.0.1
   rest:
-    address:{CONSUMER_REST_BIND_HOST}:9090
+    address: {CONSUMER_REST_BIND_HOST}:9090
