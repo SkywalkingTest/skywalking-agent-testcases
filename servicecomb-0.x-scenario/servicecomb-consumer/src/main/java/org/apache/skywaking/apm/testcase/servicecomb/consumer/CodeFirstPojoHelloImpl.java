@@ -21,6 +21,7 @@ package org.apache.skywaking.apm.testcase.servicecomb.consumer;
 import io.servicecomb.provider.pojo.RpcReference;
 import io.servicecomb.provider.pojo.RpcSchema;
 import javax.ws.rs.core.MediaType;
+import org.apache.log4j.Logger;
 import org.apache.skywaking.apm.testcase.servicecomb.schemma.Hello;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,11 +29,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RpcSchema(schemaId = "codeFirstSpringmvcHello")
 @RequestMapping(path = "/servicecomb", produces = MediaType.APPLICATION_JSON)
 public class CodeFirstPojoHelloImpl {
+    private static Logger logger = Logger.getLogger(CodeFirstPojoHelloImpl.class);
     @RpcReference(microserviceName = "codefirst", schemaId = "codeFirstHello")
     private static Hello hello;
 
     @RequestMapping(path = "/case", method = RequestMethod.GET)
     public String say() {
-        return hello.sayHi("Java Chassis");
+        String repo = " sayHi invoke filed";
+        try {
+            repo = hello.sayHi("Java Chassis");
+        } catch (Exception e) {
+            logger.error("sayHi invoke filed");
+        }
+        return repo;
     }
 }
