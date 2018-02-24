@@ -17,4 +17,6 @@ testcase:
   #
   support_versions:
     - 3.2.6
-    - 3.2.2
+    - 3.4.9
+    - 3.5.9
+    - 3.6.2.Final

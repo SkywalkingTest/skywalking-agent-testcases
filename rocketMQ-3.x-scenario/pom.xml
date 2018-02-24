@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.skywalking</groupId>
-    <artifactId>rocketMQ-scenario</artifactId>
+    <artifactId>rocketMQ-3.x-scenario</artifactId>
     <packaging>jar</packaging>
     <version>5.0.0</version>
 
@@ -66,15 +66,27 @@
 
     <profiles>
         <profile>
-            <id>rocketMQ-scenario-3.2.6</id>
+            <id>rocketMQ-3.x-scenario-3.2.6</id>
             <properties>
                 <test.framework.version>3.2.6</test.framework.version>
             </properties>
         </profile>
         <profile>
-            <id>rocketMQ-scenario-3.2.2</id>
+            <id>rocketMQ-3.x-scenario-3.4.9</id>
             <properties>
-                <test.framework.version>3.2.2</test.framework.version>
+                <test.framework.version>3.4.9</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>rocketMQ-3.x-scenario-3.5.9</id>
+            <properties>
+                <test.framework.version>3.5.9</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>rocketMQ-3.x-scenario-3.6.2.Final</id>
+            <properties>
+                <test.framework.version>3.6.2.Final</test.framework.version>
             </properties>
         </profile>
     </profiles>
