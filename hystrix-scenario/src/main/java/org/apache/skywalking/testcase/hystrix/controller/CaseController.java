@@ -75,8 +75,8 @@ public class CaseController {
     public String hystrixCase() throws InterruptedException, ExecutionException {
         List<Future<String>> fs = new ArrayList<Future<String>>();
 
-        fs.add(new SuccessCommand("World").queue());
-        System.out.println(new FailedCommand("World").execute());
+        fs.add(new TestBCommand("World").queue());
+        System.out.println(new TestACommand("World").execute());
         for (Future<String> f : fs) {
             System.out.println(f.get());
         }

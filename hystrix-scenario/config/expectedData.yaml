@@ -4,14 +4,14 @@ registryItems:
   instances:
   - {hystrix-scenario: nq 0}
   operationNames:
-  - hystrix-scenario: [Hystrix/FailedCommand/Execution, Hystrix/FailedCommand/Fallback, /case/hystrix-case, Hystrix/SuccessCommand/Execution]
+  - hystrix-scenario: [Hystrix/TestACommand/Execution, Hystrix/TestACommand/Fallback, /case/hystrix-case, Hystrix/TestBCommand/Execution]
 segmentItems:
 - applicationCode: hystrix-scenario
   segmentSize: 2
   segments:
   - segmentId: not null
     spans:
-    - operationName: Hystrix/FailedCommand/Fallback
+    - operationName: Hystrix/TestACommand/Fallback
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -28,7 +28,7 @@ segmentItems:
       - {parentServiceId: 0, parentServiceName: /case/hystrix-case, networkAddressId: 0,entryServiceId: 0, refType: CrossThread, parentSpanId: 2, parentTraceSegmentId: '${hystrix-scenario[1]}',parentApplicationInstanceId: 0, networkAddress: '', entryServiceName: /case/hystrix-case, entryApplicationInstanceId: nq 0 }
   - segmentId: not null
     spans:
-    - operationName: Hystrix/SuccessCommand/Execution
+    - operationName: Hystrix/TestBCommand/Execution
       operationId: 0
       parentSpanId: 0
       spanId: 1
@@ -39,9 +39,9 @@ segmentItems:
       componentName: ''
       isError: false
       spanType: Local
-      peer: '',
+      peer: ''
       peerId: 0
-    - operationName: Hystrix/FailedCommand/Execution
+    - operationName: Hystrix/TestACommand/Execution
       operationId: 0
       parentSpanId: 0
       spanId: 2
@@ -52,7 +52,7 @@ segmentItems:
       componentName: ''
       isError: false
       spanType: Local
-      peer: '',
+      peer: ''
       peerId: 0
     - operationName: /case/hystrix-case
       operationId: 0

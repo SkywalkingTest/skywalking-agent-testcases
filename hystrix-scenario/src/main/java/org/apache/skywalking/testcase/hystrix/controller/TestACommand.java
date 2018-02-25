@@ -21,11 +21,11 @@ import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandProperties;
 
-public class SuccessCommand extends HystrixCommand<String> {
+public class TestACommand extends HystrixCommand<String> {
     private String name;
 
-    protected SuccessCommand(String name) {
-        super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("SuccessCommand"))
+    protected TestACommand(String name) {
+        super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("TestACommand"))
             .andCommandPropertiesDefaults(
                 HystrixCommandProperties.Setter()
                 .withExecutionTimeoutEnabled(true)
@@ -40,7 +40,7 @@ public class SuccessCommand extends HystrixCommand<String> {
     }
 
     protected String run() throws Exception {
-
+        Thread.sleep(2001);
         try {
             System.out.println("start run: " + +Thread.currentThread().getId());
             return "Hello " + name + "!";
