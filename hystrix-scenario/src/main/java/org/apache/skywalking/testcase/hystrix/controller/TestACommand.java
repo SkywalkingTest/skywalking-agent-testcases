@@ -31,10 +31,7 @@ public class TestACommand extends HystrixCommand<String> {
                 .withExecutionTimeoutEnabled(true)
                     .withExecutionTimeoutInMilliseconds(100)
             )
-            .andCommandPropertiesDefaults(
-                HystrixCommandProperties.Setter()
-                    .withExecutionIsolationStrategy(HystrixCommandProperties.ExecutionIsolationStrategy.SEMAPHORE)
-            )
+
         );
         this.name = name;
     }

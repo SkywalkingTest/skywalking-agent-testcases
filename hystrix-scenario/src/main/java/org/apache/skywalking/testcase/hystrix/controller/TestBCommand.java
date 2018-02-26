@@ -28,13 +28,12 @@ public class TestBCommand extends HystrixCommand<String> {
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("TestBCommand"))
             .andCommandPropertiesDefaults(
                 HystrixCommandProperties.Setter()
-                .withExecutionTimeoutEnabled(true)
                     .withExecutionTimeoutInMilliseconds(100)
-            )
-            .andCommandPropertiesDefaults(
+            ).andCommandPropertiesDefaults(
                 HystrixCommandProperties.Setter()
                     .withExecutionIsolationStrategy(HystrixCommandProperties.ExecutionIsolationStrategy.SEMAPHORE)
             )
+
         );
         this.name = name;
     }
