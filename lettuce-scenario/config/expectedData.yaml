@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {lettuce-scenario: 1}
   operationNames:
-  - letyuce-scenario: [/sync,REDIS-Lettuce/SET,REDIS-Lettuce/GET  ]
+  - lettuce-scenario: [/sync,REDIS-Lettuce/SET,REDIS-Lettuce/GET  ]
 segmentItems:
 - applicationCode: lettuce-scenario
   segmentSize: 1
