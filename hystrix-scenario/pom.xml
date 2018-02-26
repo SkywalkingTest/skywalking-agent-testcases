@@ -67,12 +67,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot-version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.skywalking</groupId>
-            <artifactId>apm-toolkit-log4j-2.x</artifactId>
-            <version>5.0.0-alpha</version>
-        </dependency>
     </dependencies>
 
     <profiles>
