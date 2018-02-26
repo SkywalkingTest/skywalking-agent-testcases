@@ -20,8 +20,12 @@ package org.apache.skywalking.testcase.hystrix.controller;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandProperties;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TestBCommand extends HystrixCommand<String> {
+    private Logger logger = LogManager.getLogger(TestACommand.class);
+
     private String name;
 
     protected TestBCommand(String name) {
@@ -39,21 +43,20 @@ public class TestBCommand extends HystrixCommand<String> {
     }
 
     protected String run() throws Exception {
-
         try {
-            System.out.println("start run: " + +Thread.currentThread().getId());
+            logger.info("start run: " + Thread.currentThread().getId());
             return "Hello " + name + "!";
         } finally {
-            System.out.println("start end");
+            logger.info("start end");
         }
     }
 
     @Override protected String getFallback() {
         try {
-            System.out.println("getFallback run: " + Thread.currentThread().getId());
+            logger.info("getFallback run: " + Thread.currentThread().getId());
             return "failed";
         } finally {
-            System.out.println("getFallback end");
+            logger.info("getFallback end");
         }
     }
 }

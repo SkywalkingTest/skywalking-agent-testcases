@@ -12,6 +12,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import javax.annotation.PostConstruct;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,31 +22,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/case")
 public class CaseController {
 
+    private Logger logger = LogManager.getLogger(CaseController.class);
+
     @PostConstruct
     public void setUp() {
         HystrixPlugins.getInstance().registerCommandExecutionHook(new HystrixCommandExecutionHook() {
             @Override public <T> void onStart(HystrixInvokable<T> commandInstance) {
-                System.out.println("[hookA] onStart: " + Thread.currentThread().getId());
+                logger.info("[hookA] onStart: " + Thread.currentThread().getId());
                 super.onStart(commandInstance);
             }
 
             @Override public <T> void onExecutionStart(HystrixInvokable<T> commandInstance) {
-                System.out.println("[hookA] onExecutionStart: " + Thread.currentThread().getId());
+                logger.info("[hookA] onExecutionStart: " + Thread.currentThread().getId());
                 super.onExecutionStart(commandInstance);
             }
 
             @Override public <T> void onExecutionSuccess(HystrixInvokable<T> commandInstance) {
-                System.out.println("[hookA] onExecutionSuccess: " + Thread.currentThread().getId());
+                logger.info("[hookA] onExecutionSuccess: " + Thread.currentThread().getId());
                 super.onExecutionSuccess(commandInstance);
             }
 
             @Override public <T> Exception onExecutionError(HystrixInvokable<T> commandInstance, Exception e) {
-                System.out.println("[hookA] onExecutionError: " + Thread.currentThread().getId());
+                logger.info("[hookA] onExecutionError: " + Thread.currentThread().getId());
                 return super.onExecutionError(commandInstance, e);
             }
 
             @Override public <T> Exception onRunError(HystrixCommand<T> commandInstance, Exception e) {
-                System.out.println("[hookA] onRunError: " + Thread.currentThread().getId());
+                logger.info("[hookA] onRunError: " + Thread.currentThread().getId());
                 return super.onRunError(commandInstance, e);
             }
         });
@@ -56,9 +60,9 @@ public class CaseController {
         List<Future<String>> fs = new ArrayList<Future<String>>();
 
         fs.add(new TestBCommand("World").queue());
-        System.out.println(new TestACommand("World").execute());
+        logger.info(new TestACommand("World").execute());
         for (Future<String> f : fs) {
-            System.out.println(f.get());
+            logger.info(f.get());
         }
         return "Success";
     }
