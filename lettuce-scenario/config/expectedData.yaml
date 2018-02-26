@@ -11,6 +11,40 @@ segmentItems:
   segments:
   - segmentId: not null
     spans:
+    - operationName: REDIS-Lettuce/SET
+      operationId: eq 0
+      parentSpanId: 0
+      spanId: 1
+      startTime: nq 0
+      endTime: nq 0
+      spanLayer: Cache
+      isError: false
+      spanType: Exit
+      componentName: null
+      componentId: 7
+      tags:
+      - {key: db.type, value: 'Redis' }
+      - {key: db.statement, value: not null }
+      logs: []
+      peer: 127.0.0.1:6379
+      peerId: eq 0
+    - operationName: REDIS-Lettuce/GET
+      operationId: eq 0
+      parentSpanId: 0
+      spanId: 2
+      startTime: nq 0
+      endTime: nq 0
+      spanLayer: Cache
+      isError: false
+      spanType: Exit
+      componentName: null
+      componentId: 7
+      tags:
+      - {key: db.type, value: 'Redis'}
+      - {key: db.statement, value: not null }
+      logs: []
+      peer: 127.0.0.1:6379
+      peerId: eq 0
     - operationName: /sync
       operationId: eq 0
       parentSpanId: -1
@@ -28,38 +62,3 @@ segmentItems:
       logs: []
       peer: null
       peerId: eq 0
-    - operationName: REDIS-Lettuce/SET
-      operationId: eq 0
-      parentSpanId: 0
-      spanId: 1
-      startTime: nq 0
-      endTime: nq 0
-      spanLayer: CACHE
-      isError: false
-      spanType: Exit
-      componentName: null
-      componentId: 7
-      tags:
-      - {key: db.type, value: 'Redis' }
-      - {key: db.statement, value: not null }
-      logs: []
-      peer: 127.0.0.1:6379
-      peerId: eq 0
-    - operationName: REDIS-Lettuce/GET
-      operationId: eq 0
-      parentSpanId: 1
-      spanId: 2
-      startTime: nq 0
-      endTime: nq 0
-      spanLayer: CACHE
-      isError: false
-      spanType: Exit
-      componentName: null
-      componentId: 7
-      tags:
-      - {key: db.type, value: 'Redis'}
-      - {key: db.statement, value: not null }
-      logs: []
-      peer: 127.0.0.1:6379
-      peerId: eq 0
-
