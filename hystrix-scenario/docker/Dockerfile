@@ -10,6 +10,6 @@ RUN chmod +x /usr/local/skywalking-hystrix-scenario/startup.sh && chmod +x /dock
 
 EXPOSE 8080
 
-VOLUME /usr/local/skywalking-hystrix-scenario/agent
+VOLUME /usr/local/hystrix-scenario/agent
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/usr/local/skywalking-hystrix-scenario/startup.sh"]
