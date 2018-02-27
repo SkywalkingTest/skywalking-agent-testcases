@@ -57,7 +57,7 @@ segmentItems:
       componentName:
       componentId: eq 14
       tags:
-        - {key: url, value: 'http://127.0.0.1:8080/sync'}
+        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/sync'}
         - {key: http.method, value: GET}
       logs: []
       peer: null
