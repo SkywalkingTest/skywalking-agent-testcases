@@ -45,6 +45,40 @@ segmentItems:
       logs: []
       peer: redis-server:6379
       peerId: eq 0
+    - operationName: REDIS-Lettuce/SET
+      operationId: eq 0
+      parentSpanId: 0
+      spanId: 3
+      startTime: nq 0
+      endTime: nq 0
+      spanLayer: Cache
+      isError: false
+      spanType: Exit
+      componentName: null
+      componentId: 7
+      tags:
+      - {key: db.type, value: 'Redis'}
+      - {key: db.statement, value: not null }
+      logs: []
+      peer: redis-server:6379
+      peerId: eq 0
+    - operationName: REDIS-Lettuce/GET
+      operationId: eq 0
+      parentSpanId: 0
+      spanId: 4
+      startTime: nq 0
+      endTime: nq 0
+      spanLayer: Cache
+      isError: false
+      spanType: Exit
+      componentName: null
+      componentId: 7
+      tags:
+      - {key: db.type, value: 'Redis'}
+      - {key: db.statement, value: not null }
+      logs: []
+      peer: redis-server:6379
+      peerId: eq 0
     - operationName: /sync
       operationId: eq 0
       parentSpanId: -1

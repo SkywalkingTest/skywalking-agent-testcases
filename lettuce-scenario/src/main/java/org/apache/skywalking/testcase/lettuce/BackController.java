@@ -22,26 +22,17 @@ public class BackController {
     public String singleSync() {
         RedisClient redisClient = RedisClient.create("redis://"+host+"/0");
         StatefulRedisConnection<String, String> connection = redisClient.connect();
+        //Sync invoke
         RedisCommands<String, String> syncCommands = connection.sync();
-        syncCommands.set("key", "Hello, Redis!");
+        syncCommands.set("key", "Hello,sync Redis!");
         logger.info(syncCommands.get("key"));
-        connection.close();
-        redisClient.shutdown();
-        return "Hello back";
-
-    }
-
-    @RequestMapping("/async")
-    public String singleAsync() {
-        RedisClient redisClient = RedisClient.create("redis://100.100.145.125:6379/0");
-        StatefulRedisConnection<String, String> connection = redisClient.connect();
+        //Async invoke
         RedisAsyncCommands<String, String> asyncCommands = connection.async();
-        asyncCommands.set("key", "Hello, Redis!");
-
+        asyncCommands.set("key", "Hello,async Redis!");
+        logger.info(asyncCommands.get("key"));
         connection.close();
         redisClient.shutdown();
-        logger.info("Hello back");
         return "Hello back";
-    }
 
+    }
 }
