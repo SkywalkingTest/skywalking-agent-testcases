@@ -387,7 +387,7 @@ java -DtestDate="$TEST_TIME" \
 	-DtestCasePath="$TEST_CASES_DIR" -DreportFilePath="$REPORT_DIR" \
 	-DcasesBranch="$TEST_CASES_BRANCH" -DcasesCommitId="${TEST_CASES_COMMITID}" \
 	-Dcommitter="$COMMITTER"	\
-	-jar $WORKSPACE_DIR/skywalking-autotest.jar > $LOGS_DIR/validate.log
+	-jar $WORKSPACE_DIR/skywalking-autotest.jar > $LOGS_DIR/validate-$TEST_TIME.log
 
 if [ ! -f "$REPORT_DIR/${AGENT_GIT_BRANCH}" ]; then
 	mkdir -p $REPORT_DIR/${AGENT_GIT_BRANCH}
