@@ -122,6 +122,10 @@ if [ ! -d "$LOGS_DIR" ];then
     mkdir -p $LOGS_DIR
 fi
 #
+#
+#
+touch $LOGS_DIR/validate.log
+#
 SOURCE_DIR="$WORKSPACE_DIR/sources"
 #
 TEST_CASES_DIR="$AGENT_TEST_HOME/testcases" # Testcase dir
