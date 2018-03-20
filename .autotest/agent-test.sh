@@ -119,7 +119,7 @@ WORKSPACE_DIR="$AGENT_TEST_HOME/workspace"
 #
 LOGS_DIR="$WORKSPACE_DIR/logs"
 if [ ! -d "$LOGS_DIR" ];then
-    mkdir -p $LOGS_DIR
+    mkdir -p "$LOGS_DIR"
 fi
 #
 #
