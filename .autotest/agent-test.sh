@@ -118,13 +118,6 @@ WORKSPACE_DIR="$AGENT_TEST_HOME/workspace"
 # log dir
 #
 LOGS_DIR="$WORKSPACE_DIR/logs"
-if [ ! -d "$LOGS_DIR" ];then
-    mkdir -p "$LOGS_DIR"
-fi
-#
-#
-#
-touch $LOGS_DIR/validate.log
 #
 SOURCE_DIR="$WORKSPACE_DIR/sources"
 #
@@ -203,6 +196,13 @@ echo "current test case branch: ${TEST_CASES_BRANCH}. current test case commit i
 #
 echo "clear Workspace"
 clearWorkspace
+#
+# create log directory
+#
+LOGS_DIR="$WORKSPACE_DIR/logs"
+if [ ! -d "$LOGS_DIR" ];then
+    mkdir -p "$LOGS_DIR"
+fi
 ############## build agent ##############
 #	1. checkout agent source code
 #	2. switch branch
