@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {jdk-cross-thread-scenario: 2}
   operationNames:
-  - jdk-cross-thread-scenario: [/jdk-cross-thread-scenario/case/echo, /case/echo, JDK/Thread/run,Thread/run]
+  - jdk-cross-thread-scenario: [/jdk-cross-thread-scenario/case/echo, Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper, Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call,/case/echo]
 segmentItems:
 - applicationCode: jdk-cross-thread-scenario
   segmentSize: 2
@@ -28,7 +28,7 @@ segmentItems:
       - {key: url, value: not null }
       - {key: http.method, value: GET }
       refs:
-      - {parentServiceId: 0, parentServiceName: Thread/run, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${jdk-cross-thread-scenario[1]}', parentApplicationInstanceId: nq 0, networkAddress: 'localhost:8080', entryServiceName: /case/cross-thread, entryApplicationInstanceId: nq 0}
+      - {parentServiceId: 0, parentServiceName: Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${jdk-cross-thread-scenario[1]}', parentApplicationInstanceId: nq 0, networkAddress: 'localhost:8080', entryServiceName: /case/cross-thread, entryApplicationInstanceId: nq 0}
   - segmentId: not null
     spans:
     - operationName: /jdk-cross-thread-scenario/case/echo
@@ -47,7 +47,7 @@ segmentItems:
       tags:
       - {key: url, value: not null }
       - {key: http.method, value: GET }
-    - operationName: Thread/run
+    - operationName: Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call
       operationId: 0
       parentSpanId: -1
       spanId: 0
