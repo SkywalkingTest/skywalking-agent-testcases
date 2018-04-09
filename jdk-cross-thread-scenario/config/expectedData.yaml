@@ -4,31 +4,11 @@ registryItems:
   instances:
   - {jdk-cross-thread-scenario: 2}
   operationNames:
-  - jdk-cross-thread-scenario: [/jdk-cross-thread-scenario/case/echo, Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper, Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call,/case/echo]
+  - jdk-cross-thread-scenario: [/jdk-cross-thread-scenario/case/echo, /case/echo, Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call, /case/cross-thread]
 segmentItems:
 - applicationCode: jdk-cross-thread-scenario
-  segmentSize: 2
+  segmentSize: 3
   segments:
-  - segmentId: not null
-    spans:
-    - operationName: /case/echo
-      operationId: 0
-      parentSpanId: -1
-      spanId: 0
-      spanLayer: Http
-      startTime: nq 0
-      endTime: nq 0
-      componentId: not null
-      componentName: ''
-      isError: false
-      spanType: Entry
-      peer: ''
-      peerId: 0
-      tags:
-      - {key: url, value: not null }
-      - {key: http.method, value: GET }
-      refs:
-      - {parentServiceId: 0, parentServiceName: Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${jdk-cross-thread-scenario[1]}', parentApplicationInstanceId: nq 0, networkAddress: 'localhost:8080', entryServiceName: /case/cross-thread, entryApplicationInstanceId: nq 0}
   - segmentId: not null
     spans:
     - operationName: /jdk-cross-thread-scenario/case/echo
@@ -61,4 +41,44 @@ segmentItems:
       peer: ""
       peerId: 0
       refs:
-      - {parentServiceId: 0, parentServiceName: /case/cross-thread, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: not null, parentApplicationInstanceId: 0, networkAddress: '', entryServiceName: /case/cross-thread, entryApplicationInstanceId: nq 0}
+      - {parentServiceId: 0, parentServiceName: /case/cross-thread, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 0, parentTraceSegmentId: not null}
+  - segmentId: not null
+    spans:
+    - operationName: /case/cross-thread
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: not null
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+      - {key: url, value: not null }
+      - {key: http.method, value: GET }
+  - segmentId: not null
+    spans:
+    - operationName: /case/echo
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: not null
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+      - {key: url, value: not null }
+      - {key: http.method, value: GET }
+      refs:
+      - {parentServiceId: 0, parentServiceName: Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: not null, parentApplicationInstanceId: nq 0, networkAddress: 'localhost:8080', entryServiceName: /case/cross-thread, entryApplicationInstanceId: nq 0}
+
+
