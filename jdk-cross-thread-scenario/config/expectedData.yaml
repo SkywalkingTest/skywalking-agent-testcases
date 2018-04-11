@@ -25,7 +25,7 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: not null }
+      - {key: url, value: 'http://localhost:8080/jdk-cross-thread-scenario/case/echo' }
       - {key: http.method, value: GET }
       refs:
       - {parentServiceId: 0, parentServiceName: Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${jdk-cross-thread-scenario[1]}', parentApplicationInstanceId: nq 0, networkAddress: 'localhost:8080', entryServiceName: /case/cross-thread, entryApplicationInstanceId: nq 0}
@@ -45,7 +45,7 @@ segmentItems:
       peer: localhost:8080
       peerId: 0
       tags:
-      - {key: url, value: not null }
+      - {key: url, value: 'http://localhost:8080/jdk-cross-thread-scenario/case/echo?str=hello' }
       - {key: http.method, value: GET }
     - operationName: Thread/org.apache.skywalking.apm.toolkit.trace.CallableWrapper/call
       operationId: 0
@@ -78,7 +78,7 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: not null }
+      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/jdk-cross-thread-scenario/case/cross-thread' }
       - {key: http.method, value: GET }
 
 
