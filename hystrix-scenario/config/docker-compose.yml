@@ -11,7 +11,7 @@ services:
     links:
       - mock-collector
     volumes:
-      - {AGENT_FILE_PATH}:/usr/local/hystrix-scenario/agent
+     - {AGENT_FILE_PATH}:/usr/local/hystrix-scenario/agent
     depends_on:
       mock-collector:
         condition: service_healthy
