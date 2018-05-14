@@ -7,7 +7,7 @@ registryItems:
   - {sofarpc-consumer: 1}
   operationNames:
   - sofarpc-provider: [org.apache.skywaking.apm.testcase.sofarpc.interfaces.SofaRpcDemoService.hello(java.lang.String)]
-  - sofarpc-consumer: [/sofarpc-consumer/case/sofarpc-case, org.apache.skywaking.apm.testcase.sofarpc.interfaces.SofaRpcDemoService.hello(java.lang.String)]
+  - sofarpc-consumer: [org.apache.skywaking.apm.testcase.sofarpc.interfaces.SofaRpcDemoService.hello(java.lang.String), /sofarpc-consumer/case/sofarpc-case]
   heartbeat: []
 segmentItems:
 - applicationCode: sofarpc-provider
@@ -22,7 +22,7 @@ segmentItems:
       spanLayer: RPCFramework
       startTime: nq 0
       endTime: nq 0
-      componentId: 8
+      componentId: 30
       componentName: ''
       isError: false
       spanType: Entry
@@ -42,7 +42,7 @@ segmentItems:
       spanLayer: RPCFramework
       startTime: nq 0
       endTime: nq 0
-      componentId: 8
+      componentId: 30
       componentName: ''
       isError: false
       spanType: Exit
@@ -57,7 +57,7 @@ segmentItems:
       spanLayer: Http
       startTime: nq 0
       endTime: nq 0
-      componentId: 1
+      componentId: 14
       componentName: ''
       isError: false
       spanType: Entry
