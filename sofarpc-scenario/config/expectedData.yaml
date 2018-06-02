@@ -22,7 +22,7 @@ segmentItems:
       spanLayer: RPCFramework
       startTime: nq 0
       endTime: nq 0
-      componentId: 32
+      componentId: 43
       componentName: ''
       isError: false
       spanType: Entry
@@ -42,7 +42,7 @@ segmentItems:
       spanLayer: RPCFramework
       startTime: nq 0
       endTime: nq 0
-      componentId: 32
+      componentId: 43
       componentName: ''
       isError: false
       spanType: Exit
