@@ -18,7 +18,7 @@ RUN chmod +x /docker-entrypoint.sh
 VOLUME /usr/local/activemq-scenario/agent
 
 # port
-EXPOSE 2222
+EXPOSE 8080
 
 #
 #ENTRYPOINT /docker-entrypoint.sh

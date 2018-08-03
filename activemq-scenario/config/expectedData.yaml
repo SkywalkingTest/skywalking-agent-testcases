@@ -4,14 +4,14 @@ registryItems:
   instances:
   - {activemq-scenario: nq 0}
   operationNames:
-  - activemq-scenario: [ActiveMQ/QUEUE/test/Producer, ActiveMQ/QUEUE/test/Consumer, /case/rabbitmq-case]
+  - activemq-scenario: [ActiveMQ/Queue/test/Producer, ActiveMQ/Queue/test/Consumer, /case/rabbitmq-case]
 segmentItems:
 - applicationCode: rabbimtq-scenario
   segmentSize: ge 3
   segments:
   - segmentId: not null
     spans:
-    - operationName: ActiveMQ/QUEUE/test/Producer
+    - operationName: ActiveMQ/Queue/test/Producer
       operationId: 0
       parentSpanId: 0
       spanId: 1
@@ -45,7 +45,7 @@ segmentItems:
       - {key: http.method, value: GET}
   - segmentId: not null
     spans:
-    - operationName: ActiveMQ/test/Consumer
+    - operationName: ActiveMQ/Queue/test/Consumer
       operationId: 0
       parentSpanId: -1
       spanId: 0
