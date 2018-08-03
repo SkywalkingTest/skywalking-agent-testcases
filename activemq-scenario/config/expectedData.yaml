@@ -4,9 +4,9 @@ registryItems:
   instances:
   - {activemq-scenario: nq 0}
   operationNames:
-  - activemq-scenario: [ActiveMQ/Queue/test/Producer, ActiveMQ/Queue/test/Consumer, /case/rabbitmq-case]
+  - activemq-scenario: [ActiveMQ/Queue/test/Producer, ActiveMQ/Queue/test/Consumer, /case/activemq-case]
 segmentItems:
-- applicationCode: rabbimtq-scenario
+- applicationCode: activemq-scenario
   segmentSize: ge 2
   segments:
   - segmentId: not null
