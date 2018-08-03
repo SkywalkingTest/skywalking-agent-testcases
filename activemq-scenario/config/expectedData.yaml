@@ -7,7 +7,7 @@ registryItems:
   - activemq-scenario: [ActiveMQ/Queue/test/Producer, ActiveMQ/Queue/test/Consumer, /case/rabbitmq-case]
 segmentItems:
 - applicationCode: rabbimtq-scenario
-  segmentSize: ge 3
+  segmentSize: ge 2
   segments:
   - segmentId: not null
     spans:
