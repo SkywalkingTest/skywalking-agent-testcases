@@ -117,7 +117,7 @@
     </profiles>
 
     <build>
-        <finalName>kafka-scenario</finalName>
+        <finalName>activemq-scenario</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
