@@ -1,0 +1,24 @@
+#
+# Test case project define.
+#
+# Note: Test case project must a project that support output service.
+#
+testcase:
+  #
+  # The request url of current test cases.
+  #
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/activemq-scenario/case/activemq-case
+  #
+  # The framework name that need tested.
+  #
+  test_framework: ActiveMQ
+  #
+  # The framework version list of current test case supported
+  #
+  support_versions:
+    - 5.15.4
+    - 5.15.3
+    - 5.15.2
+    - 5.15.1
+    - 5.15.0
+  
