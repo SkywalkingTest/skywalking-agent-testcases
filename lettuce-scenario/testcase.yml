@@ -1,0 +1,24 @@
+#
+# Test case project define.
+#
+# Note: Test case project must a project that support output service.
+#
+testcase:
+  #
+  # The request url of current test cases.
+  #
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/sync
+  #
+  # The framework name that need tested.
+  #
+  test_framework: Lettuce
+  #
+  # The framework version list of current test case supported
+  #
+  support_versions:
+    - 4.4.3.Final
+    - 4.4.2.Final
+    - 4.4.1.Final
+    - 4.4.0.Final
+
+
