@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,28 +16,29 @@ import java.io.IOException;
  *
  * @author cloudgc
  */
-@Controller
+@RestController
 @RequestMapping("/case")
 public class CaseForwardController {
 
-     private final static Logger log = LoggerFactory.getLogger(CaseForwardController.class);
+    private final static Logger log = LoggerFactory.getLogger(CaseForwardController.class);
 
     @RequestMapping("/forwardone")
     public void startForwardOne(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        log.info("request:{},response:{}",request,response);
-        request.getRequestDispatcher("/forwardTwo").forward(request,response);
+        log.info("request:{},response:{}", request, response);
+        request.getRequestDispatcher("/case/forwardtwo").forward(request, response);
     }
 
-    @RequestMapping("/forwardTwo")
+    @RequestMapping("/forwardtwo")
     public void startForwardTwo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        log.info("request:{},response:{}",request,response);
-        request.getRequestDispatcher("/forwardend").forward(request,response);
+        log.info("request:{},response:{}", request, response);
+        request.getRequestDispatcher("/case/forwardend").forward(request, response);
     }
+
     @RequestMapping("/forwardend")
-    public String forardEnd(){
-        return "forwardend";
+    public String forardEnd() {
+        return "success";
     }
 
 }
