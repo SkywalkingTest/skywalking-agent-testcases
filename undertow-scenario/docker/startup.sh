@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export AGENT_FILE_PATH=/usr/local/undertow-scenario/agent
+
 if [ -f "${AGENT_FILE_PATH}/skywalking-agent.jar" ]; then
     RESTTEMPLATE_CASE_OPTS="-javaagent:${AGENT_FILE_PATH}/skywalking-agent.jar -Dskywalking.collector.grpc_channel_check_interval=2 \
     -Dskywalking.collector.app_and_service_register_check_interval=2 \

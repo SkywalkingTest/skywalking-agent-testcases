@@ -8,7 +8,6 @@ services:
       - "{SERVER_OUTPUT_PORT}:8080"
     environment:
       - COLLECTOR_SERVER=mock-collector:12800
-      - PROJECTB_URL=undertow-scenario:8080
     links:
       - mock-collector
     volumes:
