@@ -1,6 +1,7 @@
 FROM openjdk:8-jdk
 
-ENV COLLECTOR_SERVER=127.0.0.1:12800
+ENV COLLECTOR_SERVER=127.0.0.1:12800 \
+    PROJECTB_URL=127.0.0.1:18080
 
 ADD startup.sh /usr/local/undertow-scenario/
 ADD undertow-scenario.jar /usr/local/undertow-scenario/
