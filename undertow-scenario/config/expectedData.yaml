@@ -4,14 +4,14 @@ registryItems:
   instances:
   - {undertow-scenario: 1}
   operationNames:
-  - undertow-scenario: [/case/undertow]
+  - undertow-scenario: [/undertow-case/case/undertow]
 segmentItems:
 - applicationCode: undertow-scenario
   segmentSize: 1
   segments:
   - segmentId: not null
     spans:
-    - operationName: /case/undertow
+    - operationName: /undertow-case/case/undertow
       operationId: 0
       parentSpanId: -1
       spanId: 0
