@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author cloudgc
  */
 @RestController
-@RequestMapping("/case")
+@RequestMapping("/case/backup")
 public class CaseForwardController {
 
     private final static Logger log = LoggerFactory.getLogger(CaseForwardController.class);

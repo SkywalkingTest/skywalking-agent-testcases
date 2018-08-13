@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/case")
+@RequestMapping("/case/backup")
 public class CaseController {
 
     private Logger logger = LogManager.getLogger(CaseController.class);
