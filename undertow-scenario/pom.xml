@@ -70,7 +70,7 @@
 
     <profiles>
         <profile>
-            <id>undertow-1.x-scenario-1.3.23.Final</id>
+            <id>undertow-scenario-1.3.23.Final</id>
             <properties>
                 <test.framework.version>1.3.23.Final</test.framework.version>
                 <spring-boot-version>1.4.0.RELEASE</spring-boot-version>
@@ -78,7 +78,7 @@
             </properties>
         </profile>
         <profile>
-            <id>undertow-1.x-scenario-1.3.28.Final</id>
+            <id>undertow-scenario-1.3.28.Final</id>
             <properties>
                 <test.framework.version>1.3.28.Final</test.framework.version>
                 <spring-boot-version>1.4.6.RELEASE</spring-boot-version>
@@ -86,7 +86,7 @@
             </properties>
         </profile>
         <profile>
-            <id>undertow-1.x-scenario-1.4.8.Final</id>
+            <id>undertow-scenario-1.4.8.Final</id>
             <properties>
                 <test.framework.version>1.4.8.Final</test.framework.version>
                 <spring-boot-version>1.5.0.RELEASE</spring-boot-version>
@@ -95,7 +95,7 @@
         </profile>
 
         <profile>
-            <id>undertow-1.x-scenario-1.4.13.Final</id>
+            <id>undertow-scenario-1.4.13.Final</id>
             <properties>
                 <test.framework.version>1.4.13.Final</test.framework.version>
                 <spring-boot-version>1.5.3.RELEASE</spring-boot-version>
@@ -103,7 +103,7 @@
             </properties>
         </profile>
         <profile>
-            <id>undertow-1.x-scenario-1.4.15.Final</id>
+            <id>undertow-scenario-1.4.15.Final</id>
             <properties>
                 <test.framework.version>1.4.15.Final</test.framework.version>
                 <spring-boot-version>1.5.4.RELEASE</spring-boot-version>
@@ -112,7 +112,7 @@
         </profile>
 
         <profile>
-            <id>undertow-1.x-scenario-1.4.18.Final</id>
+            <id>undertow-scenario-1.4.18.Final</id>
             <properties>
                 <test.framework.version>1.4.18.Final</test.framework.version>
                 <spring-boot-version>1.5.5.RELEASE</spring-boot-version>
@@ -120,7 +120,7 @@
             </properties>
         </profile>
         <profile>
-            <id>undertow-1.x-scenario-1.4.20.Final</id>
+            <id>undertow-scenario-1.4.20.Final</id>
             <properties>
                 <test.framework.version>1.4.20.Final</test.framework.version>
                 <spring-boot-version>1.5.7.RELEASE</spring-boot-version>
@@ -128,7 +128,7 @@
             </properties>
         </profile>
         <profile>
-            <id>undertow-1.x-scenario-1.4.21.Final</id>
+            <id>undertow-scenario-1.4.21.Final</id>
             <properties>
                 <test.framework.version>1.4.21.Final</test.framework.version>
                 <spring-boot-version>1.5.9.RELEASE</spring-boot-version>
@@ -137,7 +137,7 @@
         </profile>
 
         <profile>
-            <id>undertow-1.x-scenario-1.4.22.Final</id>
+            <id>undertow-scenario-1.4.22.Final</id>
             <properties>
                 <test.framework.version>1.4.22.Final</test.framework.version>
                 <spring-boot-version>1.5.10.RELEASE</spring-boot-version>
@@ -146,11 +146,11 @@
         </profile>
 
         <profile>
-            <id>undertow-1.x-scenario-1.4.23.Final</id>
+            <id>undertow-scenario-1.4.23.Final</id>
             <properties>
                 <test.framework.version>1.4.23.Final</test.framework.version>
                 <spring-boot-version>2.0.1.RELEASE</spring-boot-version>
-                <docker.image.version>${test.framework.version}</docker.image.version>
+                <docker.image.version>1.4.23.Final</docker.image.version>
             </properties>
         </profile>
 
