@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ACTIVEMQ_SCENARIO_HOME=/usr/local/activemq-scenario
+ACTIVEMQ_SCENARIO_HOME=/usr/local/rabbitmq-scenario
 ACTIVEMQ_HOME=${ACTIVEMQ_SCENARIO_HOME}/apache-activemq-${ACTIVEMQ_VERSION}
 
 #start activemq
