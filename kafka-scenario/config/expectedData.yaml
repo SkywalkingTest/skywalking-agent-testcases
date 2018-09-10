@@ -18,7 +18,7 @@ segmentItems:
       spanLayer: MQ
       startTime: nq 0
       endTime: nq 0
-      componentId: 27
+      componentId: 40
       componentName: ''
       isError: false
       spanType: Exit
@@ -59,7 +59,7 @@ segmentItems:
       peer: ''
       peerId: 0
       refs:
-      - {parentServiceId: 0, parentServiceName: /case/kafka-case, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: '${kafka-scenario[0]}', parentApplicationInstanceId: 0, networkAddress: '', entryServiceName: /case/kafka-case, entryApplicationInstanceId: nq 0 }
+      - {parentServiceId: 0, parentServiceName: /case/kafka-case, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: '${kafka-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: '', entryServiceName: /case/kafka-case, entryApplicationInstanceId: nq 0 }
   - segmentId: not null
     spans:
     - operationName: Kafka/test/Consumer
@@ -69,7 +69,7 @@ segmentItems:
       spanLayer: MQ
       startTime: nq 0
       endTime: nq 0
-      componentId: 27
+      componentId: 41
       componentName: ''
       isError: false
       spanType: Entry
