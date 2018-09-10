@@ -59,7 +59,7 @@ checkoutSourceCode(){
 	REPO_BRANCH=$2
 	SOURCE_CODE_DIR=$3
 	if [ "$PULL_CODE" = "false" ]; then
-		git clone $REPO_URL "$SOURCE_CODE_DIR"
+		git clone $REPO_URL "$SOURCE_CODE_DIR" 1>&2 > /dev/null
 	fi
 
 	eval "cd $SOURCE_CODE_DIR && git reset --hard && git checkout $REPO_BRANCH && git fetch origin && git pull origin $REPO_BRANCH" 1>&2 > /dev/null
@@ -71,7 +71,7 @@ buildProject(){
 	PROJECT_DIR=$1;
 	if [ "$SKIP_BUILD" = "false" ]; then
 		cd $PROJECT_DIR
-		mvn clean package
+		mvn clean package -Dmaven.test.skip=true
 		IS_BUILD_SUCCESS=$?
 		if [ "$IS_BUILD_SUCCESS" = "0" ]; then
 			echo "Build project success"
