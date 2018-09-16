@@ -8,7 +8,8 @@ usage(){
 	echo -e "      --skipReport \t\t skip report "
 	echo -e "      --skipBuild \t\t skip build"
 	echo -e "      --reportFileMode  CONVERAGE | NONE \t\t skip build"
-  echo -e "  --issueNo issueNo"
+	echo -e "  --issueNo issueNo"
+	echo -e "  --validateLogURL validate log url prefix"
 }
 
 # environment check
@@ -59,7 +60,7 @@ checkoutSourceCode(){
 	REPO_BRANCH=$2
 	SOURCE_CODE_DIR=$3
 	if [ "$PULL_CODE" = "false" ]; then
-		git clone $REPO_URL "$SOURCE_CODE_DIR"
+		git clone $REPO_URL "$SOURCE_CODE_DIR" 1>&2 > /dev/null
 	fi
 
 	eval "cd $SOURCE_CODE_DIR && git reset --hard && git checkout $REPO_BRANCH && git fetch origin && git pull origin $REPO_BRANCH" 1>&2 > /dev/null
@@ -71,7 +72,7 @@ buildProject(){
 	PROJECT_DIR=$1;
 	if [ "$SKIP_BUILD" = "false" ]; then
 		cd $PROJECT_DIR
-		mvn clean package
+		mvn clean package -Dmaven.test.skip=true
 		IS_BUILD_SUCCESS=$?
 		if [ "$IS_BUILD_SUCCESS" = "0" ]; then
 			echo "Build project success"
@@ -101,7 +102,8 @@ REPORT_GIT_URL=https://github.com/SkywalkingTest/agent-integration-test-report.g
 REPORT_GIT_BRANCH=master
 TEST_TIME=`date "+%Y-%m-%d-%H-%M"`
 TEST_TIME_YEAR=`echo $TEST_TIME | cut -d '-' -f 1`
-TEST_TIME_MONTH=`echo $TEST_TIME | cut -d '-' -f 2`
+TEST_TIME_MONTH_STR=`echo $TEST_TIME | cut -d '-' -f 2`
+TEST_TIME_MONTH=$((10#$TEST_TIME_MONTH_STR))
 TEST_TIME_MONTH=${TEST_TIME_MONTH#0}
 TEST_CASES_COMMITID=""
 TEST_CASES_BRANCH=""
@@ -128,6 +130,8 @@ TEST_CASES_DIR="$AGENT_TEST_HOME/testcases" # Testcase dir
 MAX_RUNNING_SIZE=2 # The max size of running testcase
 #
 ISSUE_NO=""
+#
+VALIDATE_LOG_URL_PREFIX=""
 #
 #
 #
@@ -170,10 +174,14 @@ do
 			TEST_CASES_BRANCH=$2;
 			shift 2;
 			;;
-    --issueNo )
-        ISSUE_NO=$2
-        shift 2;
-        ;;
+		--issueNo )
+		    ISSUE_NO=$2
+		    shift 2;
+		    ;;
+		--validateLogURL )
+		    VALIDATE_LOG_URL_PREFIX=$2
+		    shift 2;
+		    ;;
 		* )
 			usage;
 			exit 1;
@@ -389,11 +397,13 @@ while [[ $RUNNING_SIZE -gt 0 ]]; do
 	RUNNING_SIZE=`grep -l 'STARTED' $RUNTIME_DIR/* | wc -l`
 done
 
+echo "normalize test branch name"
+NORMALIZED_TEST_CASES_BRANCH=${TEST_CASES_BRANCH//\//-}
 echo "generate report...."
 java -DtestDate="$TEST_TIME" \
 	-DagentBranch="$AGENT_GIT_BRANCH" -DagentCommit="$AGENT_COMMIT" \
 	-DtestCasePath="$TEST_CASES_DIR" -DreportFilePath="$REPORT_DIR" \
-	-DcasesBranch="$TEST_CASES_BRANCH" -DcasesCommitId="${TEST_CASES_COMMITID}" \
+	-DcasesBranch="$NORMALIZED_TEST_CASES_BRANCH" -DcasesCommitId="${TEST_CASES_COMMITID}" \
 	-Dcommitter="$COMMITTER"	\
 	-jar $WORKSPACE_DIR/skywalking-autotest.jar > $LOGS_DIR/validate-$TEST_TIME.log
 
@@ -402,14 +412,14 @@ if [ ! -f "$REPORT_DIR/${AGENT_GIT_BRANCH}" ]; then
 fi
 
 if [ "$REPORT_FILE_MODE" = "CONVERAGE" ]; then
-	cp -f $REPORT_DIR/${TEST_TIME_YEAR}/${TEST_TIME_MONTH}/${COMMITTER}/testReport-${TEST_CASES_BRANCH}-${TEST_TIME}.md $REPORT_DIR/README.md
+	cp -f $REPORT_DIR/${TEST_TIME_YEAR}/${TEST_TIME_MONTH}/${COMMITTER}/testReport-${NORMALIZED_TEST_CASES_BRANCH}-${TEST_TIME}.md $REPORT_DIR/README.md
 fi
 
 if [ "$SKIP_REPORT" = "false" ]; then
 	echo "push report...."
 	cd $REPORT_DIR
 	git add $REPORT_DIR/README.md
-	git add $REPORT_DIR/${TEST_TIME_YEAR}/${TEST_TIME_MONTH}/${COMMITTER}/testReport-${TEST_CASES_BRANCH}-${TEST_TIME}.md 
+	git add $REPORT_DIR/${TEST_TIME_YEAR}/${TEST_TIME_MONTH}/${COMMITTER}/testReport-${NORMALIZED_TEST_CASES_BRANCH}-${TEST_TIME}.md 
 	git commit -m "push report report-${TEST_TIME}.md" .
 
 	if [ ! -z "$GITHUB_ACCOUNT" ]; then
@@ -425,7 +435,7 @@ fi
 if [ "$ISSUE_NO" = "UNKNOWN" ]; then
     echo "issue no is empty, ignore to push comment"
 else
-    curl --user ${GITHUB_ACCOUNT} -X POST -H "Content-Type: text/plain" -d "{\"body\":\"Here is the [test report](http://github.com/SkywalkingTest/agent-integration-test-report/tree/master/${TEST_TIME_YEAR}/${TEST_TIME_MONTH}/${COMMITTER}/testReport-${TEST_CASES_BRANCH}-${TEST_TIME}.md).\"}" https://api.github.com/repos/apache/incubator-skywalking/issues/${ISSUE_NO}/comments
+    curl --user ${GITHUB_ACCOUNT} -X POST -H "Content-Type: text/plain" -d "{\"body\":\"Here is the [test report](http://github.com/SkywalkingTest/agent-integration-test-report/tree/master/${TEST_TIME_YEAR}/${TEST_TIME_MONTH}/${COMMITTER}/testReport-${TEST_CASES_BRANCH}-${TEST_TIME}.md) and [validate logs](${VALIDATE_LOG_URL_PREFIX}/validate-$TEST_TIME.log)\"}" https://api.github.com/repos/apache/incubator-skywalking/issues/${ISSUE_NO}/comments
 fi
 
 
