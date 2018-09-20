@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.skywalking.testcase.rabbitmq;
+package test.apache.skywalking.testcase.rabbitmq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

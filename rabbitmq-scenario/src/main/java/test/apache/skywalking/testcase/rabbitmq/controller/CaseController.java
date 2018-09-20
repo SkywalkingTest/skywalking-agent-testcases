@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.skywalking.testcase.rabbitmq.controller;
+package test.apache.skywalking.testcase.rabbitmq.controller;
 
 
 import com.rabbitmq.client.*;
