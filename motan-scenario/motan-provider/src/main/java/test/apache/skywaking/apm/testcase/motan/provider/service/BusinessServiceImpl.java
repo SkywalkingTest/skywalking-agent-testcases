@@ -1,6 +1,6 @@
 package test.apache.skywaking.apm.testcase.motan.provider.service;
 
-import org.apache.skywaking.apm.testcase.motan.interfaces.BusinessService;
+import test.apache.skywaking.apm.testcase.motan.interfaces.BusinessService;
 
 public class BusinessServiceImpl implements BusinessService {
     @Override
