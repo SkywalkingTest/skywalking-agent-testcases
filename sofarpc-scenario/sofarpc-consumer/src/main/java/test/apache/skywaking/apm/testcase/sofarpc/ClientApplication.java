@@ -2,7 +2,7 @@
  * Alipay.com Inc.
  * Copyright (c) 2004-2018 All Rights Reserved.
  */
-package test.apache.skywaking.apm.testcase.sofarpc;
+package test.apache.skywalking.apm.testcase.sofarpc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ImportResource;
  */
 @ImportResource({"classpath:sofarpc_consumer.xml"})
 @SpringBootApplication
-@ComponentScan(value = {"org.apache.skywaking.apm.testcase.sofarpc"})
+@ComponentScan(value = {"test.apache.skywalking.apm.testcase.sofarpc"})
 public class ClientApplication {
 
     public static void main(String[] args) {

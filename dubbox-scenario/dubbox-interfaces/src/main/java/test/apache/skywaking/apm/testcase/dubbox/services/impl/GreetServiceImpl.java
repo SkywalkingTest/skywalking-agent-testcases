@@ -1,6 +1,6 @@
-package test.apache.skywaking.apm.testcase.dubbox.services.impl;
+package test.apache.skywalking.apm.testcase.dubbox.services.impl;
 
-import test.apache.skywaking.apm.testcase.dubbox.services.GreetService;
+import test.apache.skywalking.apm.testcase.dubbox.services.GreetService;
 import com.alibaba.dubbo.config.annotation.Service;
 
 /**

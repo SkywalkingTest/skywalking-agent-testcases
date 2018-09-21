@@ -1,8 +1,8 @@
-package test.apache.skywaking.apm.testcase.sofarpc.consumer;
+package test.apache.skywalking.apm.testcase.sofarpc.consumer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import test.apache.skywaking.apm.testcase.sofarpc.interfaces.SofaRpcDemoService;
+import test.apache.skywalking.apm.testcase.sofarpc.interfaces.SofaRpcDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
-package test.apache.skywaking.apm.testcase.dubbox.consumer;
+package test.apache.skywalking.apm.testcase.dubbox.consumer;
 
-import test.apache.skywaking.apm.testcase.dubbox.services.GreetService;
+import test.apache.skywalking.apm.testcase.dubbox.services.GreetService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

@@ -1,4 +1,4 @@
-package test.apache.skywaking.apm.testcase.dubbox.services;
+package test.apache.skywalking.apm.testcase.dubbox.services;
 
 
 import javax.ws.rs.Consumes;

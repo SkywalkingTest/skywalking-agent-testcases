@@ -75,7 +75,7 @@
                     </excludes>
                     <archive>
                         <manifest>
-                            <mainClass>test.apache.skywaking.apm.testcase.servicecomb.consumer.CodeFirstConsumerMain
+                            <mainClass>test.apache.skywalking.apm.testcase.servicecomb.consumer.CodeFirstConsumerMain
                             </mainClass>
                         </manifest>
                     </archive>

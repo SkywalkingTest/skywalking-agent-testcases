@@ -1,4 +1,4 @@
-package test.apache.skywaking.apm.testcase.dubbox.provider;
+package test.apache.skywalking.apm.testcase.dubbox.provider;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
