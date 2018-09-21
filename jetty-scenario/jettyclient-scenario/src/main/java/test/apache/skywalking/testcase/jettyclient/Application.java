@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan("org.apache.skywalking.testcase.jettyclient")
+@ComponentScan("test.apache.skywalking.testcase.jettyclient")
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

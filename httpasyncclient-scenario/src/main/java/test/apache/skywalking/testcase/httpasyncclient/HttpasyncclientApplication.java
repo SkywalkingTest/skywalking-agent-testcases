@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan("org.apache.skywalking.testcase.httpasyncclient")
+@ComponentScan("test.apache.skywalking.testcase.httpasyncclient")
 public class HttpasyncclientApplication {
 
     public static void main(String[] args) {

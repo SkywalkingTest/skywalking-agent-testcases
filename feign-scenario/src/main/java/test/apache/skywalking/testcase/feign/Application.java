@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan("org.apache.skywalking.testcase.feign")
+@ComponentScan("test.apache.skywalking.testcase.feign")
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

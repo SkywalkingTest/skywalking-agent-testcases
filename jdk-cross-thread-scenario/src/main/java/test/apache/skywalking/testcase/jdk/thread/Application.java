@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan("org.apache.skywalking.testcase.jdk.thread")
+@ComponentScan("test.apache.skywalking.testcase.jdk.thread")
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

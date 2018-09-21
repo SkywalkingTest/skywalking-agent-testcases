@@ -25,7 +25,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan("org.apache.skywalking.testcase.activemq")
+@ComponentScan("test.apache.skywalking.testcase.activemq")
 public class Application {
 
     public static void main(String[] args) {
