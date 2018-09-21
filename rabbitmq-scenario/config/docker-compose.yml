@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   rabbitmq-server:
-    image: 3-management
+    image: rabbitmq:latest
     expose:
     - "5672"
     ports:
