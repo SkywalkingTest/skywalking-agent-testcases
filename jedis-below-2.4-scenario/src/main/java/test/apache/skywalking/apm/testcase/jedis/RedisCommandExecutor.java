@@ -1,4 +1,4 @@
-package org.apache.skywalking.apm.testcase.jedis;
+package test.apache.skywalking.apm.testcase.jedis;
 
 import redis.clients.jedis.Jedis;
 

@@ -19,8 +19,8 @@
 package test.apache.skywalking.apm.testcase.servicecomb.provider;
 
 import io.servicecomb.provider.pojo.RpcSchema;
-import org.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
-import org.apache.skywalking.apm.testcase.servicecomb.schemma.models.Person;
+import test.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
+import test.apache.skywalking.apm.testcase.servicecomb.schemma.models.Person;
 
 @RpcSchema(schemaId = "codeFirstHello")
 public class CodeFirstPojoHelloImpl implements Hello {

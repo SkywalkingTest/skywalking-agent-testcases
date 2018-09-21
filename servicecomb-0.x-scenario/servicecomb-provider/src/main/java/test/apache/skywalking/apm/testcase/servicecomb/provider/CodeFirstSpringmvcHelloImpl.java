@@ -27,8 +27,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import io.servicecomb.provider.pojo.RpcSchema;
-import org.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
-import org.apache.skywalking.apm.testcase.servicecomb.schemma.models.Person;
+import test.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
+import test.apache.skywalking.apm.testcase.servicecomb.schemma.models.Person;
 
 @RpcSchema(schemaId = "codeFirstSpringmvcHello")
 @RequestMapping(path = "/springmvchello", produces = MediaType.APPLICATION_JSON)

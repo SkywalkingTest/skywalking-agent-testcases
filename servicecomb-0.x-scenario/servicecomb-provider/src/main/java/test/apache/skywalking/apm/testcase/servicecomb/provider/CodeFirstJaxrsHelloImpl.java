@@ -25,8 +25,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import io.servicecomb.provider.pojo.RpcSchema;
-import org.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
-import org.apache.skywalking.apm.testcase.servicecomb.schemma.models.Person;
+import test.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
+import test.apache.skywalking.apm.testcase.servicecomb.schemma.models.Person;
 
 @RpcSchema(schemaId = "codeFirstJaxrsHello")
 @Path("/codefirstjaxrshello")

@@ -1,4 +1,4 @@
-package org.apache.skywalking.apm.testcase.jedis;
+package test.apache.skywalking.apm.testcase.jedis;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -22,7 +22,7 @@ import io.servicecomb.provider.pojo.RpcReference;
 import io.servicecomb.provider.pojo.RpcSchema;
 import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
-import org.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
+import test.apache.skywalking.apm.testcase.servicecomb.schemma.Hello;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
