@@ -25,5 +25,5 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:18080/undertow-case/case/undertow'}
+      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/undertow-case/case/undertow'}
       - {key: http.method, value: GET}
