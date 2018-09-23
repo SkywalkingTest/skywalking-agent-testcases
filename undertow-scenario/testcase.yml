@@ -17,3 +17,16 @@ testcase:
   #
   support_versions:
     - 2.0.13.Final
+    - 2.0.12.Final
+    - 2.0.11.Final
+    - 2.0.10.Final
+    - 2.0.9.Final
+    - 2.0.8.Final
+    - 2.0.7.Final
+    - 2.0.6.Final
+    - 2.0.5.Final
+    - 2.0.4.Final
+    - 2.0.3.Final
+    - 2.0.2.Final
+    - 2.0.1.Final
+    - 2.0.0.Final
