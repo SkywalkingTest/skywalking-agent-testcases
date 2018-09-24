@@ -22,8 +22,8 @@ services:
     volumes:
     - {AGENT_FILE_PATH}:/usr/local/rabbitmq-scenario/agent
     depends_on:
-      mock-collector:
-        condition: service_healthy
+      - mock-collector
+      - rabbitmq-server
 
   mock-collector:
     image: skywalking/skywalking-mock-collector:{COLLECTOR_IMAGE_VERSION}
