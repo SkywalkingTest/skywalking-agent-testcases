@@ -33,7 +33,7 @@ environmentCheck(){
 	fi
 
 	# check java
-	[ "$JAVA_HOME" ] && EXECUTE_JAVA=${JAVA_HOME}/bin/java
+	[ -z "$JAVA_HOME" ] && EXECUTE_JAVA=${JAVA_HOME}/bin/java
 	if [ "$EXECUTE_JAVA" = "" ]; then
 		EXECUTE_JAVA=java
 	fi
@@ -62,7 +62,7 @@ checkoutSourceCode(){
 		git clone $REPO_URL "$SOURCE_CODE_DIR" 1>&2 > /dev/null
 	fi
 
-	eval "cd $SOURCE_CODE_DIR && git reset --hard && git remote set-branches origin $REPO_BRANCH && git fetch --depth 1 origin $REPO_BRANCH && git checkout $REPO_BRANCH && git fetch origin && git pull origin $REPO_BRANCH" 1>&2 > /dev/null
+	eval "cd $SOURCE_CODE_DIR && git reset --hard && git checkout $REPO_BRANCH && git fetch origin && git pull origin $REPO_BRANCH" 1>&2 > /dev/null
 	cd $SOURCE_CODE_DIR && LAST_COMMIT=$(git rev-parse HEAD)
 	echo $LAST_COMMIT
 }
