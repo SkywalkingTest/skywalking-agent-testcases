@@ -4,8 +4,6 @@ services:
     image: rabbitmq:latest
     expose:
     - "5672"
-    ports:
-      - "5672:5672"
     environment:
       RABBITMQ_DEFAULT_PASS: admin
       RABBITMQ_DEFAULT_USER: admin
