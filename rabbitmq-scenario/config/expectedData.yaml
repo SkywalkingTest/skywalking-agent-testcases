@@ -18,14 +18,15 @@ segmentItems:
       spanLayer: MQ
       startTime: nq 0
       endTime: nq 0
-      componentId: 50
+      componentId: 51
       componentName: ''
       isError: false
       spanType: Exit
-      peer: 127.0.0.1:5672
+      peer: rabbitmq-server:5672
       peerId: 0
       tags:
-      - {key: mq.broker, value: '127.0.0.1:5672'}
+      - {key: mq.broker, value: rabbitmq-server:5672}
+      - {key: mq.topic, value: ''}
       - {key: mq.queue, value: test}
     - operationName: /case/rabbitmq-case
       operationId: 0
@@ -52,14 +53,15 @@ segmentItems:
       spanLayer: MQ
       startTime: nq 0
       endTime: nq 0
-      componentId: 51
+      componentId: 52
       componentName: ''
       isError: false
       spanType: Entry
       peer: ''
       peerId: 0
       tags:
-      - {key: mq.broker, value: '127.0.0.1:5672'}
+      - {key: mq.broker, value: rabbitmq-server:5672}
+      - {key: mq.topic, value: ''}
       - {key: mq.queue, value: test}
       refs:
-      - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: '127.0.0.1:5672', entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
+      - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: rabbitmq-server:5672, entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
