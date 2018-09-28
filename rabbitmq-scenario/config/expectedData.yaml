@@ -1,0 +1,65 @@
+registryItems:
+  applications:
+  - {rabbitmq-scenario: nq 0}
+  instances:
+  - {rabbitmq-scenario: nq 0}
+  operationNames:
+  - rabbitmq-scenario: [RabbitMQ/Topic/Queue/test/Producer,RabbitMQ/Topic/Queue/test/Consumer, /case/rabbitmq-case]
+segmentItems:
+- applicationCode: rabbitmq-scenario
+  segmentSize: ge 2
+  segments:
+  - segmentId: not null
+    spans:
+    - operationName: RabbitMQ/Topic/Queue/test/Producer
+      operationId: 0
+      parentSpanId: 0
+      spanId: 1
+      spanLayer: MQ
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 50
+      componentName: ''
+      isError: false
+      spanType: Exit
+      peer: 127.0.0.1:5672
+      peerId: 0
+      tags:
+      - {key: mq.broker, value: '127.0.0.1:5672'}
+      - {key: mq.queue, value: test}
+    - operationName: /case/rabbitmq-case
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 14
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/rabbitmq-scenario/case/rabbitmq-case'}
+      - {key: http.method, value: GET}
+  - segmentId: not null
+    spans:
+    - operationName: RabbitMQ/Topic/Queue/rabbitmq-test/Consumer
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: MQ
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+      - {key: mq.broker, value: '127.0.0.1:5672'}
+      - {key: mq.queue, value: test}
+      refs:
+      - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: '127.0.0.1:5672', entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
