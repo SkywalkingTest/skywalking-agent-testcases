@@ -63,7 +63,7 @@ public class CaseController {
 
         try{
             factory = new ConnectionFactory();
-            factory.setHost(brokerUrl);
+            factory.setHost(brokerUrl==""?"127.0.0.1":brokerUrl);
             factory.setPort(PORT);
             factory.setUsername(USERNAME);
             factory.setPassword(PASSWORD);
@@ -89,7 +89,7 @@ public class CaseController {
         @Override public void run() {
             try{
                 factory = new ConnectionFactory();
-                factory.setHost(brokerUrl);
+                factory.setHost(brokerUrl==""?"127.0.0.1":brokerUrl);
                 factory.setPort(PORT);
                 factory.setUsername(USERNAME);
                 factory.setPassword(PASSWORD);
