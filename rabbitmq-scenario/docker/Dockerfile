@@ -1,6 +1,8 @@
 FROM openjdk:8-jdk
 
-ENV COLLECTOR_SERVER=127.0.0.1:12800
+ENV COLLECTOR_SERVER=127.0.0.1:12800 \
+    RABBITMQ_HOST=127.0.0.1
+
 
 WORKDIR /usr/local/rabbitmq-scenario
 

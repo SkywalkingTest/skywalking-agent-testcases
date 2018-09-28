@@ -16,6 +16,7 @@ services:
     - "{SERVER_OUTPUT_PORT}:8080"
     environment:
     - COLLECTOR_SERVER=mock-collector:12800
+    - RABBITMQ_HOST=rabbitmq-server
     links:
     - mock-collector
     - rabbitmq-server

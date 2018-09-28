@@ -22,6 +22,7 @@ package test.apache.skywalking.testcase.rabbitmq.controller;
 import com.rabbitmq.client.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +43,8 @@ public class CaseController {
 
     private static final String PASSWORD = "admin";
 
-    private static final String BROKEN_URL = "127.0.0.1";
+    @Value(value = "${rabbitmq.host}")
+    private String brokerUrl;
 
     private static final int PORT = 5672;
 
@@ -61,7 +63,7 @@ public class CaseController {
 
         try{
             factory = new ConnectionFactory();
-            factory.setHost(BROKEN_URL);
+            factory.setHost(brokerUrl);
             factory.setPort(PORT);
             factory.setUsername(USERNAME);
             factory.setPassword(PASSWORD);
@@ -87,7 +89,7 @@ public class CaseController {
         @Override public void run() {
             try{
                 factory = new ConnectionFactory();
-                factory.setHost(BROKEN_URL);
+                factory.setHost(brokerUrl);
                 factory.setPort(PORT);
                 factory.setUsername(USERNAME);
                 factory.setPassword(PASSWORD);
