@@ -64,4 +64,4 @@ segmentItems:
       - {key: mq.topic, value: ''}
       - {key: mq.queue, value: test}
       refs:
-      - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: "rabbitmq-server:5672", entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
+      - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: not null, entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
