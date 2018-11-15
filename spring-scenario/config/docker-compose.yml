@@ -14,6 +14,7 @@ services:
       - mock-collector
       - restapi-scenario
       - spring3-scenario
+      - inherit-scenario
     volumes:
      - {AGENT_FILE_PATH}:/usr/local/tomcat/agent
     depends_on:
@@ -44,6 +45,20 @@ services:
       - mock-collector
     volumes:
       - {AGENT_FILE_PATH}:/usr/local/tomcat/agent
+    depends_on:
+      mock-collector:
+        condition: service_healthy
+
+  inherit-scenario:
+    image: skywalking/inherit-scenario:{CASES_IMAGE_VERSION}
+    expose:
+    - "8080"
+    environment:
+    - COLLECTOR_SERVER=mock-collector:19876
+    links:
+    - mock-collector
+    volumes:
+    - {AGENT_FILE_PATH}:/usr/local/tomcat/agent
     depends_on:
       mock-collector:
         condition: service_healthy
