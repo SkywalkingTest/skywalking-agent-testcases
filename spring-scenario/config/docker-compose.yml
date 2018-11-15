@@ -10,6 +10,7 @@ services:
       - COLLECTOR_SERVER=mock-collector:19876
       - PROJECTB_URL=restapi-scenario:8080
       - PROJECTC_URL=spring3-scenario:8080
+      - PROJECTD_URL=inherit-scenario:8080
     links:
       - mock-collector
       - restapi-scenario

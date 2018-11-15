@@ -13,7 +13,8 @@ public class Config {
     private static String projectDURL;
 
     static {
-        InputStream inputStream = Config.class.getClassLoader().getResourceAsStream("/spring-config.properties");
+        InputStream inputStream = Config.class.getClassLoader().getResourceAsStream("spring-config.properties");
+//        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("spring-config.properties");
         Properties properties = new Properties();
         try {
             properties.load(inputStream);
@@ -36,5 +37,9 @@ public class Config {
 
     public static String projectDURL() {
         return projectDURL;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(projectDURL());
     }
 }
