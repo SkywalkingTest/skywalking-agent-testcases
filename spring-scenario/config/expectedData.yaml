@@ -39,7 +39,7 @@ segmentItems:
       refs:
       - {parentServiceId: 0, parentServiceName: /resttemplate-case/case/resttemplate,
          networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 6,
-         parentTraceSegmentId: not null, parentApplicationInstanceId: nq 0,
+         parentTraceSegmentId: '${resttemplate-scenario[0]}', parentApplicationInstanceId: nq 0,
          networkAddress: 'inherit-scenario:8080', entryServiceName: /resttemplate-case/case/resttemplate,
          entryApplicationInstanceId: nq 0}
 - applicationCode: restapi-scenario
