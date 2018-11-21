@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {okhttp-scenario: 1}
   operationNames:
-  - okhttp-scenario: [/case/okhttp-case, /case/receiveContext-0, Async/okhttp-case/case/receiveContext-0, /case/receiveContext-1, /okhttp-case/case/receiveContext-0]
+  - okhttp-scenario: [/case/okhttp-case, /case/receiveContext-0, /case/receiveContext-1, /okhttp-case/case/receiveContext-0]
   heartbeat: []
 segmentItems:
 - applicationCode: okhttp-scenario

@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {httpasyncclient-scenario: 1}
   operationNames:
-  - httpasyncclient-scenario: [/httpasyncclient/back, /back, httpasyncclient/local,/front]
+  - httpasyncclient-scenario: [/httpasyncclient/back, /back, /front]
 segmentItems:
 - applicationCode: httpasyncclient-scenario
   segmentSize: 3

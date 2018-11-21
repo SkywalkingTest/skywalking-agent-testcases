@@ -6,8 +6,8 @@ registryItems:
   - {grpc-consumer-scenario: 1}
   - {grpc-provider-scenario: 1}
   operationNames:
-  - grpc-consumer-scenario: [Greeter.sayHello/client/ResponseObserver/onNext, /service-consumer/case/grpc-scenario, Greeter.sayHello, Greeter.sayHello/client/ResponseObserver/onComplete]
-  - grpc-provider-scenario: [Greeter.sayHello, Greeter.sayHello/server/RequestObserver/onNext, Greeter.sayHello/server/RequestObserver/onComplete]
+  - grpc-consumer-scenario: [Greeter.sayHello, /service-consumer/case/grpc-scenario]
+  - grpc-provider-scenario: [Greeter.sayHello]
 segmentItems:
 - applicationCode: grpc-consumer-scenario
   segmentSize: 4
