@@ -4,100 +4,315 @@ registryItems:
   instances:
   - {shardingsphere-scenario: 1}
   operationNames:
-  - shardingsphere-scenario: [/case/shardingsphere-case]
+  - shardingsphere-scenario: [/case/execute]
   heartbeat: []
 segmentItems:
 - applicationCode: shardingsphere-scenario
-  segmentSize: 4
+  segmentSize: 5
   segments:
   - segmentId: not null
     spans:
-    - operationName: Async/shardingsphere-case/case/receiveContext-0
+    - operationName: /ShardingSphere/parseSQL/
       operationId: 0
       parentSpanId: 0
-      spanId: 1
+      spanId: 0
       spanLayer: null
       startTime: nq 0
       endTime: nq 0
-      componentId: 0
+      componentId: 51
       componentName: null
       isError: false
       spanType: Local
       peer: null
       peerId: 0
-    - operationName: /case/shardingsphere-case
+      tags:
+      - {key: db.statement, value: 'SELECT * FROM t_order'}
+    - operationName: /ShardingSphere/JDBCRootInvoke/
       operationId: 0
-      parentSpanId: -1
+      parentSpanId: 0
       spanId: 0
-      spanLayer: Http
+      spanLayer: null
       startTime: nq 0
       endTime: nq 0
-      componentId: 14
+      componentId: 51
       componentName: null
       isError: false
-      spanType: Entry
+      spanType: Local
+      peer: null
+      peerId: 0
+    - operationName: /ShardingSphere/parseSQL/
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: null
+      isError: false
+      spanType: Local
       peer: null
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/shardingsphere-case/case/shardingsphere-case'}
-      - {key: http.method, value: GET}
-  - segmentId: not null
-    spans:
-    - operationName: /case/receiveContext-0
+      - {key: db.statement, value: 'SELECT i.* FROM t_order o, t_order_item i WHERE o.order_id = i.order_id'}
+    - operationName: /ShardingSphere/JDBCRootInvoke/
       operationId: 0
-      parentSpanId: -1
+      parentSpanId: 0
       spanId: 0
-      spanLayer: Http
+      spanLayer: null
       startTime: nq 0
       endTime: nq 0
-      componentId: 14
+      componentId: 51
       componentName: null
       isError: false
-      spanType: Entry
+      spanType: Local
+      peer: null
+      peerId: 0
+  - segmentId: not null
+    spans:
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
       peer: null
       peerId: 0
       tags:
-      - {key: url, value: 'http://127.0.0.1:8080/shardingsphere-case/case/receiveContext-0'}
-      - {key: http.method, value: GET}
-      refs:
-      - {parentServiceId: 0, parentServiceName: /shardingsphere-case/case/receiveContext-0, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 0, parentTraceSegmentId: "${shardingsphere-scenario[3]}", parentApplicationInstanceId: nq 0, networkAddress: '127.0.0.1:8080', entryServiceName: /case/shardingsphere-case, entryApplicationInstanceId: nq 0}
-  - segmentId: not null
-    spans:
-    - operationName: /case/receiveContext-1
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_0"}
+      - {key: "db.statement", value: "SELECT * FROM t_order_0"}
+    - operationName: /ShardingSphere/executeSQL/
       operationId: 0
-      parentSpanId: -1
+      parentSpanId: 0
       spanId: 0
-      spanLayer: Http
+      spanLayer: null
       startTime: nq 0
       endTime: nq 0
-      componentId: 14
+      componentId: 51
       componentName: null
       isError: false
-      spanType: Entry
+      spanType: Local
+      peer: null
+      peerId: 0
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
       peer: null
       peerId: 0
       tags:
-      - {key: url, value: 'http://127.0.0.1:8080/shardingsphere-case/case/receiveContext-1'}
-      - {key: http.method, value: GET}
-      refs:
-      - {parentServiceId: 0, parentServiceName: /shardingsphere-case/case/receiveContext-0, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 0, parentTraceSegmentId: "${shardingsphere-scenario[3]}", parentApplicationInstanceId: nq 0, networkAddress: '127.0.0.1:8080', entryServiceName: /case/shardingsphere-case, entryApplicationInstanceId: nq 0}
-  - segmentId: not null
-    spans:
-    - operationName: /shardingsphere-case/case/receiveContext-0
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_0"}
+      - {key: "db.statement", value: "SELECT * FROM t_order_1"}
+    - operationName: /ShardingSphere/executeSQL/
       operationId: 0
-      parentSpanId: -1
+      parentSpanId: 0
       spanId: 0
-      spanLayer: Http
+      spanLayer: null
       startTime: nq 0
       endTime: nq 0
-      componentId: 12
+      componentId: 51
       componentName: null
       isError: false
-      spanType: Exit
-      peer: 127.0.0.1:8080
+      spanType: Local
+      peer: null
+      peerId: 0
+  - segmentId: not null
+    spans:
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
       peerId: 0
       tags:
-      - {key: http.method, value: GET}
-      - {key: url, value: 'http://127.0.0.1:8080/shardingsphere-case/case/receiveContext-0'}
-      refs:
-      - {parentServiceId: 0, parentServiceName: /case/shardingsphere-case, networkAddressId: 0, entryServiceId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: "${shardingsphere-scenario[0]}", parentApplicationInstanceId: nq 0, networkAddress: '', entryServiceName: /case/shardingsphere-case, entryApplicationInstanceId: nq 0}
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_1"}
+      - {key: "db.statement", value: "SELECT * FROM t_order_0"}
+    - operationName: /ShardingSphere/executeSQL/
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+      tags:
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_1"}
+      - {key: "db.statement", value: "SELECT * FROM t_order_1"}
+    - operationName: /ShardingSphere/executeSQL/
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+  - segmentId: not null
+    spans:
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+      tags:
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_0"}
+      - {key: "db.statement", value: "SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id"}
+    - operationName: /ShardingSphere/executeSQL/
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+      tags:
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_0"}
+      - {key: "db.statement", value: "SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id"}
+    - operationName: /ShardingSphere/executeSQL/
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+  - segmentId: not null
+    spans:
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+      tags:
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_1"}
+      - {key: "db.statement", value: "SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id"}
+    - operationName: /ShardingSphere/executeSQL/
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 33
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0
+      tags:
+      - {key: "db.type", value: "sql"}
+      - {key: "db.instance", value: "demo_ds_1"}
+      - {key: "db.statement", value: "SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id"}
+    - operationName: /ShardingSphere/executeSQL/
+      operationId: 0
+      parentSpanId: 0
+      spanId: 0
+      spanLayer: null
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 51
+      componentName: null
+      isError: false
+      spanType: Local
+      peer: null
+      peerId: 0

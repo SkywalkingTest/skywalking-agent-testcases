@@ -37,7 +37,6 @@ public class CaseController {
     @RequestMapping("/execute")
     @ResponseBody
     public String execute() throws SQLException {
-        System.out.println("11111111111111");
         DataSource dataSource = new ShardingDatabasesAndTablesConfigurationPrecise().getDataSource();
         CommonService commonService = new RawPojoService(new JDBCOrderRepositoryImpl(dataSource), new JDBCOrderItemRepositoryImpl(dataSource));
         commonService.processSuccess(false);
