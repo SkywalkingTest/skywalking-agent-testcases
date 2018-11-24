@@ -21,10 +21,11 @@ PRGDIR=`dirname "$PRG"`
 # the define env variables
 #
 TEST_PROJECT_NAME=""
-MOCK_COLLECTOR_IMAGE_VERSION="3.2.6-2017"
+MOCK_COLLECTOR_IMAGE_VERSION="6.0.0-2018"
 AGENT_BRANCH_NAME="master"
 AGENT_GIT_URL="https://github.com/apache/incubator-skywalking.git"
 TESTCASE_BRANCH="master"
+TEST_TOOLS_BRANCH="master"
 REPORT_FILE_MODE="NONE"
 PARALLEL_RUNNING_CASE_NUMBER=8
 ISSUE_NO="UNKNOWN"
@@ -70,6 +71,10 @@ while [[ $# -gt 0 ]]; do
 		    VALIDATE_LOG_URL_PREFIX=$2
 		    shift 2
 		    ;;
+    --test_tools_branch )
+        TEST_TOOLS_BRANCH=$2
+        shift 2
+        ;;
 		* )
 		    shift
 		    break
@@ -82,5 +87,5 @@ else
    ${AGENT_TEST_HOME}/.autotest/autotest-deploy.sh --collector-image-version "$MOCK_COLLECTOR_IMAGE_VERSION" 
 fi
 
-${AGENT_TEST_HOME}/.autotest/agent-test.sh --max-running-size ${PARALLEL_RUNNING_CASE_NUMBER} --branch "$AGENT_BRANCH_NAME" -r "$AGENT_GIT_URL" --reportFileMode ${REPORT_FILE_MODE} --testcase-branch "$TESTCASE_BRANCH" --issueNo ${ISSUE_NO} --validateLogURL $VALIDATE_LOG_URL_PREFIX
+${AGENT_TEST_HOME}/.autotest/agent-test.sh --max-running-size ${PARALLEL_RUNNING_CASE_NUMBER} --branch "$AGENT_BRANCH_NAME" -r "$AGENT_GIT_URL" --reportFileMode ${REPORT_FILE_MODE} --testcase-branch "$TESTCASE_BRANCH" --issueNo ${ISSUE_NO} --validateLogURL $VALIDATE_LOG_URL_PREFIX --test_tools_branch $TEST_TOOLS_BRANCH
 
