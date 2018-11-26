@@ -21,6 +21,9 @@ package test.apache.skywalking.testcase.shardingsphere.service.utility.config;
 import org.apache.commons.dbcp.BasicDataSource;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +36,8 @@ public class DataSourceUtil {
     private static final String USER_NAME = "root";
     
     private static final String PASSWORD = "root";
+    
+    private static final String DEFAULT_SCHEMA = "test";
     
     private static final Map<String, DataSource> datasourceMap = new HashMap<>();
     
@@ -47,5 +52,14 @@ public class DataSourceUtil {
     
     public static DataSource getDataSource(final String dataSourceName) {
         return datasourceMap.get(dataSourceName);
+    }
+    
+    public static void createSchema(final String dataSourceName) {
+        String sql = "CREATE DATABASE " + dataSourceName;
+        try (Connection connection = getDataSource(DEFAULT_SCHEMA).getConnection();
+             Statement statement = connection.createStatement()) {
+            statement.execute(sql);
+        } catch (final SQLException ignored) {
+        }
     }
 }
