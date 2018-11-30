@@ -79,7 +79,7 @@ public class CaseController {
             connection.close();
 
         }catch (Exception ex){
-            logger.info(ex.toString());
+            logger.error(ex.toString());
         }
         new ConsumerThread().start();
         return "Success";
@@ -93,7 +93,8 @@ public class CaseController {
                 factory.setPort(PORT);
                 factory.setUsername(USERNAME);
                 factory.setPassword(PASSWORD);
-
+                logger.info("进来了=============================");
+                System.out.println("进来了=============================");
                 connection = factory.newConnection();
 
                 Channel channel = connection.createChannel();
@@ -105,6 +106,8 @@ public class CaseController {
                                                AMQP.BasicProperties properties, byte[] body)
                             throws IOException {
                         String message = new String(body, "UTF-8");
+                        logger.info("消费了==================================");
+                        System.out.println("消费了==================================");
                     }
                 };
 
