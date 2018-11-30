@@ -75,50 +75,24 @@ public class CaseController {
             AMQP.BasicProperties.Builder propsBuilder = new AMQP.BasicProperties.Builder();
             channel.basicPublish("", QUEUE_NAME, propsBuilder.build(), MESSAGE.getBytes("UTF-8"));
 
+            Consumer consumer = new DefaultConsumer(channel) {
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope,
+                                           AMQP.BasicProperties properties, byte[] body)
+                        throws IOException {
+                    String message = new String(body, "UTF-8");
+                }
+            };
+
+            channel.basicConsume(QUEUE_NAME, true, consumer);
+
             channel.close();
             connection.close();
 
         }catch (Exception ex){
             logger.error(ex.toString());
         }
-        new ConsumerThread().start();
         return "Success";
     }
 
-    public class ConsumerThread extends Thread {
-        @Override public void run() {
-            try{
-                factory = new ConnectionFactory();
-                factory.setHost(brokerUrl==""?"127.0.0.1":brokerUrl);
-                factory.setPort(PORT);
-                factory.setUsername(USERNAME);
-                factory.setPassword(PASSWORD);
-                logger.info("进来了=============================");
-                System.out.println("进来了=============================");
-                connection = factory.newConnection();
-
-                Channel channel = connection.createChannel();
-                channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-
-                Consumer consumer = new DefaultConsumer(channel) {
-                    @Override
-                    public void handleDelivery(String consumerTag, Envelope envelope,
-                                               AMQP.BasicProperties properties, byte[] body)
-                            throws IOException {
-                        String message = new String(body, "UTF-8");
-                        logger.info("消费了==================================");
-                        System.out.println("消费了==================================");
-                    }
-                };
-
-                channel.basicConsume(QUEUE_NAME, true, consumer);
-
-                channel.close();
-                connection.close();
-            }catch (Exception ex){
-                logger.info(ex.toString());
-            }
-
-        }
-    }
 }
