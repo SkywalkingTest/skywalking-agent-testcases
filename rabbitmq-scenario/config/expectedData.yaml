@@ -4,11 +4,32 @@ registryItems:
   instances:
   - {rabbitmq-scenario: nq 0}
   operationNames:
-  - rabbitmq-scenario: [RabbitMQ/Topic/Queue/test/Producer,RabbitMQ/Topic/Queue/test/Consumer, /case/rabbitmq-case]
+  - rabbitmq-scenario: [/case/rabbitmq-case,RabbitMQ/Topic/Queue/test/Producer,RabbitMQ/Topic/Queue/test/Consumer]
 segmentItems:
 - applicationCode: rabbitmq-scenario
   segmentSize: ge 2
   segments:
+  - segmentId: not null
+    spans:
+    - operationName: RabbitMQ/Topic/Queue/rabbitmq-test/Consumer
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: MQ
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 52
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+      - {key: mq.broker, value: "rabbitmq-server:5672"}
+      - {key: mq.topic, value: ''}
+      - {key: mq.queue, value: test}
+      refs:
+      - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: "rabbitmq-server:5672", entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
   - segmentId: not null
     spans:
     - operationName: RabbitMQ/Topic/Queue/test/Producer
@@ -44,24 +65,3 @@ segmentItems:
       tags:
       - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/rabbitmq-scenario/case/rabbitmq-case'}
       - {key: http.method, value: GET}
-  - segmentId: not null
-    spans:
-    - operationName: RabbitMQ/Topic/Queue/rabbitmq-test/Consumer
-      operationId: 0
-      parentSpanId: -1
-      spanId: 0
-      spanLayer: MQ
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 52
-      componentName: ''
-      isError: false
-      spanType: Entry
-      peer: ''
-      peerId: 0
-      tags:
-      - {key: mq.broker, value: "rabbitmq-server:5672"}
-      - {key: mq.topic, value: ''}
-      - {key: mq.queue, value: test}
-      refs:
-      - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: "rabbitmq-server:5672", entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
