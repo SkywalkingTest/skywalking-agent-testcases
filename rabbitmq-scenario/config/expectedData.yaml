@@ -26,8 +26,8 @@ segmentItems:
       peerId: 0
       tags:
       - {key: mq.broker, value: "rabbitmq-server:5672"}
-      - {key: mq.queue, value: test}
       - {key: mq.topic, value: ''}
+      - {key: mq.queue, value: test}
       refs:
       - {parentServiceId: 0, parentServiceName: /case/rabbitmq-case, networkAddressId: 0, entryServiceId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${rabbitmq-scenario[0]}', parentApplicationInstanceId: nq 0, networkAddress: "rabbitmq-server:5672", entryServiceName: /case/rabbitmq-case, entryApplicationInstanceId: nq 0}
   - segmentId: not null
@@ -47,8 +47,8 @@ segmentItems:
       peerId: 0
       tags:
       - {key: mq.broker, value: "rabbitmq-server:5672"}
-      - {key: mq.topic, value: ''}
       - {key: mq.queue, value: test}
+      - {key: mq.topic, value: ''}
     - operationName: /case/rabbitmq-case
       operationId: 0
       parentSpanId: -1
