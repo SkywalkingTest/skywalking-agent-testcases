@@ -25,7 +25,7 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: mq.broker, value: not null}
+      - {key: mq.broker, value: 'not null'}
       - {key: mq.topic, value: ''}
       - {key: mq.queue, value: test}
       refs:
@@ -46,7 +46,7 @@ segmentItems:
       peer: "rabbitmq-server:5672"
       peerId: 0
       tags:
-      - {key: mq.broker, value: not null}
+      - {key: mq.broker, value: 'not null'}
       - {key: mq.queue, value: test}
       - {key: mq.topic, value: ''}
     - operationName: /case/rabbitmq-case
