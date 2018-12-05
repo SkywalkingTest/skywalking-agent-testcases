@@ -81,6 +81,7 @@ public class CaseController {
                                            AMQP.BasicProperties properties, byte[] body)
                         throws IOException {
                     String message = new String(body, "UTF-8");
+                    logger.info("收到的消息是-------------->"+message);
                 }
             };
 
