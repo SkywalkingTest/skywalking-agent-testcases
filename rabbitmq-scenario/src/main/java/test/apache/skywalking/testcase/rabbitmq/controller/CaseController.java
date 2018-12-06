@@ -73,20 +73,17 @@ public class CaseController {
             Channel channel = connection.createChannel();
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             AMQP.BasicProperties.Builder propsBuilder = new AMQP.BasicProperties.Builder();
+            logger.info("发送消息中-------------->"+MESSAGE);
             channel.basicPublish("", QUEUE_NAME, propsBuilder.build(), MESSAGE.getBytes("UTF-8"));
+            logger.info("发送消息后-------------->"+MESSAGE);
 
-            Consumer consumer = new DefaultConsumer(channel) {
-                @Override
-                public void handleDelivery(String consumerTag, Envelope envelope,
-                                           AMQP.BasicProperties properties, byte[] body)
-                        throws IOException {
-                    String message = new String(body, "UTF-8");
-                    logger.info("收到的消息是-------------->"+message);
-                }
+            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                String message = new String(delivery.getBody(), "UTF-8");
+                logger.info("收到的消息是-------------->"+message);
             };
-
-            channel.basicConsume(QUEUE_NAME, true, consumer);
-
+            channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> { });
+            Thread.sleep(5000);
+            logger.info("等待5秒-------------->");
             channel.close();
             connection.close();
 
