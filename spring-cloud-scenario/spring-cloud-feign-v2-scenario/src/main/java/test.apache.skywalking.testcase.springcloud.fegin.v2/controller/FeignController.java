@@ -14,20 +14,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class FeignController {
     private static final Map<Integer, String> issueMap = new ConcurrentHashMap<>();
 
-    @GetMapping(value = "/getAllItems")
+    @GetMapping(value = "/get/{userId}")
     @ResponseBody
-    private String getAllItems() {
-        return "TestIssue";
-    }
-
-    @GetMapping(value = "/getAllUserItems")
-    @ResponseBody
-    public String getAllUserItems(@RequestParam("userId") Integer userId) {
+    public String get(@PathVariable("userId") Integer userId) {
         String data = issueMap.get(userId);
         return data == null ? "No data" : data;
     }
 
-    @PostMapping(value = "/send")
+    @GetMapping(value = "/send")
     @ResponseBody
     public String send(@RequestParam("userId") Integer userId, @RequestParam("content") String content) {
         issueMap.put(userId, content);
@@ -41,7 +35,7 @@ public class FeignController {
         return "success";
     }
 
-    @PostMapping(value = "/update")
+    @GetMapping(value = "/update")
     @ResponseBody
     public String update(@RequestParam("id") Integer id, @RequestParam("content") String content) {
         issueMap.put(id, content);

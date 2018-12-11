@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {spring-cloud-feign-v2-scenario: 1}
   operationNames:
-  - feign-scenario: [/case/feign, '/update/{id}', '/delete/{id}', '/feign-case/create/', '/feign-case/delete/1', /create/, '/get/{id}', '/feign-case/update/1','/feign-case/get/1']
+  - spring-cloud-feign-v2-scenario: [/case/spring-cloud-feign-v2, '/update/{id}', '/delete/{id}', '/feign-case/create/', '/feign-case/delete/1', /create/, '/get/{id}', '/feign-case/update/1','/feign-case/get/1']
 segmentItems:
 - applicationCode: spring-cloud-feign-v2-scenario
   segmentSize: 5

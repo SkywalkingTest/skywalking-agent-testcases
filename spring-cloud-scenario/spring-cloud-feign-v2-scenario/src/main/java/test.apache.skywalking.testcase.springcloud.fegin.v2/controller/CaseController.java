@@ -23,13 +23,11 @@ public class CaseController {
     @ResponseBody
     @RequestMapping("/spring-cloud-feign-v2")
     public String springCloudFeignCase() {
-//        String allItems = feignInterface.getAllItems();
-        String allUserItems = feignInterface.getAllUserItems(1);
+        String stringData = feignInterface.get(1);
         String stringData1 = feignInterface.delete(1);
         String stringData2 = feignInterface.send(1, "test", "test");
         String stringData3 = feignInterface.update(1, "test-content");
-//        logger.info("allItems :" + allItems);
-        logger.info("allUserItems :" + allUserItems);
+        logger.info("stringData :" + stringData);
         logger.info("stringData1 :" + stringData1);
         logger.info("stringData2 :" + stringData2);
         logger.info("stringData3 :" + stringData3);
