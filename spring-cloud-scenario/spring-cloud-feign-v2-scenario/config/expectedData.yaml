@@ -7,11 +7,11 @@ registryItems:
   - spring-cloud-feign-v2-scenario: [/case/spring-cloud-feign-v2, '/update/{id}', '/delete/{id}', '/feign-case/create/', '/feign-case/delete/1', /create/, '/get/{id}', '/feign-case/update/1','/feign-case/get/1']
 segmentItems:
 - applicationCode: spring-cloud-feign-v2-scenario
-  segmentSize: 5
+  segmentSize: 4
   segments:
   - segmentId: not null
     spans:
-    - operationName: /create/
+    - operationName: case/get/{userId}
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -25,16 +25,16 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:8080/feign-case/create/'}
-      - {key: http.method, value: POST}
+      - {key: url, value: 'http://localhost:8080/case/get/1'}
+      - {key: http.method, value: GET}
       refs:
-      - {parentEndpointId: 0, parentEndpoint: /case/feign, networkAddressId: 0,
-        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: "${feign-scenario[4]}",
-        parentServiceInstanceId: nq 0, networkAddress: 'localhost:8080', entryEndpoint: /case/feign,
+      - {parentEndpointId: 0, parentEndpoint: /case/spring-cloud-feign-v2,, networkAddressId: 0,
+        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: "${spring-cloud-feign-v2-scenario[4]}",
+        parentServiceInstanceId: nq 0, networkAddress: 'localhost:8080', entryEndpoint: /case/spring-cloud-feign-v2,
         entryServiceInstanceId: nq 0}
   - segmentId: not null
     spans:
-    - operationName: /get/{id}
+    - operationName: /case/send
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -48,16 +48,16 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:8080/feign-case/get/1'}
-      - {key: http.method, value: GET}
+      - {key: url, value: 'http://localhost:8080/case/send'}
+      - {key: http.method, value: POST}
       refs:
-      - {parentEndpointId: 0, parentEndpoint: /case/feign, networkAddressId: 0,
-        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 2, parentTraceSegmentId: "${feign-scenario[4]}",
-        parentServiceInstanceId: 1, networkAddress: 'localhost:8080', entryEndpoint: /case/feign,
+      - {parentEndpointId: 0, parentEndpoint: /case/spring-cloud-feign-v2,, networkAddressId: 0,
+        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 2, parentTraceSegmentId: "${spring-cloud-feign-v2-scenario[4]}",
+        parentServiceInstanceId: 1, networkAddress: 'localhost:8080', entryEndpoint: /case/spring-cloud-feign-v2,,
         entryServiceInstanceId: 1}
   - segmentId: not null
     spans:
-    - operationName: /update/{id}
+    - operationName: /case/delete
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -71,39 +71,39 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:8080/feign-case/update/1'}
-      - {key: http.method, value: PUT}
-      refs:
-      - {parentEndpointId: 0, parentEndpoint: /case/feign, networkAddressId: 0,
-        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 3, parentTraceSegmentId: "${feign-scenario[4]}",
-        parentServiceInstanceId: 1, networkAddress: 'localhost:8080', entryEndpoint: /case/feign,
-        entryServiceInstanceId: 1}
-  - segmentId: not null
-    spans:
-    - operationName: /delete/{id}
-      operationId: 0
-      parentSpanId: -1
-      spanId: 0
-      spanLayer: Http
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 14
-      componentName: ''
-      isError: false
-      spanType: Entry
-      peer: ''
-      peerId: 0
-      tags:
-      - {key: url, value: 'http://localhost:8080/feign-case/delete/1'}
+      - {key: url, value: 'http://localhost:8080/case/delete'}
       - {key: http.method, value: DELETE}
       refs:
-      - {parentEndpointId: 0, parentEndpoint: /case/feign, networkAddressId: 0,
-        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 4, parentTraceSegmentId: "${feign-scenario[4]}",
-        parentServiceInstanceId: 1, networkAddress: 'localhost:8080', entryEndpoint: /case/feign,
+      - {parentEndpointId: 0, parentEndpoint: /case/spring-cloud-feign-v2,, networkAddressId: 0,
+        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 3, parentTraceSegmentId: "${spring-cloud-feign-v2-scenario[4]}",
+        parentServiceInstanceId: 1, networkAddress: 'localhost:8080', entryEndpoint: /case/spring-cloud-feign-v2,,
         entryServiceInstanceId: 1}
   - segmentId: not null
     spans:
-    - operationName: /feign-case/create/
+    - operationName: /case/update
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 14
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+      - {key: url, value: 'http://localhost:8080//case/update'}
+      - {key: http.method, value: UPDATE}
+      refs:
+      - {parentEndpointId: 0, parentEndpoint: /case/spring-cloud-feign-v2,, networkAddressId: 0,
+        entryEndpointId: 0, refType: CrossProcess, parentSpanId: 4, parentTraceSegmentId: "${spring-cloud-feign-v2-scenario[4]}",
+        parentServiceInstanceId: 1, networkAddress: 'localhost:8080', entryEndpoint: /case/spring-cloud-feign-v2,,
+        entryServiceInstanceId: 1}
+  - segmentId: not null
+    spans:
+    - operationName: /case/get/{userId}
       operationId: 0
       parentSpanId: 0
       spanId: 1
@@ -117,9 +117,9 @@ segmentItems:
       peer: localhost:8080
       peerId: 0
       tags:
-      - {key: http.method, value: POST}
-      - {key: url, value: 'http://localhost:8080/feign-case/create/'}
-    - operationName: /feign-case/get/1
+      - {key: http.method, value: GET}
+      - {key: url, value: 'http://localhost:8080/case/get/1'}
+    - operationName: /case/send
       operationId: 0
       parentSpanId: 0
       spanId: 2
@@ -133,9 +133,9 @@ segmentItems:
       peer: localhost:8080
       peerId: 0
       tags:
-      - {key: http.method, value: GET}
-      - {key: url, value: 'http://localhost:8080/feign-case/get/1'}
-    - operationName: /feign-case/update/1
+      - {key: http.method, value: POST}
+      - {key: url, value: 'http://localhost:8080/case/send'}
+    - operationName: /case/delete
       operationId: 0
       parentSpanId: 0
       spanId: 3
@@ -149,9 +149,9 @@ segmentItems:
       peer: localhost:8080
       peerId: 0
       tags:
-      - {key: http.method, value: PUT}
-      - {key: url, value: 'http://localhost:8080/feign-case/update/1'}
-    - operationName: /feign-case/delete/1
+      - {key: http.method, value: DELETE}
+      - {key: url, value: 'http://localhost:8080/case/delete'}
+    - operationName: /case/update
       operationId: 0
       parentSpanId: 0
       spanId: 4
@@ -165,9 +165,9 @@ segmentItems:
       peer: localhost:8080
       peerId: 0
       tags:
-      - {key: http.method, value: DELETE}
-      - {key: url, value: 'http://localhost:8080/feign-case/delete/1'}
-    - operationName: /case/feign
+      - {key: http.method, value: PUT}
+      - {key: url, value: 'http://localhost:8080/case/update'}
+    - operationName: /case/spring-cloud-feign-v2
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -181,5 +181,5 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/feign-case/case/feign'}
+      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/case/spring-cloud-feign-v2'}
       - {key: http.method, value: GET}

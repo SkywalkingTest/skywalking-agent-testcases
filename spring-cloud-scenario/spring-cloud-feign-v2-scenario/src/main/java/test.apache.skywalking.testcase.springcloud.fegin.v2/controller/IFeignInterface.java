@@ -15,14 +15,14 @@ public interface IFeignInterface {
     @RequestMapping(value = "/case/get/{userId}", method = RequestMethod.GET)
     public String get(@PathVariable("userId") Integer userId) ;
 
-    @RequestMapping(value = "/case/send", method = RequestMethod.GET)
+    @RequestMapping(value = "/case/send", method = RequestMethod.POST)
     public String send(@RequestParam("userId") Integer userId,
                        @RequestParam("title") String title, @RequestParam("content") String content);
 
-    @RequestMapping(value = "/case/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/case/delete", method = RequestMethod.DELETE)
     public String delete(@RequestParam("id") int id);
 
-    @RequestMapping(value = "/case/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/case/update", method = RequestMethod.PUT)
     public String update(@RequestParam("id") Integer id,
                          @RequestParam("content") String content);
 

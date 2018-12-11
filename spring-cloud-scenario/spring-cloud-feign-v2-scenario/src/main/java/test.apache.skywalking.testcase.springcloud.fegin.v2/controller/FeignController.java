@@ -21,21 +21,21 @@ public class FeignController {
         return data == null ? "No data" : data;
     }
 
-    @GetMapping(value = "/send")
+    @PostMapping(value = "/send")
     @ResponseBody
     public String send(@RequestParam("userId") Integer userId, @RequestParam("content") String content) {
         issueMap.put(userId, content);
         return "success";
     }
 
-    @GetMapping(value = "/delete")
+    @DeleteMapping(value = "/delete")
     @ResponseBody
     public String delete(@RequestParam("id") int id) {
         issueMap.remove(id);
         return "success";
     }
 
-    @GetMapping(value = "/update")
+    @PutMapping(value = "/update")
     @ResponseBody
     public String update(@RequestParam("id") Integer id, @RequestParam("content") String content) {
         issueMap.put(id, content);
