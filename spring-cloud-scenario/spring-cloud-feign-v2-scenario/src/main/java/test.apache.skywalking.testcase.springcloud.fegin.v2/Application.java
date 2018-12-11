@@ -3,6 +3,7 @@ package test.apache.skywalking.testcase.springcloud.fegin.v2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableAutoConfiguration
 @SpringBootApplication
+@EnableFeignClients("test.apache.skywalking.testcase.springcloud.fegin.v2")
 @ComponentScan("test.apache.skywalking.testcase.springcloud.fegin.v2")
 public class Application extends SpringApplication {
 
