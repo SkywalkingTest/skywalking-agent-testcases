@@ -2,13 +2,11 @@ version: '2.1'
 services:
   mysql:
     image: mysql:5.7
-    container_name: mysql-5.7
     environment:
     - MYSQL_ROOT_PASSWORD=000000
 
   canal-server:
     image: canal/canal-server:v1.1.0
-    container_name: canal-server
     environment:
     - canal.instance.master.address=mysql:3306
     - canal.instance.master.journal.name=mysql-bin.000001

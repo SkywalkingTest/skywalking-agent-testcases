@@ -131,7 +131,7 @@
     </dependencies>
 
     <!--profiles-->
-    
+
     <profiles>
         <profile>
             <id>canal-scenario-1.1.2</id>
@@ -161,48 +161,6 @@
             <id>canal-scenario-1.0.24</id>
             <properties>
                 <test.framework.version>1.0.24</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>canal-scenario-1.0.23</id>
-            <properties>
-                <test.framework.version>1.0.23</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>canal-scenario-1.0.22</id>
-            <properties>
-                <test.framework.version>1.0.22</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>canal-scenario-1.0.21</id>
-            <properties>
-                <test.framework.version>1.0.21</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>canal-scenario-1.0.20</id>
-            <properties>
-                <test.framework.version>1.0.20</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>canal-scenario-1.0.19</id>
-            <properties>
-                <test.framework.version>1.0.19</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>canal-scenario-1.0.18</id>
-            <properties>
-                <test.framework.version>1.0.18</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>canal-scenario-1.0.17</id>
-            <properties>
-                <test.framework.version>1.0.17</test.framework.version>
             </properties>
         </profile>
     </profiles>
