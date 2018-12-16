@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author caoyixiong
- */
 @Controller
 @RequestMapping("/case")
 public class FeignController {

@@ -2,14 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>org.apache.skywalking</groupId>
-        <artifactId>springcloud-scenario</artifactId>
-        <version>6.0.0</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.skywalking</groupId>
     <artifactId>spring-cloud-feign-v2-scenario</artifactId>
+    <version>6.0.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -58,7 +55,7 @@
 
     <profiles>
         <profile>
-            <id>spring-cloud-feign-2.x-scenario-2.0.1.RELEASE</id>
+            <id>spring-cloud-feign-2.x-scenario-2.0.0.RELEASE</id>
             <properties>
                 <test.framework.version>2.0.0.RELEASE</test.framework.version>
             </properties>
@@ -66,7 +63,7 @@
         <profile>
             <id>spring-cloud-feign-2.x-scenario-2.0.2.RELEASE</id>
             <properties>
-                <test.framework.version>2.0.1.RELEASE</test.framework.version>
+                <test.framework.version>2.0.2.RELEASE</test.framework.version>
             </properties>
         </profile>
     </profiles>

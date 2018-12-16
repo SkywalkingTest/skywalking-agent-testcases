@@ -4,14 +4,14 @@ registryItems:
   instances:
   - {spring-cloud-feign-v2-scenario: 1}
   operationNames:
-  - spring-cloud-feign-v2-scenario: [/case/spring-cloud-feign-v2, '/update/{id}', '/delete/{id}', '/feign-case/create/', '/feign-case/delete/1', /create/, '/get/{id}', '/feign-case/update/1','/feign-case/get/1']
+  - spring-cloud-feign-v2-scenario: ['/case/spring-cloud-feign-v2', '/case/get/{userId}', '/case/send', '/case/delete', '//case/update', '/case/get/1']
 segmentItems:
 - applicationCode: spring-cloud-feign-v2-scenario
-  segmentSize: 4
+  segmentSize: 5
   segments:
   - segmentId: not null
     spans:
-    - operationName: case/get/{userId}
+    - operationName: /case/get/{userId}
       operationId: 0
       parentSpanId: -1
       spanId: 0

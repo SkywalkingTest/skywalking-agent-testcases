@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- * @author caoyixiong
- */
 @FeignClient(value = "fegin-case", url = "http://localhost:8080")
 public interface IFeignInterface {
 

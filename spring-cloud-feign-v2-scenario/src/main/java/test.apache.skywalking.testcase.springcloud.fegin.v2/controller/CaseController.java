@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
-/**
- * @author caoyixiong
- */
 @Controller
 @RequestMapping("/case")
 public class CaseController {
