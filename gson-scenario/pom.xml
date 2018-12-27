@@ -91,6 +91,36 @@
                 <test.framework.version>2.8.5</test.framework.version>
             </properties>
         </profile>
+        <profile>
+            <id>gson-scenario-2.8.4</id>
+            <properties>
+                <test.framework.version>2.8.4</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gson-scenario-2.8.3</id>
+            <properties>
+                <test.framework.version>2.8.3</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gson-scenario-2.8.2</id>
+            <properties>
+                <test.framework.version>2.8.2</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gson-scenario-2.8.1</id>
+            <properties>
+                <test.framework.version>2.8.1</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gson-scenario-2.8.0</id>
+            <properties>
+                <test.framework.version>2.8.0</test.framework.version>
+            </properties>
+        </profile>
     </profiles>
 
     <build>

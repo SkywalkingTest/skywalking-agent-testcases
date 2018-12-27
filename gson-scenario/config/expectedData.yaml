@@ -1,34 +1,23 @@
 registryItems:
   applications:
-  - {canal-scenario: nq 0}
+  - {gson-scenario: nq 0}
   instances:
-  - {canal-scenario: nq 0}
+  - {gson-scenario: nq 0}
   operationNames:
-  - canal-scenario: [/case/canal-case, Canal/example]
-  heartbeat: []
+  - gson-scenario: [/case/gson-case]
 segmentItems:
-- applicationCode: canal-scenario
+- applicationCode: gson-scenario
   segmentSize: 1
   segments:
   - segmentId: nq 0
     spans:
-    - operationName: Canal/example
-      operationId: 0
-      parentSpanId: 0
-      spanId: 1
-      spanLayer: Unknown
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 54
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: not null
-      peerId: 0
-      tags:
-      - {key: batchSize, value: '1000'}
-      - {key: destination, value: example}
-    - operationName: /case/canal-case
+    - {operationName: Gson/ToJson, operationId: 0, parentSpanId: 0, spanId: 1, spanLayer: Unknown,
+      startTime: nq 0, endTime: nq 0, componentId: 0, componentName: '',
+      isError: false, spanType: Local, peer: '', peerId: 0}
+    - {operationName: Gson/FromJson, operationId: 0, parentSpanId: 0, spanId: 2, spanLayer: Unknown,
+      startTime: nq 0, endTime: nq 0, componentId: 0, componentName: '',
+      isError: false, spanType: Local, peer: '', peerId: 0}
+    - operationName: /case/gson-case
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -42,5 +31,6 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/canal-scenario/case/canal-case'}
+      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/gson-scenario/case/gson-case'}
       - {key: http.method, value: GET}
+
