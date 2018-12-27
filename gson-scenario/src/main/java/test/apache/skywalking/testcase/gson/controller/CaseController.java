@@ -37,7 +37,7 @@ public class CaseController {
 
     @RequestMapping("/gson-case")
     @ResponseBody
-    public String canalCase() {
+    public String gsonCase() {
         Gson gson = new Gson();
         gson.fromJson(gson.toJson("gson-case"),String.class);
         return "Success";
