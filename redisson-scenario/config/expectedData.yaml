@@ -1,0 +1,43 @@
+registryItems:
+  applications:
+  - {redisson-scenario: nq 0}
+  instances:
+  - {redisson-scenario: nq 0}
+  operationNames:
+  - redisson-scenario: [/redisson/redisson-case, Redisson/example]
+  heartbeat: []
+segmentItems:
+- applicationCode: redisson-scenario
+  segmentSize: 1
+  segments:
+  - segmentId: nq 0
+    spans:
+    - operationName: Redisson/SET
+      operationId: 0
+      parentSpanId: 0
+      spanId: 1
+      spanLayer: REDIS
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 54
+      componentName: ''
+      isError: false
+      spanType: Exit
+      peer: not null
+      peerId: 0
+    - operationName: /redisson/redisson-case
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 14
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/redisson-scenario/redisson/redisson-case'}
+      - {key: http.method, value: GET}
