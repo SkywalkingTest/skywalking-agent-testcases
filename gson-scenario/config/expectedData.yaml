@@ -30,7 +30,7 @@ segmentItems:
       operationId: 0 
       parentSpanId: 0 
       spanId: 2 
-      spanLayer: Unknown,
+      spanLayer: Unknown
       tags:
       - {key: 'length', value: 'not null'}
       startTime: nq 0 
