@@ -39,7 +39,7 @@ public class RedissonController {
         Config config = new Config();
 
         config.useSingleServer()
-                .setAddress("127.0.0.1:6379");
+                .setAddress("redis://127.0.0.1:6379");
         RedissonClient client = Redisson.create(config);
 
         RBucket<String> bucket = client.getBucket("key_a");

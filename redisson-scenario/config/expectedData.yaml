@@ -2,10 +2,9 @@ registryItems:
   applications:
   - {redisson-scenario: nq 0}
   instances:
-  - {redisson-scenario: nq 0}
+  - {redisson-scenario: 1}
   operationNames:
-  - redisson-scenario: [/redisson/redisson-case, Redisson/example]
-  heartbeat: []
+  - redisson-scenario: [/redisson/redisson-case]
 segmentItems:
 - applicationCode: redisson-scenario
   segmentSize: 1
@@ -16,15 +15,17 @@ segmentItems:
       operationId: 0
       parentSpanId: 0
       spanId: 1
-      spanLayer: REDIS
+      spanLayer: Cache
       startTime: nq 0
       endTime: nq 0
       componentId: 54
-      componentName: ''
+      componentName: 'Redisson'
       isError: false
       spanType: Exit
-      peer: not null
+      peer: '127.0.0.1:6379'
       peerId: 0
+      tags:
+      - {key: "db.type", value: "Redis"}
     - operationName: /redisson/redisson-case
       operationId: 0
       parentSpanId: -1
