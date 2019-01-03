@@ -11,35 +11,35 @@ segmentItems:
   segments:
   - segmentId: nq 0
     spans:
-    - operationName: Gson/ToJson,
-      operationId: 0, 
-      parentSpanId: 0, 
-      spanId: 1, 
-      spanLayer: Unknown,
+    - operationName: Gson/ToJson 
+      operationId: 0  
+      parentSpanId: 0  
+      spanId: 1  
+      spanLayer: Unknown 
       tags:
       - {key: 'length', value: 'not null'}
-      startTime: nq 0,
-      endTime: nq 0,
-      componentId: 55,
-      componentName: '',
-      isError: false,
-      spanType: Local, 
-      peer: '', 
+      startTime: nq 0 
+      endTime: nq 0 
+      componentId: 55 
+      componentName: '' 
+      isError: false 
+      spanType: Local  
+      peer: ' ' 
       peerId: 0
-    - operationName: Gson/FromJson, 
-      operationId: 0,
-      parentSpanId: 0,
-      spanId: 2,
+    - operationName: Gson/FromJson
+      operationId: 0 
+      parentSpanId: 0 
+      spanId: 2 
       spanLayer: Unknown,
       tags:
       - {key: 'length', value: 'not null'}
-      startTime: nq 0,
-      endTime: nq 0,
-      componentId: 55,
-      componentName: '',
-      isError: false,
-      spanType: Local,
-      peer: '',
+      startTime: nq 0 
+      endTime: nq 0 
+      componentId: 55 
+      componentName: '' 
+      isError: false 
+      spanType: Local 
+      peer: '' 
       peerId: 0
     - operationName: /case/gson-case
       operationId: 0
