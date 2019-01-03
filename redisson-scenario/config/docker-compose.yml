@@ -17,7 +17,7 @@ services:
     - mock-collector
     - redis-server
     volumes:
-    - {AGENT_FILE_PATH}:/usr/local/skywalking-canal-scenario/agent
+    - {AGENT_FILE_PATH}:/usr/local/skywalking-redisson-scenario/agent
     depends_on:
       mock-collector:
         condition: service_healthy
