@@ -12,6 +12,12 @@ testcase:
   # The framework name that need tested.
   #
   test_framework: Gson
+
+  #
+  # The running mode:  TOGETHER(default), SINGLE, WITH_OPTIONAL
+  #
+  running_mode: WITH_OPTIONAL
+  
   #
   # The framework version list of current test case supported
   #
