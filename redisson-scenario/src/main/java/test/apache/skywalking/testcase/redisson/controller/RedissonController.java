@@ -19,6 +19,7 @@
 package test.apache.skywalking.testcase.redisson.controller;
 
 import org.redisson.Redisson;
+import org.redisson.api.RBatch;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -27,6 +28,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.concurrent.TimeUnit;
 
 
 @Controller
@@ -49,6 +52,11 @@ public class RedissonController {
         RBucket<String> bucket = client.getBucket("key_a");
         bucket.set("value_a");
 
+        RBatch batch = client.createBatch();
+        batch.getBucket("batch_k_a").setAsync("batch_v_a");
+        batch.getBucket("batch_k_b").setAsync("batch_v_b");
+        batch.getBucket("batch_k_b").expireAsync(20, TimeUnit.SECONDS);
+        batch.execute();
         return "Success";
     }
 

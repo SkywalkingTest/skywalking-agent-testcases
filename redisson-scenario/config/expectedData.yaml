@@ -26,6 +26,21 @@ segmentItems:
       peerId: 0
       tags:
       - {key: "db.type", value: "Redis"}
+    - operationName: Redisson/SET&SET&PEXPIRE
+      operationId: 0
+      parentSpanId: 0
+      spanId: 2
+      spanLayer: Cache
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 56
+      componentName: ''
+      isError: false
+      spanType: Exit
+      peer: 'not null'
+      peerId: 0
+      tags:
+      - {key: "db.type", value: "Redis"}
     - operationName: /redisson/redisson-case
       operationId: 0
       parentSpanId: -1
