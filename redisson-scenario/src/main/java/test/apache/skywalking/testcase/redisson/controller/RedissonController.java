@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @PropertySource("classpath:application.properties")
 public class RedissonController {
 
-    @RequestMapping("/redisson_case")
+    @RequestMapping("/redisson-case")
     @ResponseBody
     public String redissonCase() {
         Config config = new Config();

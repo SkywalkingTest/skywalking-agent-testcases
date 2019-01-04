@@ -18,7 +18,7 @@ segmentItems:
       spanLayer: Cache
       startTime: nq 0
       endTime: nq 0
-      componentId: 54
+      componentId: 56
       componentName: 'Redisson'
       isError: false
       spanType: Exit
