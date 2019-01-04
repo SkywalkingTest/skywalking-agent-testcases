@@ -22,6 +22,7 @@ import org.redisson.Redisson;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +34,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @PropertySource("classpath:application.properties")
 public class RedissonController {
 
+    @Value(value = "${redis.host}")
+    private String address;
+
     @RequestMapping("/redisson-case")
     @ResponseBody
     public String redissonCase() {
         Config config = new Config();
 
         config.useSingleServer()
-                .setAddress("redis://127.0.0.1:6379");
+                .setAddress("redis://" + address + ":6379");
         RedissonClient client = Redisson.create(config);
 
         RBucket<String> bucket = client.getBucket("key_a");

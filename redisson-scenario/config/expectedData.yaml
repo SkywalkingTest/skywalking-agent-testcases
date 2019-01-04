@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {redisson-scenario: 1}
   operationNames:
-  - redisson-scenario: [/redisson/redisson-case]
+  - redisson-scenario: [/redisson/redisson-case, Redisson/SET]
 segmentItems:
 - applicationCode: redisson-scenario
   segmentSize: 1
@@ -19,10 +19,10 @@ segmentItems:
       startTime: nq 0
       endTime: nq 0
       componentId: 56
-      componentName: 'Redisson'
+      componentName: ''
       isError: false
       spanType: Exit
-      peer: '127.0.0.1:6379'
+      peer: 'not null'
       peerId: 0
       tags:
       - {key: "db.type", value: "Redis"}
