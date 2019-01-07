@@ -1,0 +1,54 @@
+package org.apache.skywalking.netty.http.scenario.payload;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotBlank;
+
+/**
+ * Created by rajeevkumarsingh on 12/11/17.
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class RepoRequest {
+    @NotBlank
+    private String name;
+
+    private String description;
+
+    @JsonProperty("private")
+    private Boolean isPrivate;
+
+
+    public RepoRequest() {
+
+    }
+
+    public RepoRequest(@NotBlank String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(Boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
+}
