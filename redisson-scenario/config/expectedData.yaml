@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {redisson-scenario: 1}
   operationNames:
-  - redisson-scenario: [/redisson/redisson-case, Redisson/SET]
+  - redisson-scenario: [/redisson/redisson-case, Redisson/BATCH_EXECUTE, Redisson/SET]
 segmentItems:
 - applicationCode: redisson-scenario
   segmentSize: 1
@@ -25,8 +25,10 @@ segmentItems:
       peer: 'not null'
       peerId: 0
       tags:
-      - {key: "db.type", value: "Redis"}
-    - operationName: Redisson/SET&SET&PEXPIRE
+      - {key: db.type, value: Redis}
+      - {key: db.instance, value: 'not null'}
+      - {key: db.statement, value: 'SET key_a ?'}
+    - operationName: Redisson/BATCH_EXECUTE
       operationId: 0
       parentSpanId: 0
       spanId: 2
@@ -40,7 +42,9 @@ segmentItems:
       peer: 'not null'
       peerId: 0
       tags:
-      - {key: "db.type", value: "Redis"}
+      - {key: db.type, value: Redis}
+      - {key: db.instance, value: 'not null'}
+      - {key: db.statement, value: 'SET batch_k_a ?;SET batch_k_b ?;PEXPIRE batch_k_b 20000;'}
     - operationName: /redisson/redisson-case
       operationId: 0
       parentSpanId: -1
