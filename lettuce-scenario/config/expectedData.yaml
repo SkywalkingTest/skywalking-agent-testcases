@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {lettuce-scenario: 1}
   operationNames:
-  - lettuce-scenario: [Lettuce/GET, Lettuce/BATCH_WRITE, /lettuce/lettuce-case]
+  - lettuce-scenario: [Lettuce/GET, Lettuce/BATCH_WRITE, /url, Lettuce/SET, /lettuce/lettuce-case]
 segmentItems:
 - applicationCode: lettuce-scenario
   segmentSize: 1
@@ -27,10 +27,43 @@ segmentItems:
       tags:
       - {key: db.type, value: Redis}
       - {key: db.statement, value: GET}
-    - operationName: Lettuce/BATCH_WRITE
+    - operationName: Lettuce/SET
       operationId: 0
       parentSpanId: 0
       spanId: 2
+      spanLayer: Cache
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 57
+      componentName: ''
+      isError: false
+      spanType: Exit
+      peer: 'not null'
+      peerId: 0
+      tags:
+      - {key: db.type, value: Redis}
+      - {key: db.statement, value: SET}
+    - operationName: /url
+      operationId: 0
+      parentSpanId: 0
+      spanId: 3
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 12
+      componentName: ''
+      isError: false
+      spanType: Exit
+      peer: 'not null'
+      peerId: 0
+      tags:
+      - {key: http.method, value: 'not null'}
+      - {key: url, value: 'not null'}
+      - {key: status_code, value: nq 0}
+    - operationName: Lettuce/BATCH_WRITE
+      operationId: 0
+      parentSpanId: 0
+      spanId: 4
       spanLayer: Cache
       startTime: nq 0
       endTime: nq 0

@@ -24,14 +24,22 @@ import io.lettuce.core.RedisFuture;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.api.async.RedisAsyncCommands;
 import io.lettuce.core.api.sync.RedisCommands;
+import io.lettuce.core.protocol.AsyncCommand;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -40,17 +48,37 @@ import java.util.concurrent.TimeUnit;
 @PropertySource("classpath:application.properties")
 public class LettuceController {
 
+    private Logger logger = LoggerFactory.getLogger(LettuceController.class);
+
+    private static final OkHttpClient OK_HTTP_CLIENT = new OkHttpClient.Builder().connectTimeout(6, TimeUnit.SECONDS)
+            .readTimeout(6, TimeUnit.SECONDS).writeTimeout(6, TimeUnit.SECONDS).build();
+
     @Value(value = "${redis.host}")
     private String address;
 
     @RequestMapping("/lettuce-case")
     @ResponseBody
-    public String lettuceCase() {
+    public String lettuceCase() throws ExecutionException, InterruptedException {
         RedisClient redisClient = RedisClient.create("redis://" + address + ":6379");
         StatefulRedisConnection<String, String> connection0 = redisClient.connect();
         RedisCommands<String, String> syncCommand = connection0.sync();
         syncCommand.get("key");
 
+
+        RedisAsyncCommands<String, String> asyncCommands0 = connection0.async();
+        AsyncCommand<String, String, String> future = (AsyncCommand<String, String, String>) asyncCommands0.set("key_a", "value_a");
+
+        future.onComplete(s -> {
+            Request.Builder builder3 = new Request.Builder().url("http://skywalking.apache.org/url");
+            try {
+                Response response3 = OK_HTTP_CLIENT.newCall(builder3.build()).execute();
+                response3.close();
+            } catch (IOException e) {
+                logger.error("e:", e);
+            }
+        });
+
+        future.get();
 
         StatefulRedisConnection<String, String> connection1 = redisClient.connect();
         RedisAsyncCommands<String, String> asyncCommands = connection1.async();
