@@ -21,13 +21,14 @@ services:
       - "{SERVER_OUTPUT_PORT}:8080"
     environment:
       - COLLECTOR_SERVER=mock-collector:19876
+      - MYSQL_INSTANCE_HOST=mysql-server:3306
     links:
       - mock-collector
     volumes:
      - {AGENT_FILE_PATH}:/usr/local/shardingsphere-scenario/agent
     depends_on:
-      mock-collector:
-        condition: service_healthy
+      - mock-collector
+      - mysql-server
 
   mock-collector:
     image: skywalking/skywalking-mock-collector:{COLLECTOR_IMAGE_VERSION}
