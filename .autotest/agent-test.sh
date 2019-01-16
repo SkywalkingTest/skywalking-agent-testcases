@@ -339,7 +339,7 @@ deployTestCase(){
 	CASE_REQUEST_URL=$(grep "case.request_url" $CASE_DIR/testcase.desc | awk -F '=' '{print $2}')
 	echo $CASE_REQUEST_URL
 	curl -s $CASE_REQUEST_URL > /dev/null
-	sleep 15
+	sleep 30
 
 	curl -s $RECIEVE_DATA_URL > $CASE_DIR/actualData.yaml
 
@@ -446,8 +446,8 @@ fi
 #
 # clear unused images
 #
-(docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi -f) > /dev/null
-(docker ps -a | awk '{print $1}' | xargs docker rm -f -v) > /dev/null
+#(docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi -f) > /dev/null
+#(docker ps -a | awk '{print $1}' | xargs docker rm -f -v) > /dev/null
 #(docker images | grep skywalking | grep -v 'skywalking/skywalking-mock-collector' | awk '{print $3}' | xargs docker rmi -f) > /dev/null
 echo "clear images Done!"
 #
