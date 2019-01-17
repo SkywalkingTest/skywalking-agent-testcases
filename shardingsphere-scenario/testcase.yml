@@ -7,7 +7,7 @@ testcase:
   #
   # The request url of current test cases.
   #
-  request_url: http://localhost:{SERVER_OUTPUT_PORT}/shardingsphere-case/case/shardingsphere-case
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/shardingsphere-case/case/execute
   #
   # The framework name that need tested.
   #
