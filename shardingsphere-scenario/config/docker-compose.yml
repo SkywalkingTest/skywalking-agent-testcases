@@ -24,6 +24,7 @@ services:
       - MYSQL_INSTANCE_HOST=mysql-server:3306
     links:
       - mock-collector
+      - mysql-server
     volumes:
      - {AGENT_FILE_PATH}:/usr/local/shardingsphere-scenario/agent
     depends_on:
