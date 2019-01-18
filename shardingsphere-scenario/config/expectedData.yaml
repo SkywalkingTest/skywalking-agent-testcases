@@ -1,318 +1,4972 @@
 registryItems:
   applications:
-  - {shardingsphere-scenario: nq 0}
+    -
+      Your_ApplicationName: nq 0
   instances:
-  - {shardingsphere-scenario: 1}
+    -
+      Your_ApplicationName: 1
   operationNames:
-  - shardingsphere-scenario: [/case/execute]
-  heartbeat: []
+    -
+      Your_ApplicationName:
+        -
+      "Mysql/JDBI/Statement/execute"
+      -
+      "Mysql/JDBI/PreparedStatement/executeUpdate"
+      -
+      "/case/execute"
+      -
+      "Mysql/JDBI/PreparedStatement/executeQuery"
+      -
+      "Mysql/JDBI/Statement/executeUpdate"
+      -
+      "Mysql/JDBI/Connection/close"
+      -
+      "Mysql/JDBI/Statement/executeQuery"
 segmentItems:
-- applicationCode: shardingsphere-scenario
-  segmentSize: 5
-  segments:
-  - segmentId: not null
-    spans:
-    - operationName: /ShardingSphere/parseSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: db.statement, value: 'SELECT * FROM t_order'}
-    - operationName: /ShardingSphere/JDBCRootInvoke/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-    - operationName: /ShardingSphere/parseSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: db.statement, value: 'SELECT i.* FROM t_order o, t_order_item i WHERE o.order_id = i.order_id'}
-    - operationName: /ShardingSphere/JDBCRootInvoke/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-  - segmentId: not null
-    spans:
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_0"}
-      - {key: "db.statement", value: "SELECT * FROM t_order_0"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_0"}
-      - {key: "db.statement", value: "SELECT * FROM t_order_1"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-  - segmentId: not null
-    spans:
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_1"}
-      - {key: "db.statement", value: "SELECT * FROM t_order_0"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_1"}
-      - {key: "db.statement", value: "SELECT * FROM t_order_1"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-  - segmentId: not null
-    spans:
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_0"}
-      - {key: "db.statement", value: "SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_0"}
-      - {key: "db.statement", value: "SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-  - segmentId: not null
-    spans:
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_1"}
-      - {key: "db.statement", value: "SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-    - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 33
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
-      tags:
-      - {key: "db.type", value: "sql"}
-      - {key: "db.instance", value: "demo_ds_1"}
-      - {key: "db.statement", value: "SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id"}
-    - operationName: /ShardingSphere/executeSQL/
-      operationId: 0
-      parentSpanId: 0
-      spanId: 0
-      spanLayer: null
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 51
-      componentName: null
-      isError: false
-      spanType: Local
-      peer: null
-      peerId: 0
+  -
+    applicationCode: Your_ApplicationName
+    segmentSize: gt 1
+    segments:
+      -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Connection/close"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: ""
+          -
+      key: "db.statement"
+        value: ""
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/execute"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: ""
+          -
+      key: "db.statement"
+        value: "CREATE DATABASE demo_ds_0"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/execute"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: ""
+          -
+      key: "db.statement"
+        value: "CREATE DATABASE demo_ds_1"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Connection/close"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: ""
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Connection/close"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: ""
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_0 (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_1 (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_0 (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 3
+        spanId: 4
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_1 (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 3
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_0` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_0` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_1` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_1` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_1` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_0` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_1` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_0` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_item (order_item_id BIGINT NOT NULL AUTO_INCREMENT, order_id BIGINT NOT NULL, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_item_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_item_0 (order_item_id BIGINT NOT NULL AUTO_INCREMENT, order_id BIGINT NOT NULL, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_item_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_item_1 (order_item_id BIGINT NOT NULL AUTO_INCREMENT, order_id BIGINT NOT NULL, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_item_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_item_0 (order_item_id BIGINT NOT NULL AUTO_INCREMENT, order_id BIGINT NOT NULL, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_item_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 3
+        spanId: 4
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "CREATE TABLE IF NOT EXISTS t_order_item_1 (order_item_id BIGINT NOT NULL AUTO_INCREMENT, order_id BIGINT NOT NULL, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_item_id))"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 3
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_0` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_0` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_1` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_1` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_0` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_1` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_0` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_1` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_1"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_1` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_1` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_item"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_0"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 3
+        spanId: 4
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_1"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 3
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_0` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_0` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_0` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_1` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_0"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_0` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_1` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_item_0"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_0` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_1` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_item_1"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 0
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_0` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_1` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_item_0"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/Statement/executeUpdate"
+        operationId: 0
+        parentSpanId: 3
+        spanId: 4
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "TRUNCATE TABLE t_order_item_1"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 3
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_0` FROM `demo_ds_1`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW KEYS FROM `t_order_item_1` FROM `demo_ds_0`"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_0` LIKE 't_order_item_0'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_0` FROM `demo_ds_0` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL TABLES FROM `demo_ds_1` LIKE 't_order_item_1'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/Statement/executeQuery"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SHOW FULL COLUMNS FROM `t_order_item_1` FROM `demo_ds_1` LIKE '%'"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order (user_id, status) VALUES (?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_0 (user_id, status, order_id) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeUpdate"
+        operationId: 0
+        parentSpanId: 1
+        spanId: 2
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "INSERT INTO t_order_item_0 (order_id, user_id, status) VALUES (?, ?, ?)"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SELECT * FROM t_order_0"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/case/execute"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 2
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/case/execute"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SELECT * FROM t_order_1"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/case/execute"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 2
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/case/execute"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/case/execute"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 8
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/case/execute"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_1
+          -
+      key: "db.statement"
+        value: "SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Unknown
+        refs:
+          -
+      parentEndpointId: 0
+        parentEndpoint: "/case/execute"
+        networkAddressId: 0
+        entryEndpointId: 0
+        refType: CrossThread
+        parentSpanId: 8
+        parentTracesegmentId: not null
+        parentServiceInstanceId: 1
+        networkAddress: ""
+        entryEndpoint: "/case/execute"
+        entryServiceInstanceId: 1
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      segmentId: not null
+        spans:
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 1
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "SELECT * FROM t_order"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 3
+        spanId: 4
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SELECT * FROM t_order_0"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 2
+        spanId: 3
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 5
+        spanId: 6
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SELECT * FROM t_order_1"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 2
+        spanId: 5
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 2
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/parseSQL/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 7
+        spanLayer: Unknown
+        tags:
+          -
+      key: "db.statement"
+        value: "SELECT i.* FROM t_order o, t_order_item i WHERE o.order_id = i.order_id"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 9
+        spanId: 10
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 8
+        spanId: 9
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "Mysql/JDBI/PreparedStatement/executeQuery"
+        operationId: 0
+        parentSpanId: 11
+        spanId: 12
+        spanLayer: Database
+        tags:
+          -
+      key: "db.type"
+        value: sql
+          -
+      key: "db.instance"
+        value: demo_ds_0
+          -
+      key: "db.statement"
+        value: "SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id"
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 33
+        componentName: ""
+        isError: false
+        spanType: Exit
+        peer: "mysql-server:3306"
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/executeSQL/"
+        operationId: 0
+        parentSpanId: 8
+        spanId: 11
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/ShardingSphere/JDBCRootInvoke/"
+        operationId: 0
+        parentSpanId: 0
+        spanId: 8
+        spanLayer: Unknown
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 57
+        componentName: ""
+        isError: false
+        spanType: Local
+        peer: ""
+        peerId: 0
+          -
+      operationName: "/case/execute"
+        operationId: 0
+        parentSpanId: "-1"
+        spanId: 0
+        spanLayer: Http
+        tags:
+          -
+      key: url
+        value: "http://localhost:18080/shardingsphere-case/case/execute"
+          -
+      key: "http.method"
+        value: GET
+        startTime: nq 0
+        endTime: nq 0
+        componentId: 14
+        componentName: ""
+        isError: false
+        spanType: Entry
+        peer: ""
+        peerId: 0
