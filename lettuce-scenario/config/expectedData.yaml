@@ -1,13 +1,13 @@
 registryItems:
   applications:
-  - {lettuce-scenario: nq 0}
+  - {lettuce-scenario: 2}
   instances:
   - {lettuce-scenario: 1}
   operationNames:
-  - lettuce-scenario: [Lettuce/GET, Lettuce/BATCH_WRITE, /url, Lettuce/SET, /lettuce/lettuce-case]
+  - lettuce-scenario: [Lettuce/GET, Lettuce/BATCH_WRITE, /lettuce/lettuce-case]
 segmentItems:
 - applicationCode: lettuce-scenario
-  segmentSize: nq 0
+  segmentSize: 1
   segments:
   - segmentId: nq 0
     spans:
@@ -27,49 +27,10 @@ segmentItems:
       tags:
       - {key: db.type, value: Redis}
       - {key: db.statement, value: GET}
-    - operationName: Lettuce/SET
-      operationId: 0
-      parentSpanId: 0
-      spanId: 2
-      spanLayer: Cache
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 57
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: 'not null'
-      peerId: 0
-      tags:
-      - {key: db.type, value: Redis}
-      - {key: db.statement, value: SET}
-    - operationName: /url
-      operationId: 0
-      parentSpanId: nq 0
-      spanId: nq 0
-      spanLayer: Http
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 12
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: 'not null'
-      peerId: 0
-      tags:
-      - {key: http.method, value: 'not null'}
-      - {key: url, value: 'not null'}
-      - {key: status_code, value: nq 0}
-    - {operationName: SWConsumer/accept, operationId: 0, parentSpanId: 'not null', spanId: 'not null',
-       spanLayer: Unknown, startTime: 'not null', endTime: 'not null', componentId: 57,
-       componentName: '', isError: false, spanType: Local, peer: '', peerId: 0}
-    - {operationName: AsyncCommand/onComplete, operationId: 0, parentSpanId: 'not null', spanId: 'not null',
-       spanLayer: Unknown, startTime: 'not null', endTime: 'not null', componentId: 57,
-       componentName: '', isError: false, spanType: Local, peer: '', peerId: 0}
     - operationName: Lettuce/BATCH_WRITE
       operationId: 0
       parentSpanId: 0
-      spanId: nq 0
+      spanId: 2
       spanLayer: Cache
       startTime: nq 0
       endTime: nq 0
@@ -96,5 +57,5 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/lettuce-scenario/lettuce/lettuce-case'}
+      - {key: url, value: 'http://localhost:18080/lettuce-scenario/lettuce/lettuce-case'}
       - {key: http.method, value: GET}
