@@ -45,8 +45,8 @@ segmentItems:
       - {key: db.statement, value: SET}
     - operationName: /url
       operationId: 0
-      parentSpanId: 0
-      spanId: 3
+      parentSpanId: nq 0
+      spanId: nq 0
       spanLayer: Http
       startTime: nq 0
       endTime: nq 0
@@ -60,10 +60,16 @@ segmentItems:
       - {key: http.method, value: 'not null'}
       - {key: url, value: 'not null'}
       - {key: status_code, value: nq 0}
+    - {operationName: SWConsumer/accept, operationId: 0, parentSpanId: 3, spanId: 4,
+       spanLayer: Unknown, startTime: 'not null', endTime: 'not null', componentId: 57,
+       componentName: '', isError: false, spanType: Local, peer: '', peerId: 0}
+    - {operationName: AsyncCommand/onComplete, operationId: 0, parentSpanId: 0, spanId: 3,
+       spanLayer: Unknown, startTime: 'not null', endTime: 'not null', componentId: 57,
+       componentName: '', isError: false, spanType: Local, peer: '', peerId: 0}
     - operationName: Lettuce/BATCH_WRITE
       operationId: 0
       parentSpanId: 0
-      spanId: 4
+      spanId: 6
       spanLayer: Cache
       startTime: nq 0
       endTime: nq 0
