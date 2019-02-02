@@ -18,6 +18,9 @@
 
 package test.apache.skywalking.testcase.zookeeper.controller;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import org.apache.zookeeper.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,13 +31,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 @Controller
 @RequestMapping("/zookeeper")
 @PropertySource("classpath:application.properties")
-public class ZookeeperController implements Watcher {
+public class ZookeeperController {
     private Logger logger = LoggerFactory.getLogger(ZookeeperController.class);
+
+    private static final OkHttpClient OK_HTTP_CLIENT = new OkHttpClient.Builder().connectTimeout(6, TimeUnit.SECONDS)
+            .readTimeout(6, TimeUnit.SECONDS).writeTimeout(6, TimeUnit.SECONDS).build();
+
 
     @Value(value = "${zookeeper.host}")
     private String address;
@@ -42,16 +50,22 @@ public class ZookeeperController implements Watcher {
     @RequestMapping("/zookeeper-case")
     @ResponseBody
     public String zookeeperCase() throws KeeperException, InterruptedException, IOException {
-        ZooKeeper zooKeeper = new ZooKeeper(address, 200000, this);
+        ZooKeeper zooKeeper = new ZooKeeper(address, 200000, new Watcher() {
+            @Override
+            public void process(WatchedEvent event) {
+                Request.Builder builder3 = new Request.Builder().url("http://skywalking.apache.org/url");
+                try {
+                    Response response3 = OK_HTTP_CLIENT.newCall(builder3.build()).execute();
+                    response3.close();
+                } catch (IOException e) {
+                    logger.error("e0:", e);
+                }
+            }
+        });
         zooKeeper.create("/path", "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         zooKeeper.setData("/path", "data".getBytes(), -1);
-        zooKeeper.exists("/path", false);
+        zooKeeper.exists("/path", true);
         zooKeeper.delete("/path", -1);
         return "Success";
-    }
-
-    @Override
-    public void process(WatchedEvent event) {
-        logger.info("process");
     }
 }

@@ -7,7 +7,7 @@ registryItems:
   - zookeeper-scenario: [/zookeeper/zookeeper-case, Zookeeper/setData, Zookeeper/create, Zookeeper/exists, Zookeeper/delete]
 segmentItems:
 - applicationCode: zookeeper-scenario
-  segmentSize: 4
+  segmentSize: 5
   segments:
   - segmentId: nq 0
     spans:
@@ -60,7 +60,7 @@ segmentItems:
       tags:
       - {key: db.type, value: Zookeeper}
       - {key: path, value: /path}
-      - {key: watch, value: 'false'}
+      - {key: watch, value: 'true'}
     - operationName: Zookeeper/delete
       operationId: 0
       parentSpanId: 0
