@@ -4,14 +4,14 @@ registryItems:
   instances:
   - {zookeeper-scenario: 1}
   operationNames:
-  - zookeeper-scenario: [/zookeeper/zookeeper-case, Zookeeper/setData, Zookeeper/create, Zookeeper/exists, Zookeeper/delete]
+  - zookeeper-scenario: [/zookeeper/zookeeper-case, Zookeeper/exists, Zookeeper/delete]
 segmentItems:
 - applicationCode: zookeeper-scenario
-  segmentSize: 5
+  segmentSize: nq 0
   segments:
   - segmentId: nq 0
     spans:
-    - operationName: Zookeeper/create
+    - operationName: Zookeeper/exists
       operationId: 0
       parentSpanId: 0
       spanId: 1
@@ -27,70 +27,21 @@ segmentItems:
       tags:
       - {key: db.type, value: Zookeeper}
       - {key: path, value: /path}
-    - operationName: Zookeeper/setData
-      operationId: 0
-      parentSpanId: 0
-      spanId: 2
-      spanLayer: Cache
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 58
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: 'not null'
-      peerId: 0
-      tags:
-      - {key: db.type, value: Zookeeper}
-      - {key: path, value: /path}
-      - {key: version, value: '-1'}
-    - operationName: Zookeeper/exists
-      operationId: 0
-      parentSpanId: 0
-      spanId: 3
-      spanLayer: Cache
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 58
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: 'not null'
-      peerId: 0
-      tags:
-      - {key: db.type, value: Zookeeper}
-      - {key: path, value: /path}
       - {key: watch, value: 'true'}
-    - operationName: Zookeeper/delete
-      operationId: 0
-      parentSpanId: 0
-      spanId: 4
-      spanLayer: Cache
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 58
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: 'not null'
-      peerId: 0
-      tags:
-      - {key: db.type, value: Zookeeper}
-      - {key: path, value: /path}
-      - {key: version, value: '-1'}
-    - operationName: /zookeeper/zookeeper-case
+    - operationName: Zookeeper/WatchedEvent/NodeDeleted
       operationId: 0
       parentSpanId: -1
       spanId: 0
-      spanLayer: Http
+      spanLayer: Unknown
       startTime: nq 0
       endTime: nq 0
-      componentId: 14
+      componentId: 58
       componentName: ''
       isError: false
-      spanType: Entry
-      peer: ''
+      spanType: Local
+      peer: 'not null'
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/zookeeper-scenario/zookeeper/zookeeper-case'}
-      - {key: http.method, value: GET}
+      - {key: path, value: /path}
+      - {key: state, value: SyncConnected}
+      - {key: db.type, value: Zookeeper}
