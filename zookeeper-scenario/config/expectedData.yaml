@@ -38,7 +38,7 @@ segmentItems:
       componentId: 58
       componentName: ''
       isError: false
-      spanType: Local
+      spanType: 'not null'
       peer: 'not null'
       peerId: 0
       tags:
