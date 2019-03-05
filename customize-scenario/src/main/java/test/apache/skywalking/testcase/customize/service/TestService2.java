@@ -21,6 +21,9 @@ package test.apache.skywalking.testcase.customize.service;
 import org.springframework.stereotype.Service;
 import test.apache.skywalking.testcase.customize.model.Model0;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author zhaoyuguang
  */
@@ -32,11 +35,11 @@ public class TestService2 {
 
     }
 
-    public void method() {
+    public void method(Object[] objects) {
 
     }
 
-    public void method(String str0, int count) {
+    public void method(List str0, int count) {
 
     }
 }

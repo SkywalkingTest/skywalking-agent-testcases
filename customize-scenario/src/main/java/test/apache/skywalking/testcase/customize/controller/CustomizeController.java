@@ -48,24 +48,28 @@ public class CustomizeController {
     @RequestMapping("/customize-case")
     @ResponseBody
     public String customizeCase() {
-        testService1.method();
-        testService1.method("str0", 123);
         Model0 m0 = new Model0("id", 123, new Model1(100, "name"), new HashMap() {{
             put("k1", "v1");
         }}, new ArrayList() {{
             add("a");
         }}, new Object[]{'1', 2, "3"});
-        testService1.method(m0, "def_str_0", 123);
+
         TestService1.staticMethod();
         TestService1.staticMethod("id", 123, new HashMap() {{
             put("k1", "v1");
         }}, new ArrayList() {{
             add("a");
         }}, new Object[]{'1', 2, "3"});
+        testService1.method();
+        testService1.method("str0", 123);
+        testService1.method(m0, "def_str_0", 123);
 
-        testService2.method();
-        testService2.method("", 123);
         TestService2.staticMethod("s", 123);
+        testService2.method(new Object[]{'1', 2, "3"});
+        testService2.method(new ArrayList() {{
+            add("a2");
+        }}, 123);
+
 
         logger.info("Success");
         return "Success";
