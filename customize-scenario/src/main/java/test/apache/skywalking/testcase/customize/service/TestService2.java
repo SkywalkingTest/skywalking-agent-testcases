@@ -27,7 +27,6 @@ import java.util.List;
 /**
  * @author zhaoyuguang
  */
-@Service
 public class TestService2 {
 
 

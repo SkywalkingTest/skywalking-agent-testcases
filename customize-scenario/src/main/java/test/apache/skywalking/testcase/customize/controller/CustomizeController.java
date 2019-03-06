@@ -20,7 +20,6 @@ package test.apache.skywalking.testcase.customize.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +32,8 @@ import test.apache.skywalking.testcase.customize.service.TestService2;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+actory.annotation.Autowired;
+
 @Controller
 @RequestMapping("/customize")
 @PropertySource("classpath:application.properties")
@@ -40,10 +41,8 @@ public class CustomizeController {
 
     private Logger logger = LoggerFactory.getLogger(CustomizeController.class);
 
-    @Autowired
-    private TestService1 testService1;
-    @Autowired
-    private TestService2 testService2;
+    private TestService1 testService1 = new TestService1();
+    private TestService2 testService2 = new TestService2();
 
     @RequestMapping("/customize-case")
     @ResponseBody

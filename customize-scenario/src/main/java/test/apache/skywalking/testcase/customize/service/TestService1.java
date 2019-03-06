@@ -18,7 +18,6 @@
 
 package test.apache.skywalking.testcase.customize.service;
 
-import org.springframework.stereotype.Service;
 import test.apache.skywalking.testcase.customize.model.Model0;
 
 import java.util.List;
@@ -28,7 +27,6 @@ import java.util.Map;
  * @author zhaoyuguang
  */
 
-@Service
 public class TestService1 {
 
     public static void staticMethod() {
