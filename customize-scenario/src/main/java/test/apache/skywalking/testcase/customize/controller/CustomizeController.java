@@ -32,7 +32,6 @@ import test.apache.skywalking.testcase.customize.service.TestService2;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-actory.annotation.Autowired;
 
 @Controller
 @RequestMapping("/customize")
