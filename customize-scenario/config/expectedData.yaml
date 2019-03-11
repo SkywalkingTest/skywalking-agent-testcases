@@ -21,7 +21,7 @@ segmentItems:
       isError: false
       peerId: 0
       spanType: Local
-    - operationName: /is_static_method_args/id/123/
+    - operationName: /is_static_method_args/id/123/a
       operationId: 0
       parentSpanId: 0
       spanId: 2
