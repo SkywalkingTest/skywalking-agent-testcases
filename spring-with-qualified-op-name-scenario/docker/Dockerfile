@@ -4,6 +4,7 @@ ENV COLLECTOR_SERVER=127.0.0.1:12800
 
 ADD startup.sh /usr/local/skywalking-spring-with-qualified-op-name-scenario/
 
+ADD spring-with-qualified-op-name-scenario.jar /usr/local/skywalking-spring-with-qualified-op-name-scenario/
 ADD docker-entrypoint.sh /
 RUN chmod +x /usr/local/skywalking-spring-with-qualified-op-name-scenario/startup.sh && chmod +x /docker-entrypoint.sh
 
