@@ -1,0 +1,24 @@
+#
+# Test case project define.
+#
+# Note: Test case project must a project that support output service.
+#
+testcase:
+  #
+  # The request url of current test cases.
+  #
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/spring-with-qualified-op-name-scenario/qualifiedname/qualifiedname-case
+  #
+  # The framework name that need tested.
+  #
+  test_framework: Spring-RestTemplate_Annotation_RestAnnotation
+  #
+  # The running mode:  TOGETHER(default), SINGLE, WITH_OPTIONAL
+  #
+  running_mode: WITH_OPTIONAL
+  #
+  # The framework version list of current test case supported
+  #
+  support_versions:
+    - Spring-RestTemplate-4.0.1_Annotation-4.0.1_RestAnnotation-5.0.1
+    - Spring-RestTemplate-4.0.2_Annotation-4.0.2_RestAnnotation-5.0.0
