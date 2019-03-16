@@ -37,14 +37,14 @@ public class SpringEndpointQualifiedNameController {
     private Logger logger = LoggerFactory.getLogger(SpringEndpointQualifiedNameController.class);
 
     @ResponseBody
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/acceptAllImplicit")
     public String acceptAllImplicit() {
         logger.info("acceptAllImplicit invoked");
         return "Success";
     }
 
     @ResponseBody
-    @RequestMapping(value = "/", method = {GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE})
+    @RequestMapping(value = "/acceptAllExplicit", method = {GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE})
     public String acceptAllExplicit() {
         logger.info("acceptAllExplicit invoked");
         return "Success";
@@ -53,9 +53,9 @@ public class SpringEndpointQualifiedNameController {
     @ResponseBody
     @RequestMapping("/qualifiedname-case")
     public String qualifiedNameCase() {
-        new RestTemplate().getForObject("http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/",
+        new RestTemplate().getForObject("http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllImplicit",
                 String.class);
-        new RestTemplate().postForObject("http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/",
+        new RestTemplate().postForObject("http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllExplicit",
                 new HttpEntity<>(null), String.class);
         return "Success";
     }

@@ -131,7 +131,7 @@
                 <configuration>
                     <imageName>skywalking/spring-with-qualified-op-name-scenario</imageName>
                     <imageTags>
-                        <imageTag>1.0.0</imageTag>
+                        <imageTag>${docker.image.version}</imageTag>
                     </imageTags>
                     <dockerDirectory>${project.basedir}/docker</dockerDirectory>
                     <resources>
