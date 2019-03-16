@@ -103,7 +103,7 @@ segmentItems:
       spanId: 0
       spanLayer: Http
       tags:
-      - {key: "url", value: "http://localhost:18180/spring-with-qualified-op-name-scenario/qualifiedname/qualifiedname-case"}
+      - {key: "url", value: "http://localhost:{SERVER_OUTPUT_PORT}/spring-with-qualified-op-name-scenario/qualifiedname/qualifiedname-case"}
       - {key: "http.method", value: "GET"}
       startTime: nq 0
       endTime: nq 0
