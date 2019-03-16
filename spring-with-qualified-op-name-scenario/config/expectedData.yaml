@@ -52,7 +52,7 @@ segmentItems:
       refs:
       - {parentEndpointId: 0, parentEndpoint: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()",
          networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 2,
-         parentTraceSegmentId: '${spring-with-qualified-op-name-scenario[1]}', parentServiceInstanceId: 1,
+         parentTraceSegmentId: '${spring-with-qualified-op-name-scenario[2]}', parentServiceInstanceId: 1,
          networkAddress: "localhost:8080", entryEndpoint: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()",
          entryServiceInstanceId: 1}
       startTime: nq 0
