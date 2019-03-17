@@ -8,8 +8,8 @@ registryItems:
     "/spring-with-request-method-op-name-scenario/requestmethod/acceptGetExplicit",
     "/spring-with-request-method-op-name-scenario/requestmethod/acceptAllExplicit",
     "/requestmethod/requestmethod-case",
-    "/requestmethod/{GET}/acceptGetExplicit",
-    "/requestmethod/{GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS,TRACE}/acceptAllExplicit"
+    "{GET}/requestmethod/acceptGetExplicit",
+    "{GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS,TRACE}/requestmethod/acceptAllExplicit"
   ]
 segmentItems:
 - applicationCode: spring-with-request-method-op-name-scenario
@@ -17,7 +17,7 @@ segmentItems:
   segments:
   - segmentId: nq 0
     spans:
-    - operationName: "/requestmethod/{GET}/acceptGetExplicit"
+    - operationName: "{GET}/requestmethod/acceptGetExplicit"
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -41,7 +41,7 @@ segmentItems:
       peerId: 0
   - segmentId: nq 0
     spans:
-    - operationName: "/requestmethod/{GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS,TRACE}/acceptAllExplicit"
+    - operationName: "{GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS,TRACE}/requestmethod/acceptAllExplicit"
       operationId: 0
       parentSpanId: -1
       spanId: 0
