@@ -11,7 +11,7 @@ testcase:
   #
   # The framework name that need tested.
   #
-  test_framework: Spring-RestTemplate_Annotation_RestAnnotation
+  test_framework: SpringMVC
   #
   # The running mode:  TOGETHER(default), SINGLE, WITH_OPTIONAL
   #
@@ -20,5 +20,5 @@ testcase:
   # The framework version list of current test case supported
   #
   support_versions:
-    - Spring-RestTemplate-4.0.1_Annotation-4.0.1_RestAnnotation-5.0.1
-    - Spring-RestTemplate-4.0.2_Annotation-4.0.2_RestAnnotation-5.0.0
+    - spring-4.0.1-with-qualified-op-name-scenario
+    - spring-4.0.2-with-qualified-op-name-scenario

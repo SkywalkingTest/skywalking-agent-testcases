@@ -78,22 +78,22 @@
 
     <profiles>
         <profile>
-            <id>spring-with-qualified-op-name-scenario-Spring-RestTemplate-4.0.1_Annotation-4.0.1_RestAnnotation-5.0.1</id>
+            <id>spring-with-qualified-op-name-scenario-spring-4.0.1-with-qualified-op-name-scenario</id>
             <properties>
                 <resttemplate.version>4.0.1.RELEASE</resttemplate.version>
                 <spring3.version>4.0.1.RELEASE</spring3.version>
                 <spring4.version>5.0.1.RELEASE</spring4.version>
-                <docker.image.version>Spring-RestTemplate-4.0.1_Annotation-4.0.1_RestAnnotation-5.0.1
+                <docker.image.version>spring-4.0.1-with-qualified-op-name-scenario
                 </docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>spring-with-qualified-op-name-scenario-Spring-RestTemplate-4.0.2_Annotation-4.0.2_RestAnnotation-5.0.0</id>
+            <id>spring-with-qualified-op-name-scenario-spring-4.0.2-with-qualified-op-name-scenario</id>
             <properties>
                 <resttemplate.version>4.0.2.RELEASE</resttemplate.version>
                 <spring3.version>4.0.2.RELEASE</spring3.version>
                 <spring4.version>5.0.0.RELEASE</spring4.version>
-                <docker.image.version>Spring-RestTemplate-4.0.2_Annotation-4.0.2_RestAnnotation-5.0.0
+                <docker.image.version>spring-4.0.2-with-qualified-op-name-scenario
                 </docker.image.version>
             </properties>
         </profile>
