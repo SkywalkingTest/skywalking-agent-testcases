@@ -102,7 +102,7 @@
 
     <profiles>
         <profile>
-            <id>dubbo-above-2.7.x-scenario-2.7.0</id>
+            <id>2.7.0</id>
             <properties>
                 <test.framework.version>2.7.0</test.framework.version>
             </properties>
