@@ -1,39 +1,103 @@
 registryItems:
   applications:
-  - {spring-with-qualified-op-name-scenario: nq 0}
+  - {vertx-core-scenario: 2}
   instances:
-  - {spring-with-qualified-op-name-scenario: 1}
+  - {vertx-core-scenario: 1}
   operationNames:
-  - spring-with-qualified-op-name-scenario: [
-    "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.acceptAllImplicit()",
-    "/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllImplicit",
-    "/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllExplicit",
-    "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()",
-    "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.acceptAllExplicit()"
+  - vertx-core-scenario: [
+    "/vertx-core-scenario/vertx-core/executeTest",
+    "/vertx-core-scenario/vertx-core/core-case",
+    "cluster-message-receiver"
   ]
 segmentItems:
-- applicationCode: spring-with-qualified-op-name-scenario
-  segmentSize: 3
+- applicationCode: vertx-core-scenario
+  segmentSize: 8
   segments:
   - segmentId: nq 0
     spans:
-    - operationName: test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.acceptAllImplicit()
+    - operationName: "#local-message-receiver"
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: RPCFramework
+      refs:
+      - {parentEndpointId: 0, parentEndpoint: "local-message-receiver",
+         networkAddressId: 0, entryEndpointId: 0, refType: CrossThread, parentSpanId: 0,
+         parentTraceSegmentId: '${vertx-core-scenario[2]}', parentServiceInstanceId: 1,
+         networkAddress: "", entryEndpoint: "local-message-receiver", entryServiceInstanceId: 1}
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 59
+      componentName: ""
+      isError: false
+      spanType: Local
+      peer: ""
+      peerId: 0
+  - segmentId: nq 0
+    spans:
+    - operationName: "local-message-receiver"
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: RPCFramework
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 59
+      componentName: ""
+      isError: false
+      spanType: Local
+      peer: ""
+      peerId: 0
+  - segmentId: nq 0
+    spans:
+    - operationName: "/vertx-core-scenario/vertx-core/executeTest"
       operationId: 0
       parentSpanId: -1
       spanId: 0
       spanLayer: Http
       tags:
-      - {key: "url", value: "http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllImplicit"}
       - {key: "http.method", value: "GET"}
-      refs:
-      - {parentEndpointId: 0, parentEndpoint: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()",
-         networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1,
-         parentTraceSegmentId: '${spring-with-qualified-op-name-scenario[2]}', parentServiceInstanceId: 1,
-         networkAddress: "localhost:8080", entryEndpoint: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()",
-         entryServiceInstanceId: 1}
+      - {key: "url", value: "http://localhost:8080/vertx-core-scenario/vertx-core/executeTest"}
       startTime: nq 0
       endTime: nq 0
-      componentId: 14
+      componentId: 59
+      componentName: ""
+      isError: false
+      spanType: Exit
+      peer: "/vertx-core-scenario/vertx-core/executeTest"
+      peerId: 0
+  - segmentId: nq 0
+    spans:
+    - operationName: "/vertx-core-scenario/vertx-core/core-case"
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      tags:
+      - {key: "http.method", value: "GET"}
+      - {key: "url", value: "http://localhost:18080/vertx-core-scenario/vertx-core/core-case"}
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 59
+      componentName: ""
+      isError: false
+      spanType: Entry
+      peerId: 0
+  - segmentId: nq 0
+    spans:
+    - operationName: "cluster-message-receiver"
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: RPCFramework
+      refs:
+      - {parentEndpointId: 0, parentEndpoint: "cluster-message-receiver",
+         networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 0,
+         parentTraceSegmentId: nq 0, parentServiceInstanceId: 1,
+         entryEndpoint: "cluster-message-receiver", entryServiceInstanceId: 1}
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 59
       componentName: ""
       isError: false
       spanType: Entry
@@ -41,75 +105,59 @@ segmentItems:
       peerId: 0
   - segmentId: nq 0
     spans:
-    - operationName: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.acceptAllExplicit()"
+    - operationName: "#/vertx-core-scenario/vertx-core/executeTest"
       operationId: 0
       parentSpanId: -1
       spanId: 0
       spanLayer: Http
-      tags:
-      - {key: "url", value: "http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllExplicit"}
-      - {key: "http.method", value: "POST"}
       refs:
-      - {parentEndpointId: 0, parentEndpoint: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()",
-         networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 2,
-         parentTraceSegmentId: '${spring-with-qualified-op-name-scenario[2]}', parentServiceInstanceId: 1,
-         networkAddress: "localhost:8080", entryEndpoint: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()",
-         entryServiceInstanceId: 1}
+      - {parentEndpointId: 0, parentEndpoint: "/vertx-core-scenario/vertx-core/executeTest",
+         networkAddressId: 0, entryEndpointId: 0, refType: CrossThread, parentSpanId: 0,
+         parentTraceSegmentId: nq 0, parentServiceInstanceId: 1,
+         entryEndpoint: "/vertx-core-scenario/vertx-core/executeTest", entryServiceInstanceId: 1}
       startTime: nq 0
       endTime: nq 0
-      componentId: 14
+      componentId: 59
       componentName: ""
       isError: false
-      spanType: Entry
+      spanType: Local
       peer: ""
       peerId: 0
   - segmentId: nq 0
     spans:
-    - operationName: "/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllImplicit"
+    - operationName: "cluster-message-receiver"
       operationId: 0
-      parentSpanId: 0
-      spanId: 1
-      spanLayer: Http
-      tags:
-      - {key: "url", value: "http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllImplicit"}
-      - {key: "http.method", value: "GET"}
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: RPCFramework
       startTime: nq 0
       endTime: nq 0
-      componentId: 13
+      componentId: 59
       componentName: ""
       isError: false
       spanType: Exit
-      peer: "localhost:8080"
       peerId: 0
-    - operationName: "/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllExplicit"
-      operationId: 0
-      parentSpanId: 0
-      spanId: 2
-      spanLayer: Http
-      tags:
-      - {key: "url", value: "http://localhost:8080/spring-with-qualified-op-name-scenario/qualifiedname/acceptAllExplicit"}
-      - {key: "http.method", value: "POST"}
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 13
-      componentName: ""
-      isError: false
-      spanType: Exit
-      peer: "localhost:8080"
-      peerId: 0
-    - operationName: "test.apache.skywalking.testcase.qualifiedname.controller.SpringEndpointQualifiedNameController.qualifiedNameCase()"
+  - segmentId: nq 0
+    spans:
+    - operationName: "/vertx-core-scenario/vertx-core/executeTest"
       operationId: 0
       parentSpanId: -1
       spanId: 0
       spanLayer: Http
+      refs:
+      - {parentEndpointId: 0, parentEndpoint: "/vertx-core-scenario/vertx-core/executeTest",
+         networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 0,
+         parentTraceSegmentId: nq 0, parentServiceInstanceId: 1,
+         networkAddress: "/vertx-core-scenario/vertx-core/executeTest",
+         entryEndpoint: "/vertx-core-scenario/vertx-core/executeTest",
+         entryServiceInstanceId: 1}
       tags:
-      - {key: "url", value: "http://localhost:{SERVER_OUTPUT_PORT}/spring-with-qualified-op-name-scenario/qualifiedname/qualifiedname-case"}
       - {key: "http.method", value: "GET"}
+      - {key: "url", value: "http://localhost:8080/vertx-core-scenario/vertx-core/executeTest"}
       startTime: nq 0
       endTime: nq 0
-      componentId: 14
+      componentId: 59
       componentName: ""
       isError: false
       spanType: Entry
-      peer: ""
       peerId: 0
