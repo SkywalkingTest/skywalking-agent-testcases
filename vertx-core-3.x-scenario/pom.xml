@@ -23,9 +23,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.apache.skywalking</groupId>
-    <artifactId>vertx-core-scenario</artifactId>
+    <artifactId>vertx-core-3.x-scenario</artifactId>
     <version>5.0.0</version>
-    <name>skywalking-vertx-core-scenario</name>
+    <name>skywalking-vertx-core-3.x-scenario</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -94,7 +94,7 @@
 
     <profiles>
         <profile>
-            <id>vertx-core-scenario-3.6.3</id>
+            <id>vertx-core-3.x-scenario-3.6.3</id>
             <properties>
                 <vertx.version>3.6.3</vertx.version>
                 <docker.image.version>3.6.3</docker.image.version>
@@ -103,7 +103,7 @@
     </profiles>
 
     <build>
-        <finalName>vertx-core-scenario</finalName>
+        <finalName>vertx-core-3.x-scenario</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -132,7 +132,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>skywalking/vertx-core-scenario</imageName>
+                    <imageName>skywalking/vertx-core-3.x-scenario</imageName>
                     <imageTags>
                         <imageTag>${docker.image.version}</imageTag>
                     </imageTags>

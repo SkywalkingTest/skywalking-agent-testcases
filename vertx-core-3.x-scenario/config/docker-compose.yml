@@ -1,7 +1,7 @@
 version: '2.1'
 services:
-  vertx-core-scenario:
-    image: skywalking/vertx-core-scenario:{CASES_IMAGE_VERSION}
+  vertx-core-3.x-scenario:
+    image: skywalking/vertx-core-3.x-scenario:{CASES_IMAGE_VERSION}
     expose:
       - "8080"
     ports:
@@ -11,7 +11,7 @@ services:
     links:
       - mock-collector
     volumes:
-      - {AGENT_FILE_PATH}:/usr/local/skywalking-vertx-core-scenario/agent
+      - {AGENT_FILE_PATH}:/usr/local/skywalking-vertx-core-3.x-scenario/agent
     depends_on:
       mock-collector:
         condition: service_healthy

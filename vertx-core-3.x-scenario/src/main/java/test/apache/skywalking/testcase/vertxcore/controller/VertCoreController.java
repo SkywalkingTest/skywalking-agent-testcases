@@ -32,8 +32,8 @@ public class VertCoreController extends AbstractVerticle {
     @Override
     public void start() {
         Router router = Router.router(vertx);
-        router.get("/vertx-core-scenario/vertx-core/core-case").handler(this::handleCoreCase);
-        router.get("/vertx-core-scenario/vertx-core/executeTest").handler(this::executeTest);
+        router.get("/vertx-core-3-scenario/vertx-core/core-case").handler(this::handleCoreCase);
+        router.get("/vertx-core-3-scenario/vertx-core/executeTest").handler(this::executeTest);
         vertx.createHttpServer().requestHandler(router).listen(8080);
 
         vertx.eventBus().registerDefaultCodec(CustomMessage.class, new CustomMessageCodec());
@@ -41,7 +41,7 @@ public class VertCoreController extends AbstractVerticle {
     }
 
     private void handleCoreCase(RoutingContext routingContext) {
-        vertx.createHttpClient().getNow(8080, "localhost", "/vertx-core-scenario/vertx-core/executeTest", it -> {
+        vertx.createHttpClient().getNow(8080, "localhost", "/vertx-core-3-scenario/vertx-core/executeTest", it -> {
             routingContext.response().setStatusCode(it.statusCode()).end();
         });
     }
