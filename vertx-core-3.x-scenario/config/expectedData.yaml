@@ -75,7 +75,7 @@ segmentItems:
       spanLayer: Http
       tags:
       - {key: "http.method", value: "GET"}
-      - {key: "url", value: "http://localhost:18080/vertx-core-3-scenario/vertx-core/core-case"}
+      - {key: "url", value: "http://localhost:{SERVER_OUTPUT_PORT}/vertx-core-3-scenario/vertx-core/core-case"}
       startTime: nq 0
       endTime: nq 0
       componentId: 59
