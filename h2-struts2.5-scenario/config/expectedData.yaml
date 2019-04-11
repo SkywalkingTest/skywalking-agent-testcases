@@ -2,7 +2,7 @@ registryItems:
   applications:
   - {h2-case: nq 0}
   instances:
-ii  - {h2-case: 1}
+  - {h2-case: 1}
   operationNames:
   - h2-case: [H2/JDBI/Statement/execute, H2/JDBI/Connection/close, H2/JDBI/CallableStatement/execute, H2/JDBI/PreparedStatement/execute, /struts2-h2-scenario/h2-struts2/case.action]
 segmentItems:
