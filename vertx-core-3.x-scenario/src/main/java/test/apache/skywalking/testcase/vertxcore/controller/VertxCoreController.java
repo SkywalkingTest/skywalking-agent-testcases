@@ -19,7 +19,6 @@
 package test.apache.skywalking.testcase.vertxcore.controller;
 
 import io.vertx.core.AbstractVerticle;
-import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
 import io.vertx.core.json.Json;
 import io.vertx.ext.web.Router;
@@ -27,23 +26,23 @@ import io.vertx.ext.web.RoutingContext;
 import test.apache.skywalking.testcase.vertxcore.util.CustomMessage;
 import test.apache.skywalking.testcase.vertxcore.util.CustomMessageCodec;
 
-public class VertCoreController extends AbstractVerticle {
+public class VertxCoreController extends AbstractVerticle {
 
     @Override
     public void start() {
         Router router = Router.router(vertx);
         router.get("/vertx-core-3-scenario/vertx-core/core-case").handler(this::handleCoreCase);
         router.get("/vertx-core-3-scenario/vertx-core/executeTest").handler(this::executeTest);
-        vertx.createHttpServer().requestHandler(router).listen(8080);
+        vertx.createHttpServer().requestHandler(router::accept).listen(8080);
 
         vertx.eventBus().registerDefaultCodec(CustomMessage.class, new CustomMessageCodec());
         vertx.deployVerticle(LocalReceiver.class.getName());
     }
 
     private void handleCoreCase(RoutingContext routingContext) {
-        vertx.createHttpClient().getNow(8080, "localhost", "/vertx-core-3-scenario/vertx-core/executeTest", it -> {
-            routingContext.response().setStatusCode(it.statusCode()).end();
-        });
+        vertx.createHttpClient().getNow(8080, "localhost",
+                "/vertx-core-3-scenario/vertx-core/executeTest",
+                it -> routingContext.response().setStatusCode(it.statusCode()).end());
     }
 
     private void executeTest(RoutingContext routingContext) {
@@ -73,11 +72,17 @@ public class VertCoreController extends AbstractVerticle {
             }
         });
 
-        CompositeFuture.all(localMessageFuture, clusterMessageFuture).setHandler(it -> {
-            if (it.succeeded()) {
-                routingContext.response().setStatusCode(200).end();
+        localMessageFuture.setHandler(localHandler -> {
+            if (localHandler.succeeded()) {
+                clusterMessageFuture.setHandler(clusterHandler -> {
+                    if (clusterHandler.succeeded()) {
+                        routingContext.response().setStatusCode(200).end();
+                    } else {
+                        routingContext.response().setStatusCode(500).end(Json.encodePrettily(clusterHandler.cause()));
+                    }
+                });
             } else {
-                routingContext.response().setStatusCode(500).end(Json.encodePrettily(it.cause()));
+                routingContext.response().setStatusCode(500).end(Json.encodePrettily(localHandler.cause()));
             }
         });
     }

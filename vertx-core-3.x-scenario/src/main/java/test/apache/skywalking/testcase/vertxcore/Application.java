@@ -24,7 +24,7 @@ import io.vertx.core.spi.cluster.ClusterManager;
 import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager;
 
 import test.apache.skywalking.testcase.vertxcore.controller.ClusterReceiver;
-import test.apache.skywalking.testcase.vertxcore.controller.VertCoreController;
+import test.apache.skywalking.testcase.vertxcore.controller.VertxCoreController;
 
 public class Application {
 
@@ -39,7 +39,7 @@ public class Application {
                         VertxOptions options2 = new VertxOptions().setClusterManager(mgr2);
                         Vertx.clusteredVertx(options2, cluster2 -> {
                             if (cluster2.succeeded()) {
-                                cluster2.result().deployVerticle(new VertCoreController());
+                                cluster2.result().deployVerticle(new VertxCoreController());
                             } else {
                                 cluster2.cause().printStackTrace();
                                 System.exit(-1);
