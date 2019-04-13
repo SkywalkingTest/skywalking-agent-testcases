@@ -11,7 +11,7 @@ registryItems:
   ]
 segmentItems:
 - applicationCode: vertx-core-3.x-scenario
-  segmentSize: 8
+  segmentSize: 7
   segments:
   - segmentId: nq 0
     spans:
@@ -52,12 +52,12 @@ segmentItems:
     spans:
     - operationName: "/vertx-core-3-scenario/vertx-core/executeTest"
       operationId: 0
-      parentSpanId: -1
-      spanId: 0
+      parentSpanId: 0
+      spanId: 1
       spanLayer: Http
       tags:
       - {key: "http.method", value: "GET"}
-      - {key: "url", value: "http://localhost:8080/vertx-core-3-scenario/vertx-core/executeTest"}
+      - {key: "url", value: "/vertx-core-3-scenario/vertx-core/executeTest"}
       startTime: nq 0
       endTime: nq 0
       componentId: 59
@@ -66,8 +66,6 @@ segmentItems:
       spanType: Exit
       peer: "/vertx-core-3-scenario/vertx-core/executeTest"
       peerId: 0
-  - segmentId: nq 0
-    spans:
     - operationName: "/vertx-core-3-scenario/vertx-core/core-case"
       operationId: 0
       parentSpanId: -1
@@ -75,13 +73,14 @@ segmentItems:
       spanLayer: Http
       tags:
       - {key: "http.method", value: "GET"}
-      - {key: "url", value: "http://localhost:{SERVER_OUTPUT_PORT}/vertx-core-3-scenario/vertx-core/core-case"}
+      - {key: "url", value: "/vertx-core-3-scenario/vertx-core/core-case"}
       startTime: nq 0
       endTime: nq 0
       componentId: 59
       componentName: ""
       isError: false
       spanType: Entry
+      peer: ""
       peerId: 0
   - segmentId: nq 0
     spans:
@@ -111,10 +110,10 @@ segmentItems:
       spanId: 0
       spanLayer: Http
       refs:
-      - {parentEndpointId: 0, parentEndpoint: "/vertx-core-3-scenario/vertx-core/executeTest",
-         networkAddressId: 0, entryEndpointId: 0, refType: CrossThread, parentSpanId: 0,
+      - {parentEndpointId: 0, parentEndpoint: "/vertx-core-3-scenario/vertx-core/core-case",
+         networkAddressId: 0, entryEndpointId: 0, refType: CrossThread, parentSpanId: 1,
          parentTraceSegmentId: not null, parentServiceInstanceId: 1, networkAddress: "",
-         entryEndpoint: "/vertx-core-3-scenario/vertx-core/executeTest", entryServiceInstanceId: 1}
+         entryEndpoint: "/vertx-core-3-scenario/vertx-core/core-case", entryServiceInstanceId: 1}
       startTime: nq 0
       endTime: nq 0
       componentId: 59
@@ -145,19 +144,20 @@ segmentItems:
       spanId: 0
       spanLayer: Http
       refs:
-      - {parentEndpointId: 0, parentEndpoint: "/vertx-core-3-scenario/vertx-core/executeTest",
-         networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 0,
+      - {parentEndpointId: 0, parentEndpoint: "/vertx-core-3-scenario/vertx-core/core-case",
+         networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1,
          parentTraceSegmentId: not null, parentServiceInstanceId: 1,
          networkAddress: "/vertx-core-3-scenario/vertx-core/executeTest",
-         entryEndpoint: "/vertx-core-3-scenario/vertx-core/executeTest",
+         entryEndpoint: "/vertx-core-3-scenario/vertx-core/core-case",
          entryServiceInstanceId: 1}
       tags:
       - {key: "http.method", value: "GET"}
-      - {key: "url", value: "http://localhost:8080/vertx-core-3-scenario/vertx-core/executeTest"}
+      - {key: "url", value: "/vertx-core-3-scenario/vertx-core/executeTest"}
       startTime: nq 0
       endTime: nq 0
       componentId: 59
       componentName: ""
       isError: false
       spanType: Entry
+      peer: ""
       peerId: 0
