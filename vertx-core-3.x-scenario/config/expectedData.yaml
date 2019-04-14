@@ -64,7 +64,7 @@ segmentItems:
       componentName: ""
       isError: false
       spanType: Exit
-      peer: "/vertx-core-3-scenario/vertx-core/executeTest"
+      peer: not null
       peerId: 0
     - operationName: "/vertx-core-3-scenario/vertx-core/core-case"
       operationId: 0
@@ -135,6 +135,7 @@ segmentItems:
       componentName: ""
       isError: false
       spanType: Exit
+      peer: not null
       peerId: 0
   - segmentId: nq 0
     spans:
