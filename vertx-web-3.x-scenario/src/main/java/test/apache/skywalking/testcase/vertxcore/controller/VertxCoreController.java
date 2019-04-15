@@ -27,14 +27,14 @@ public class VertxCoreController extends AbstractVerticle {
     @Override
     public void start() {
         Router router = Router.router(vertx);
-        router.get("/vertx-web-3-scenario/vertx-core/core-case").handler(this::handleCoreCase);
-        router.get("/vertx-web-3-scenario/vertx-core/executeTest").handler(this::executeTest);
+        router.get("/vertx-web-3-scenario/vertx-web/web-case").handler(this::handleCoreCase);
+        router.get("/vertx-web-3-scenario/vertx-web/executeTest").handler(this::executeTest);
         vertx.createHttpServer().requestHandler(router::accept).listen(8080);
     }
 
     private void handleCoreCase(RoutingContext routingContext) {
         vertx.createHttpClient().getNow(8080, "localhost",
-                "/vertx-web-3-scenario/vertx-core/executeTest",
+                "/vertx-web-3-scenario/vertx-web/executeTest",
                 it -> routingContext.response().setStatusCode(it.statusCode()).end());
     }
 
