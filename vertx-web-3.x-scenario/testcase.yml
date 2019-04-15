@@ -20,24 +20,24 @@ testcase:
   # The framework version list of current test case supported
   #
   support_versions:
-    - 3.7.0
-    - 3.6.3
-    - 3.6.2
-    - 3.6.1
-    - 3.6.0
-    - 3.5.4
-    - 3.5.3
-    - 3.5.2
-    - 3.5.1
-    - 3.5.0
-    - 3.4.2
-    - 3.4.1
-    - 3.4.0
-    - 3.3.3
-    - 3.3.2
-    - 3.3.1
-    - 3.3.0
-    - 3.2.1
-    - 3.2.0
-    - 3.1.0
-    - 3.0.0
+    - 3.7.0_web-scenario
+    - 3.6.3_web-scenario
+    - 3.6.2_web-scenario
+    - 3.6.1_web-scenario
+    - 3.6.0_web-scenario
+    - 3.5.4_web-scenario
+    - 3.5.3_web-scenario
+    - 3.5.2_web-scenario
+    - 3.5.1_web-scenario
+    - 3.5.0_web-scenario
+    - 3.4.2_web-scenario
+    - 3.4.1_web-scenario
+    - 3.4.0_web-scenario
+    - 3.3.3_web-scenario
+    - 3.3.2_web-scenario
+    - 3.3.1_web-scenario
+    - 3.3.0_web-scenario
+    - 3.2.1_web-scenario
+    - 3.2.0_web-scenario
+    - 3.1.0_web-scenario
+    - 3.0.0_web-scenario
