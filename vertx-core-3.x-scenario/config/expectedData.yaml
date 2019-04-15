@@ -148,7 +148,7 @@ segmentItems:
       - {parentEndpointId: 0, parentEndpoint: "/vertx-core-3-scenario/vertx-core/core-case",
          networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1,
          parentTraceSegmentId: not null, parentServiceInstanceId: 1,
-         networkAddress: "/vertx-core-3-scenario/vertx-core/executeTest",
+         networkAddress: "localhost:8080",
          entryEndpoint: "/vertx-core-3-scenario/vertx-core/core-case",
          entryServiceInstanceId: 1}
       tags:
