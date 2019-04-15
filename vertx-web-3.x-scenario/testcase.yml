@@ -7,7 +7,7 @@ testcase:
   #
   # The request url of current test cases.
   #
-  request_url: http://localhost:{SERVER_OUTPUT_PORT}/vertx-core-3-scenario/vertx-core/core-case
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/vertx-web-3-scenario/vertx-core/core-case
   #
   # The framework name that need tested.
   #

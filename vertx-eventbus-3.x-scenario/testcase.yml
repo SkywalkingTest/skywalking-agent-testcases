@@ -1,0 +1,43 @@
+#
+# Test case project define.
+#
+# Note: Test case project must a project that support output service.
+#
+testcase:
+  #
+  # The request url of current test cases.
+  #
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/vertx-eventbus-3-scenario/vertx-core/core-case
+  #
+  # The framework name that need tested.
+  #
+  test_framework: Vert.x
+  #
+  # The running mode: TOGETHER(default), SINGLE, WITH_OPTIONAL
+  #
+  running_mode: WITH_OPTIONAL
+  #
+  # The framework version list of current test case supported
+  #
+  support_versions:
+    - 3.7.0
+    - 3.6.3
+    - 3.6.2
+    - 3.6.1
+    - 3.6.0
+    - 3.5.4
+    - 3.5.3
+    - 3.5.2
+    - 3.5.1
+    - 3.5.0
+    - 3.4.2
+    - 3.4.1
+    - 3.4.0
+    - 3.3.3
+    - 3.3.2
+    - 3.3.1
+    - 3.3.0
+    - 3.2.1
+    - 3.2.0
+    - 3.1.0
+    - 3.0.0

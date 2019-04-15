@@ -23,9 +23,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.apache.skywalking</groupId>
-    <artifactId>vertx-core-3.x-scenario</artifactId>
+    <artifactId>vertx-eventbus-3.x-scenario</artifactId>
     <version>5.0.0</version>
-    <name>skywalking-vertx-core-3.x-scenario</name>
+    <name>skywalking-vertx-eventbus-3.x-scenario</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -94,147 +94,147 @@
 
     <profiles>
         <profile>
-            <id>vertx-core-3.x-scenario-3.7.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.7.0</id>
             <properties>
                 <vertx.version>3.7.0</vertx.version>
                 <docker.image.version>3.7.0</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.6.3</id>
+            <id>vertx-eventbus-3.x-scenario-3.6.3</id>
             <properties>
                 <vertx.version>3.6.3</vertx.version>
                 <docker.image.version>3.6.3</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.6.2</id>
+            <id>vertx-eventbus-3.x-scenario-3.6.2</id>
             <properties>
                 <vertx.version>3.6.2</vertx.version>
                 <docker.image.version>3.6.2</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.6.1</id>
+            <id>vertx-eventbus-3.x-scenario-3.6.1</id>
             <properties>
                 <vertx.version>3.6.1</vertx.version>
                 <docker.image.version>3.6.1</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.6.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.6.0</id>
             <properties>
                 <vertx.version>3.6.0</vertx.version>
                 <docker.image.version>3.6.0</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.5.4</id>
+            <id>vertx-eventbus-3.x-scenario-3.5.4</id>
             <properties>
                 <vertx.version>3.5.4</vertx.version>
                 <docker.image.version>3.5.4</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.5.3</id>
+            <id>vertx-eventbus-3.x-scenario-3.5.3</id>
             <properties>
                 <vertx.version>3.5.3</vertx.version>
                 <docker.image.version>3.5.3</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.5.2</id>
+            <id>vertx-eventbus-3.x-scenario-3.5.2</id>
             <properties>
                 <vertx.version>3.5.2</vertx.version>
                 <docker.image.version>3.5.2</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.5.1</id>
+            <id>vertx-eventbus-3.x-scenario-3.5.1</id>
             <properties>
                 <vertx.version>3.5.1</vertx.version>
                 <docker.image.version>3.5.1</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.5.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.5.0</id>
             <properties>
                 <vertx.version>3.5.0</vertx.version>
                 <docker.image.version>3.5.0</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.4.2</id>
+            <id>vertx-eventbus-3.x-scenario-3.4.2</id>
             <properties>
                 <vertx.version>3.4.2</vertx.version>
                 <docker.image.version>3.4.2</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.4.1</id>
+            <id>vertx-eventbus-3.x-scenario-3.4.1</id>
             <properties>
                 <vertx.version>3.4.1</vertx.version>
                 <docker.image.version>3.4.1</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.4.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.4.0</id>
             <properties>
                 <vertx.version>3.4.0</vertx.version>
                 <docker.image.version>3.4.0</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.3.3</id>
+            <id>vertx-eventbus-3.x-scenario-3.3.3</id>
             <properties>
                 <vertx.version>3.3.3</vertx.version>
                 <docker.image.version>3.3.3</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.3.2</id>
+            <id>vertx-eventbus-3.x-scenario-3.3.2</id>
             <properties>
                 <vertx.version>3.3.2</vertx.version>
                 <docker.image.version>3.3.2</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.3.1</id>
+            <id>vertx-eventbus-3.x-scenario-3.3.1</id>
             <properties>
                 <vertx.version>3.3.1</vertx.version>
                 <docker.image.version>3.3.1</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.3.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.3.0</id>
             <properties>
                 <vertx.version>3.3.0</vertx.version>
                 <docker.image.version>3.3.0</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.2.1</id>
+            <id>vertx-eventbus-3.x-scenario-3.2.1</id>
             <properties>
                 <vertx.version>3.2.1</vertx.version>
                 <docker.image.version>3.2.1</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.2.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.2.0</id>
             <properties>
                 <vertx.version>3.2.0</vertx.version>
                 <docker.image.version>3.2.0</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.1.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.1.0</id>
             <properties>
                 <vertx.version>3.1.0</vertx.version>
                 <docker.image.version>3.1.0</docker.image.version>
             </properties>
         </profile>
         <profile>
-            <id>vertx-core-3.x-scenario-3.0.0</id>
+            <id>vertx-eventbus-3.x-scenario-3.0.0</id>
             <properties>
                 <vertx.version>3.0.0</vertx.version>
                 <docker.image.version>3.0.0</docker.image.version>
@@ -243,7 +243,7 @@
     </profiles>
 
     <build>
-        <finalName>vertx-core-3.x-scenario</finalName>
+        <finalName>vertx-eventbus-3.x-scenario</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -272,7 +272,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>skywalking/vertx-core-3.x-scenario</imageName>
+                    <imageName>skywalking/vertx-eventbus-3.x-scenario</imageName>
                     <imageTags>
                         <imageTag>${docker.image.version}</imageTag>
                     </imageTags>
