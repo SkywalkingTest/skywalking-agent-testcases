@@ -39,7 +39,7 @@ public class DataSourceUtil {
 
     private static final Map<String, DataSource> datasourceMap = new HashMap<>();
     
-    public static void createDataSource(final String dataSourceName) {
+    public static void createDataSourceMySQL(final String dataSourceName) {
         System.out.println("host: " + HOST);
         BasicDataSource result = new BasicDataSource();
         result.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
@@ -48,7 +48,16 @@ public class DataSourceUtil {
         result.setPassword(PASSWORD);
         datasourceMap.put(dataSourceName, result);
     }
-    
+
+    public static void createDataSource(final String dataSourceName) {
+        BasicDataSource result = new BasicDataSource();
+        result.setDriverClassName("org.h2.Driver");
+        result.setUrl(String.format("jdbc:h2:~/%s", dataSourceName));
+        result.setUsername("sa");
+        result.setPassword("");
+        datasourceMap.put(dataSourceName, result);
+    }
+
     public static DataSource getDataSource(final String dataSourceName) {
         return datasourceMap.get(dataSourceName);
     }

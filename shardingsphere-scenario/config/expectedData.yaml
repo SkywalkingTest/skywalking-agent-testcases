@@ -6,33 +6,12 @@ registryItems:
   operationNames:
     - Your_ApplicationName:
         - "/case/execute"
-        - Mysql/JDBI/PreparedStatement/executeQuery
 segmentItems:
   - applicationCode: Your_ApplicationName
     segmentSize: gt 1
     segments:
       - segmentId: not null
         spans:
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '0'
-            spanId: '1'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_1
-              - key: db.statement
-                value: SELECT * FROM t_order_0
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
-            peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
             parentSpanId: "-1"
@@ -60,26 +39,6 @@ segmentItems:
             peerId: '0'
       - segmentId: not null
         spans:
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '0'
-            spanId: '1'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_1
-              - key: db.statement
-                value: SELECT * FROM t_order_1
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
-            peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
             parentSpanId: "-1"
@@ -99,7 +58,7 @@ segmentItems:
                 entryServiceInstanceId: 1
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
@@ -107,26 +66,6 @@ segmentItems:
             peerId: '0'
       - segmentId: not null
         spans:
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '0'
-            spanId: '1'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_1
-              - key: db.statement
-                value: SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
-            peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
             parentSpanId: "-1"
@@ -146,7 +85,7 @@ segmentItems:
                 entryServiceInstanceId: 1
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
@@ -154,26 +93,6 @@ segmentItems:
             peerId: '0'
       - segmentId: not null
         spans:
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '0'
-            spanId: '1'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_1
-              - key: db.statement
-                value: SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
-            peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
             parentSpanId: "-1"
@@ -193,7 +112,7 @@ segmentItems:
                 entryServiceInstanceId: 1
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
@@ -211,31 +130,11 @@ segmentItems:
                 value: SELECT * FROM t_order
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
             peer: ''
-            peerId: '0'
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '3'
-            spanId: '4'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_0
-              - key: db.statement
-                value: SELECT * FROM t_order_0
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
             peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
@@ -244,31 +143,11 @@ segmentItems:
             spanLayer: Unknown
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
             peer: ''
-            peerId: '0'
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '5'
-            spanId: '6'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_0
-              - key: db.statement
-                value: SELECT * FROM t_order_1
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
             peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
@@ -277,7 +156,7 @@ segmentItems:
             spanLayer: Unknown
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
@@ -290,7 +169,7 @@ segmentItems:
             spanLayer: Unknown
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
@@ -306,31 +185,11 @@ segmentItems:
                 value: SELECT i.* FROM t_order o, t_order_item i WHERE o.order_id = i.order_id
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
             peer: ''
-            peerId: '0'
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '9'
-            spanId: '10'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_0
-              - key: db.statement
-                value: SELECT i.* FROM t_order_0 o, t_order_item_0 i WHERE o.order_id = i.order_id
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
             peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
@@ -339,31 +198,11 @@ segmentItems:
             spanLayer: Unknown
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
             peer: ''
-            peerId: '0'
-          - operationName: Mysql/JDBI/PreparedStatement/executeQuery
-            operationId: '0'
-            parentSpanId: '11'
-            spanId: '12'
-            spanLayer: Database
-            tags:
-              - key: db.type
-                value: sql
-              - key: db.instance
-                value: demo_ds_0
-              - key: db.statement
-                value: SELECT i.* FROM t_order_1 o, t_order_item_1 i WHERE o.order_id = i.order_id
-            startTime: nq 0
-            endTime: nq 0
-            componentId: '33'
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: mysql-server:3306
             peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
@@ -372,7 +211,7 @@ segmentItems:
             spanLayer: Unknown
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
@@ -385,7 +224,7 @@ segmentItems:
             spanLayer: Unknown
             startTime: nq 0
             endTime: nq 0
-            componentId: '57'
+            componentId: '59'
             componentName: ''
             isError: false
             spanType: Local
