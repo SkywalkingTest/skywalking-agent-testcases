@@ -23,7 +23,7 @@ segmentItems:
                   user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))
             startTime: not null
             endTime: not null
-            componentId: '59'
+            componentId: '60'
             componentName: ''
             isError: false
             spanType: Local
