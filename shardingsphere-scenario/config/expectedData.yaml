@@ -29,3 +29,117 @@ segmentItems:
             spanType: Local
             peer: ''
             peerId: '0'
+      - segmentId: not null
+        spans:
+          - operationName: "/ShardingSphere/executeSQL/"
+            operationId: '0'
+            parentSpanId: "-1"
+            spanId: not null
+            spanLayer: Unknown
+            refs:
+              - parentEndpointId: 0
+                parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+                networkAddressId: 0
+                entryEndpointId: 0
+                refType: CrossThread
+                parentSpanId: not null
+                parentTraceSegmentId: not null
+                parentServiceInstanceId: 1
+                networkAddress: ''
+                entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+                entryServiceInstanceId: 1
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+      - segmentId: not null
+        spans:
+          - operationName: "/ShardingSphere/executeSQL/"
+            operationId: '0'
+            parentSpanId: "-1"
+            spanId: not null
+            spanLayer: Unknown
+            refs:
+              - parentEndpointId: 0
+                parentEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+                networkAddressId: 0
+                entryEndpointId: 0
+                refType: CrossThread
+                parentSpanId: not null
+                parentTraceSegmentId: not null
+                parentServiceInstanceId: 1
+                networkAddress: ''
+                entryEndpoint: "/ShardingSphere/JDBCRootInvoke/"
+                entryServiceInstanceId: 1
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+      - segmentId: not null
+        spans:
+          - operationName: "/ShardingSphere/executeSQL/"
+            operationId: '0'
+            parentSpanId: not null
+            spanId: not null
+            spanLayer: Unknown
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+          - operationName: "/ShardingSphere/executeSQL/"
+            operationId: '0'
+            parentSpanId: not null
+            spanId: not null
+            spanLayer: Unknown
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+          - operationName: "/ShardingSphere/JDBCRootInvoke/"
+            operationId: '0'
+            parentSpanId: "-1"
+            spanId: not null
+            spanLayer: Unknown
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+      - segmentId: not null
+        spans:
+          - operationName: "/ShardingSphere/parseSQL/"
+            operationId: '0'
+            parentSpanId: "-1"
+            spanId: not null
+            spanLayer: Unknown
+            tags:
+              - key: db.statement
+                value: INSERT INTO t_order (user_id, status) VALUES (?, ?)
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+            
