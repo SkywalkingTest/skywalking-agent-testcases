@@ -15,7 +15,7 @@ segmentItems:
           - operationName: "/ShardingSphere/parseSQL/"
             operationId: '0'
             parentSpanId: "-1"
-            spanId: not null
+            spanId: "0"
             spanLayer: Unknown
             tags:
               - key: db.statement
@@ -34,7 +34,7 @@ segmentItems:
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
             parentSpanId: "-1"
-            spanId: not null
+            spanId: "0"
             spanLayer: Unknown
             refs:
               - parentEndpointId: 0
@@ -42,7 +42,7 @@ segmentItems:
                 networkAddressId: 0
                 entryEndpointId: 0
                 refType: CrossThread
-                parentSpanId: not null
+                parentSpanId: 0
                 parentTraceSegmentId: not null
                 parentServiceInstanceId: 1
                 networkAddress: ''
@@ -61,7 +61,7 @@ segmentItems:
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
             parentSpanId: "-1"
-            spanId: not null
+            spanId: "0"
             spanLayer: Unknown
             refs:
               - parentEndpointId: 0
@@ -69,7 +69,7 @@ segmentItems:
                 networkAddressId: 0
                 entryEndpointId: 0
                 refType: CrossThread
-                parentSpanId: not null
+                parentSpanId: 0
                 parentTraceSegmentId: not null
                 parentServiceInstanceId: 1
                 networkAddress: ''
@@ -87,8 +87,8 @@ segmentItems:
         spans:
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
-            parentSpanId: not null
-            spanId: not null
+            parentSpanId: "0"
+            spanId: "1"
             spanLayer: Unknown
             startTime: not null
             endTime: not null
@@ -100,8 +100,8 @@ segmentItems:
             peerId: '0'
           - operationName: "/ShardingSphere/executeSQL/"
             operationId: '0'
-            parentSpanId: not null
-            spanId: not null
+            parentSpanId: "0"
+            spanId: "2"
             spanLayer: Unknown
             startTime: not null
             endTime: not null
@@ -114,7 +114,7 @@ segmentItems:
           - operationName: "/ShardingSphere/JDBCRootInvoke/"
             operationId: '0'
             parentSpanId: "-1"
-            spanId: not null
+            spanId: "0"
             spanLayer: Unknown
             startTime: not null
             endTime: not null
@@ -129,7 +129,7 @@ segmentItems:
           - operationName: "/ShardingSphere/parseSQL/"
             operationId: '0'
             parentSpanId: "-1"
-            spanId: not null
+            spanId: "0"
             spanLayer: Unknown
             tags:
               - key: db.statement
