@@ -91,12 +91,6 @@
                 <test.framework.version>3.0.0</test.framework.version>
             </properties>
         </profile>
-        <profile>
-            <id>shardingsphere-scenario-3.1.0</id>
-            <properties>
-                <test.framework.version>3.1.0</test.framework.version>
-            </properties>
-        </profile>
     </profiles>
 
     <build>
