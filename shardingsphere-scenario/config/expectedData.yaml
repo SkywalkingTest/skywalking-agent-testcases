@@ -142,4 +142,65 @@ segmentItems:
             spanType: Local
             peer: ''
             peerId: '0'
-            
+      - segmentId: not null
+        spans:
+          - operationName: "/ShardingSphere/parseSQL/"
+            operationId: '0'
+            parentSpanId: '0'
+            spanId: '1'
+            spanLayer: Unknown
+            tags:
+              - key: db.statement
+                value: SELECT * FROM t_order WHERE order_id=2 AND user_id=2
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+          - operationName: "/ShardingSphere/executeSQL/"
+            operationId: '0'
+            parentSpanId: '2'
+            spanId: '3'
+            spanLayer: Unknown
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+          - operationName: "/ShardingSphere/JDBCRootInvoke/"
+            operationId: '0'
+            parentSpanId: '0'
+            spanId: '2'
+            spanLayer: Unknown
+            startTime: not null
+            endTime: not null
+            componentId: '60'
+            componentName: ''
+            isError: false
+            spanType: Local
+            peer: ''
+            peerId: '0'
+          - operationName: "/case/execute"
+            operationId: '0'
+            parentSpanId: "-1"
+            spanId: '0'
+            spanLayer: Http
+            tags:
+              - key: url
+                value: http://localhost:18080/shardingsphere-case/case/execute
+              - key: http.method
+                value: GET
+            startTime: not null
+            endTime: not null
+            componentId: '14'
+            componentName: ''
+            isError: false
+            spanType: Entry
+            peer: ''
+            peerId: '0'
