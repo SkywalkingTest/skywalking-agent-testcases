@@ -108,10 +108,6 @@ public abstract class CommonServiceImpl implements CommonService {
         for (Object each : getOrderRepository().selectAll()) {
             System.out.println(each);
         }
-        System.out.println("---------------------------- Print OrderItem Data -------------------");
-        for (Object each : getOrderItemRepository().selectAll()) {
-            System.out.println(each);
-        }
     }
     
     protected abstract OrderRepository getOrderRepository();
