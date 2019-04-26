@@ -29,25 +29,9 @@ import java.util.Map;
 
 public class DataSourceUtil {
     
-    private static final String HOST = System.getProperty("mysql.host");
-    
-    private static final String USER_NAME = "root";
-    
-    private static final String PASSWORD = "root";
-    
     private static final String DEFAULT_SCHEMA = "";
 
     private static final Map<String, DataSource> datasourceMap = new HashMap<>();
-    
-    public static void createDataSourceMySQL(final String dataSourceName) {
-        System.out.println("host: " + HOST);
-        BasicDataSource result = new BasicDataSource();
-        result.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
-        result.setUrl(String.format("jdbc:mysql://%s/%s", HOST, dataSourceName));
-        result.setUsername(USER_NAME);
-        result.setPassword(PASSWORD);
-        datasourceMap.put(dataSourceName, result);
-    }
 
     public static void createDataSource(final String dataSourceName) {
         BasicDataSource result = new BasicDataSource();

@@ -1,9 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-ENV COLLECTOR_SERVER=127.0.0.1:12800 \
-    MYSQL_INSTANCE_HOST=127.0.0.1:3306 \
-    MYSQL_INSTANCE_USERNAME=root \
-    MYSQL_INSTANCE_PASSWORD=root
+ENV COLLECTOR_SERVER=127.0.0.1:12800
 
 ADD startup.sh /usr/local/skywalking-shardingsphere-scenario/
 ADD shardingsphere-scenario.jar /usr/local/skywalking-shardingsphere-scenario/
