@@ -2,8 +2,7 @@
 #
 #ARG_POSITIONAL_SINGLE([agent_repo],[The agent repository URL to be run])
 #ARG_POSITIONAL_SINGLE([agent_repo_branch],[The branch name of agent repository to be run])
-#ARG_POSITIONAL_SINGLE([testcase_repo],[The testcase repository URL to be run])
-#ARG_POSITIONAL_SINGLE([testcase_repo_branch],[The branch name of testcase repository to be run])
+#ARG_OPTIONAL_SINGLE([testcase_branch],[],[The branch of the testcase repository])
 #ARG_OPTIONAL_REPEATED([scenario],[],[The scenarios to be run])
 #ARG_OPTIONAL_SINGLE([issue_no],[],[The relate issue no],[UNKNOWN])
 #ARG_OPTIONAL_BOOLEAN([build],[],[Skip build projects.],[on])
@@ -42,6 +41,7 @@ begins_with_short_option()
 # THE DEFAULTS INITIALIZATION - POSITIONALS
 _positionals=()
 # THE DEFAULTS INITIALIZATION - OPTIONALS
+_arg_testcase_branch=
 _arg_scenario=()
 _arg_issue_no="UNKNOWN"
 _arg_build="on"
@@ -55,11 +55,10 @@ _arg_validate_log_url_prefix="http://host:port/jenkins"
 
 print_help()
 {
-	printf 'Usage: %s [--scenario <arg>] [--issue_no <arg>] [--(no-)build] [--(no-)report] [--(no-)clone_code] [--(no-)skip_single_mode_scenario] [--collector_image_version <arg>] [--parallel_run_size <arg>] [--validate_log_url_prefix <arg>] [-h|--help] <agent_repo> <agent_repo_branch> <testcase_repo> <testcase_repo_branch>\n' "$0"
+	printf 'Usage: %s [--testcase_branch <arg>] [--scenario <arg>] [--issue_no <arg>] [--(no-)build] [--(no-)report] [--(no-)clone_code] [--(no-)skip_single_mode_scenario] [--collector_image_version <arg>] [--parallel_run_size <arg>] [--validate_log_url_prefix <arg>] [-h|--help] <agent_repo> <agent_repo_branch>\n' "$0"
 	printf '\t%s\n' "<agent_repo>: The agent repository URL to be run"
 	printf '\t%s\n' "<agent_repo_branch>: The branch name of agent repository to be run"
-	printf '\t%s\n' "<testcase_repo>: The testcase repository URL to be run"
-	printf '\t%s\n' "<testcase_repo_branch>: The branch name of testcase repository to be run"
+	printf '\t%s\n' "--testcase_branch: The branch of the testcase repository (no default)"
 	printf '\t%s\n' "--scenario: The scenarios to be run (empty by default)"
 	printf '\t%s\n' "--issue_no: The relate issue no (default: 'UNKNOWN')"
 	printf '\t%s\n' "--build, --no-build: Skip build projects. (on by default)"
@@ -80,6 +79,14 @@ parse_commandline()
 	do
 		_key="$1"
 		case "$_key" in
+			--testcase_branch)
+				test $# -lt 2 && die "Missing value for the optional argument '$_key'." 1
+				_arg_testcase_branch="$2"
+				shift
+				;;
+			--testcase_branch=*)
+				_arg_testcase_branch="${_key##--testcase_branch=}"
+				;;
 			--scenario)
 				test $# -lt 2 && die "Missing value for the optional argument '$_key'." 1
 				_arg_scenario+=("$2")
@@ -157,16 +164,16 @@ parse_commandline()
 
 handle_passed_args_count()
 {
-	local _required_args_string="'agent_repo', 'agent_repo_branch', 'testcase_repo' and 'testcase_repo_branch'"
-	test "${_positionals_count}" -ge 4 || _PRINT_HELP=yes die "FATAL ERROR: Not enough positional arguments - we require exactly 4 (namely: $_required_args_string), but got only ${_positionals_count}." 1
-	test "${_positionals_count}" -le 4 || _PRINT_HELP=yes die "FATAL ERROR: There were spurious positional arguments --- we expect exactly 4 (namely: $_required_args_string), but got ${_positionals_count} (the last one was: '${_last_positional}')." 1
+	local _required_args_string="'agent_repo' and 'agent_repo_branch'"
+	test "${_positionals_count}" -ge 2 || _PRINT_HELP=yes die "FATAL ERROR: Not enough positional arguments - we require exactly 2 (namely: $_required_args_string), but got only ${_positionals_count}." 1
+	test "${_positionals_count}" -le 2 || _PRINT_HELP=yes die "FATAL ERROR: There were spurious positional arguments --- we expect exactly 2 (namely: $_required_args_string), but got ${_positionals_count} (the last one was: '${_last_positional}')." 1
 }
 
 
 assign_positional_args()
 {
 	local _positional_name _shift_for=$1
-	_positional_names="_arg_agent_repo _arg_agent_repo_branch _arg_testcase_repo _arg_testcase_repo_branch "
+	_positional_names="_arg_agent_repo _arg_agent_repo_branch "
 
 	shift "$_shift_for"
 	for _positional_name in ${_positional_names}
@@ -201,6 +208,11 @@ VALIDATE_TOOL_REPO=https://github.com/SkywalkingTest/agent-integration-testtool.
 VALIDATE_TOOL_REPO_BRANCH=master
 OVERWRITE_README="on"
 LOGS_DIR=${WORKSPACE_DIR}/logs
+TESTCASE_REPO=`cd ${AGENT_TEST_HOME} && git config --get remote.origin.url`
+TESTCASE_REPO_BRANCH=${_arg_testcase_branch}
+if [ "${_arg_testcase_branch}" = "" ]; then
+   TESTCASE_REPO_BRANCH=`cd ${AGENT_TEST_HOME} && git branch | grep \* | cut -d ' ' -f2`
+fi
 
 declare -a SCENARIOS
 if [ ${#_arg_scenario[@]} -eq 0 ]; then
@@ -218,8 +230,8 @@ fi
 echo "[INFO] Running parameteres:"
 echo -e "  - Agent repository:\t\t${_arg_agent_repo}"
 echo -e "  - Agent repository branch:\t${_arg_agent_repo_branch}"
-echo -e "  - Testcase repository:\t${_arg_testcase_repo}"
-echo -e "  - Testcase repository branch:\t${_arg_testcase_repo_branch}"
+echo -e "  - Testcase repository:\t${TESTCASE_REPO}"
+echo -e "  - Testcase repository branch:\t${TESTCASE_REPO_BRANCH}"
 echo -e "  - Issue No:\t\t\t${_arg_issue_no}"
 echo -e "  - Build:\t\t\t${_arg_build}"
 echo -e "  - Report:\t\t\t${_arg_report}"
@@ -248,7 +260,7 @@ ${AGENT_TEST_HOME}/build_testcases.sh --collector_image_version ${_arg_collector
 ${AGENT_TEST_HOME}/run.sh -m ${_arg_parallel_run_size} ${TESTCASES_HOME} >/dev/null
 
 # generate report
-${AGENT_TEST_HOME}/generate-report.sh --agent_repo ${_arg_agent_repo} --agent_branch ${_arg_agent_repo_branch} --testcase_repo ${_arg_testcase_repo} --testcase_branch ${_arg_testcase_repo_branch} --agent_commitid ${AGENT_COMMIT_ID} --testcase_commitid ${TESTCASE_COMMIT_ID} --overwrite_readme ${OVERWRITE_README} --upload_report ${_arg_report} --issue_no ${_arg_issue_no} --validate_log_url_prefix ${_arg_validate_log_url_prefix} ${TESTCASES_HOME} ${REPORT_HOME} > ${LOGS_DIR}/test_report.log
+${AGENT_TEST_HOME}/generate-report.sh --agent_repo ${_arg_agent_repo} --agent_branch ${_arg_agent_repo_branch} --testcase_repo ${TESTCASE_REPO} --testcase_branch ${TESTCASE_REPO_BRANCH} --agent_commitid ${AGENT_COMMIT_ID} --testcase_commitid ${TESTCASE_COMMIT_ID} --overwrite_readme ${OVERWRITE_README} --upload_report ${_arg_report} --issue_no ${_arg_issue_no} --validate_log_url_prefix ${_arg_validate_log_url_prefix} ${TESTCASES_HOME} ${REPORT_HOME} > ${LOGS_DIR}/test_report.log
 
 #
 # ] <-- needed because of Argbash

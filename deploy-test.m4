@@ -2,8 +2,7 @@
 #
 #ARG_POSITIONAL_SINGLE([agent_repo], [The agent repository URL to be run])
 #ARG_POSITIONAL_SINGLE([agent_repo_branch], [The branch name of agent repository to be run])
-#ARG_POSITIONAL_SINGLE([testcase_repo], [The testcase repository URL to be run])
-#ARG_POSITIONAL_SINGLE([testcase_repo_branch], [The branch name of testcase repository to be run])
+#ARG_OPTIONAL_SINGLE([testcase_branch], [], [The branch of the testcase repository])
 #ARG_OPTIONAL_REPEATED([scenario], [], [The scenarios to be run])
 #ARG_OPTIONAL_SINGLE([issue_no], [], [The relate issue no], [UNKNOWN])
 #ARG_OPTIONAL_BOOLEAN([build], [], [Skip build projects.], [on])
@@ -31,6 +30,11 @@ VALIDATE_TOOL_REPO=https://github.com/SkywalkingTest/agent-integration-testtool.
 VALIDATE_TOOL_REPO_BRANCH=master
 OVERWRITE_README="on"
 LOGS_DIR=${WORKSPACE_DIR}/logs
+TESTCASE_REPO=`cd ${AGENT_TEST_HOME} && git config --get remote.origin.url`
+TESTCASE_REPO_BRANCH=${_arg_testcase_branch}
+if [ "${_arg_testcase_branch}" = "" ]; then
+   TESTCASE_REPO_BRANCH=`cd ${AGENT_TEST_HOME} && git branch | grep \* | cut -d ' ' -f2`
+fi
 
 declare -a SCENARIOS
 if [ ${#_arg_scenario[@]} -eq 0 ]; then
@@ -48,8 +52,8 @@ fi
 echo "[INFO] Running parameteres:"
 echo -e "  - Agent repository:\t\t${_arg_agent_repo}"
 echo -e "  - Agent repository branch:\t${_arg_agent_repo_branch}"
-echo -e "  - Testcase repository:\t${_arg_testcase_repo}"
-echo -e "  - Testcase repository branch:\t${_arg_testcase_repo_branch}"
+echo -e "  - Testcase repository:\t${TESTCASE_REPO}"
+echo -e "  - Testcase repository branch:\t${TESTCASE_REPO_BRANCH}"
 echo -e "  - Issue No:\t\t\t${_arg_issue_no}"
 echo -e "  - Build:\t\t\t${_arg_build}"
 echo -e "  - Report:\t\t\t${_arg_report}"
@@ -78,6 +82,6 @@ ${AGENT_TEST_HOME}/build_testcases.sh --collector_image_version ${_arg_collector
 ${AGENT_TEST_HOME}/run.sh -m ${_arg_parallel_run_size} ${TESTCASES_HOME} >/dev/null
 
 # generate report
-${AGENT_TEST_HOME}/generate-report.sh --agent_repo ${_arg_agent_repo} --agent_branch ${_arg_agent_repo_branch} --testcase_repo ${_arg_testcase_repo} --testcase_branch ${_arg_testcase_repo_branch} --agent_commitid ${AGENT_COMMIT_ID} --testcase_commitid ${TESTCASE_COMMIT_ID} --overwrite_readme ${OVERWRITE_README} --upload_report ${_arg_report} --issue_no ${_arg_issue_no} --validate_log_url_prefix ${_arg_validate_log_url_prefix} ${TESTCASES_HOME} ${REPORT_HOME} > ${LOGS_DIR}/test_report.log
+${AGENT_TEST_HOME}/generate-report.sh --agent_repo ${_arg_agent_repo} --agent_branch ${_arg_agent_repo_branch} --testcase_repo ${TESTCASE_REPO} --testcase_branch ${TESTCASE_REPO_BRANCH} --agent_commitid ${AGENT_COMMIT_ID} --testcase_commitid ${TESTCASE_COMMIT_ID} --overwrite_readme ${OVERWRITE_README} --upload_report ${_arg_report} --issue_no ${_arg_issue_no} --validate_log_url_prefix ${_arg_validate_log_url_prefix} ${TESTCASES_HOME} ${REPORT_HOME} > ${LOGS_DIR}/test_report.log
 
 # ]

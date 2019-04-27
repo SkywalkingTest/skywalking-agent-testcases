@@ -14,7 +14,7 @@ if [ ! -d "${PROJECT_DIR}" ]; then
 fi
 
 cd ${PROJECT_DIR} && git fetch --tags --progress ${_arg_repo} +refs/heads/*:refs/remotes/origin/* && (git rev-parse origin/${_arg_branch}^{commit} | xargs git checkout -f ) && git submodule init && git submodule update
-
+git checkout ${_arg_branch}
 if [ "${_arg_build}" = "on" ]; then
     cd ${PROJECT_DIR} && mvn clean package -Dmaven.test.skip=true
 fi
