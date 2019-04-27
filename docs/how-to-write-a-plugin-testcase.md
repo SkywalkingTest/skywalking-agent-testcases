@@ -438,12 +438,12 @@ Add 14 profiles in pom.xml in HttpClient case.
 | Parameter                | Comment                                                             |
 | :---                       | :---                                                                            |
 | --scenario scenario_name        | Run specific test case. Default, all.   |
-| agent_repo_branch | Repository branch, default `master`                                          |
-| agent_repo    | Repository url, default `https://github.com/apache/incubator-skywalking.git` |
+| agent_repo_branch | Repository branch                                    |
+| agent_repo    | Repository url |
 
 ### Check the status of testcase
 The log is here.`${SKYWALKING_AGENT_TESTCASES_HOME}/workspace/logs/test_report.log`,
-If the test case validate failed， The Assert failed message will found in the `test_report.log` log file。
+If the test case validation failed， The Assert failed message should be found in the `test_report.log` log file。
 e.g.,
 ```
 assert failed.
@@ -458,7 +458,7 @@ actual:
   actual:	span[-1, 0] #local-message-receiver
   reason:	[operation name]: expected=>{/vertx-core-3-scenario/vertx-core/executeTest}, actual=>{#local-message-receiver}
 ```
-Please take the [document](https://github.com/SkyAPMTest/agent-integration-testtool/blob/master/README.md) if you want fix those assert exception
+Please read the [document](https://github.com/SkyAPMTest/agent-integration-testtool/blob/master/README.md) if you want fix those assert exception
 
 
 ¹ `mock-collector`is a simulator backend, source code https://github.com/SkywalkingTest/skywalking-mock-collector.
