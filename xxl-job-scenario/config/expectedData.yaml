@@ -5,35 +5,19 @@ registryItems:
   - {xxl-job-scenario: 1}
   operationNames:
   - xxl-job-scenario: [
-    "/requestmethod/xxljob",
+    "test.apache.skywalking.testcase.xxljob.handler.DemoJobHandler"
   ]
 segmentItems:
-- applicationCode: spring-with-request-method-op-name-scenario
+- applicationCode: xxl-job-scenario
   segmentSize: nq 0
   segments:
   - segmentId: nq 0
     spans:
-    - operationName: "/xxl-job-scenario/requestmethod/xxljob"
-      operationId: 0
-      parentSpanId: 0
-      spanId: 1
-      spanLayer: Http
-      tags:
-      - {key: "url", value: "http://localhost:8080/xxl-job-scenario/requestmethod/xxljob"}
-      - {key: "http.method", value: "GET"}
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 13
-      componentName: ""
-      isError: false
-      spanType: Exit
-      peer: "localhost:8080"
-      peerId: 0
     - operationName: "test.apache.skywalking.testcase.xxljob.handler.DemoJobHandler"
       operationId: 0
       parentSpanId: 0
       spanId: 2
-      spanLayer: Http
+      spanLayer: null
       tags:
       - {key: "triggerParam", value: "xxljob"}
       startTime: nq 0
@@ -41,6 +25,6 @@ segmentItems:
       componentId: 61
       componentName: "XXL_JOB"
       isError: false
-      spanType: Exit
+      spanType: Entry
       peer: not null
       peerId: 0
