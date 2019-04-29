@@ -87,16 +87,6 @@
         <profile>
             <id>xxl-job-scenario</id>
             <properties>
-                <resttemplate.version>4.0.1.RELEASE</resttemplate.version>
-                <spring3.version>4.0.1.RELEASE</spring3.version>
-                <spring4.version>5.0.1.RELEASE</spring4.version>
-                <docker.image.version>xxl-job-scenario
-                </docker.image.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>xxl-job-scenario</id>
-            <properties>
                 <resttemplate.version>4.0.2.RELEASE</resttemplate.version>
                 <spring3.version>4.0.2.RELEASE</spring3.version>
                 <spring4.version>5.0.0.RELEASE</spring4.version>

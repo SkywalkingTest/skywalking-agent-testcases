@@ -16,7 +16,7 @@ segmentItems:
     - operationName: "test.apache.skywalking.testcase.xxljob.handler.DemoJobHandler"
       operationId: 0
       parentSpanId: 0
-      spanId: 2
+      spanId: 1
       spanLayer: null
       tags:
       - {key: "triggerParam", value: "xxljob"}
