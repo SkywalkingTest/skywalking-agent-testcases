@@ -45,7 +45,7 @@ public final class ShardingDatabasesAndTablesConfigurationPrecise implements Exa
         shardingRuleConfig.setDefaultDatabaseShardingStrategyConfig(new InlineShardingStrategyConfiguration("user_id", "demo_ds_${user_id % 2}"));
         shardingRuleConfig.setDefaultTableShardingStrategyConfig(new StandardShardingStrategyConfiguration("order_id", new PreciseModuloShardingTableAlgorithm()));
         Properties properties = new Properties();
-        properties.setProperty("max.connections.size.per.query", 16);
+        properties.setProperty("max.connections.size.per.query", "16");
         dataSource = ShardingDataSourceFactory.createDataSource(createDataSourceMap(), shardingRuleConfig, new HashMap<String, Object>(), properties);
         return dataSource;
     }

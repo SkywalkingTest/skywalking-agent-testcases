@@ -98,7 +98,6 @@ public final class JDBCOrderRepositoryImpl implements OrderRepository {
     
     @Override
     public List<Order> selectAll() {
-//        String sql = "SELECT * FROM t_order WHERE order_id=2 AND user_id=2";
         String sql = "SELECT * FROM t_order";
         return getOrders(sql);
     }
