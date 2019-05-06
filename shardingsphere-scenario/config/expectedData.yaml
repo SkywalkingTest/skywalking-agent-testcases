@@ -193,7 +193,7 @@ segmentItems:
             spanLayer: Http
             tags:
               - key: url
-                value: http://localhost:18080/shardingsphere-case/case/execute
+                value: http://localhost:{SERVER_OUTPUT_PORT}/shardingsphere-case/case/execute
               - key: http.method
                 value: GET
             startTime: not null
