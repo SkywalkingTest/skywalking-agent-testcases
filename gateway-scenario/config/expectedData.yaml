@@ -1,0 +1,90 @@
+registryItems:
+  applications:
+    - {gateway-projectB: nq 0}
+    - {gateway-projectA: nq 0}
+  instances:
+    - {gateway-projectB: 1}
+    - {gateway-projectA: 1}
+  operationNames:
+    - gateway-projectB: [/provider/b/testcase]
+    - gateway-projectA: [/provider/b/testcase]
+  heartbeat: []
+segmentItems:
+  - applicationCode: gateway-projectB
+    segmentSize: 1
+    segments:
+      - segmentId: not null
+        spans:
+          - operationName: /provider/b/testcase
+            operationId: 0
+            parentSpanId: -1
+            spanId: 0
+            spanLayer: Http
+            startTime: nq 0
+            endTime: nq 0
+            componentId: 14
+            componentName: ''
+            isError: false
+            spanType: Entry
+            peer: ''
+            peerId: 0
+            tags:
+              - {key: url, value: 'http://projectB-service:18080/provider/b/testcase'}
+              - {key: http.method, value: GET}
+            refs:
+              - {parentEndpointId: 0, parentEndpoint: /provider/b/testcase, networkAddressId: 0, entryEndpointId: 0,
+                 refType: CrossProcess, parentSpanId: 2, parentTraceSegmentId: '${gateway-projectA[0]}',
+                 parentServiceInstanceId: nq 0, networkAddress: 'projectB-service:18080',
+                 entryEndpoint: /provider/b/testcase, entryServiceInstanceId: nq 0}
+  - applicationCode: gateway-projectA
+    segmentSize: 1
+    segments:
+      - segmentId: not null
+        spans:
+          - operationName: Gateway/filter
+            operationId: 0
+            parentSpanId: 0
+            spanId: 1
+            spanLayer: Unknown
+            startTime: nq 0
+            endTime: nq 0
+            componentId: 60
+            componentName: ''
+            isError: false
+            spanType: Local
+            peerId: 0
+            tags:
+              - {key: route, value: 'provider_route'}
+              - {key: url, value: not null}
+          - operationName: /provider/b/testcase
+            operationId: 0
+            parentSpanId: 0
+            spanId: 2
+            spanLayer: Http
+            startTime: nq 0
+            endTime: nq 0
+            componentId: 60
+            componentName: ''
+            isError: false
+            spanType: Exit
+            peer: projectB-service:18080
+            peerId: 0
+            tags:
+              - {key: url, value: 'projectB-service:18080/provider/b/testcase'}
+              - {key: http.method, value: GET}
+          - operationName: /provider/b/testcase
+            operationId: 0
+            parentSpanId: -1
+            spanId: 0
+            spanLayer: Http
+            startTime: nq 0
+            endTime: nq 0
+            componentId: 14
+            componentName: ''
+            isError: false
+            spanType: Entry
+            peer: ''
+            peerId: 0
+            tags:
+              - {key: url, value: /provider/b/testcase}
+              - {key: http.method, value: GET}

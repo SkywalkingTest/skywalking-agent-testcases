@@ -32,15 +32,50 @@
 
     <properties>
         <docker.image.version>${test.framework.version}</docker.image.version>
-        <test.framework.version>2.1.1.RELEASE</test.framework.version>
+        <test.framework.version>2.0.0.RELEASE</test.framework.version>
     </properties>
 
     <profiles>
         <profile>
-            <id>gateway-scenario_2.1.1.RELEASE</id>
+            <id>gateway-scenario-2.1.1.RELEASE</id>
             <properties>
                 <test.framework.version>2.1.1.RELEASE</test.framework.version>
-                <docker.image.version>gateway-scenario_2.1.1.RELEASE</docker.image.version>
+                <docker.image.version>2.1.1.RELEASE</docker.image.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gateway-scenario-2.1.0.RELEASE</id>
+            <properties>
+                <test.framework.version>2.1.0.RELEASE</test.framework.version>
+                <docker.image.version>2.1.0.RELEASE</docker.image.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gateway-scenario-2.0.3.RELEASE</id>
+            <properties>
+                <test.framework.version>2.0.3.RELEASE</test.framework.version>
+                <docker.image.version>2.0.3.RELEASE</docker.image.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gateway-scenario-2.0.2.RELEASE</id>
+            <properties>
+                <test.framework.version>2.0.2.RELEASE</test.framework.version>
+                <docker.image.version>2.0.2.RELEASE</docker.image.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gateway-scenario-2.0.1.RELEASE</id>
+            <properties>
+                <test.framework.version>2.0.1.RELEASE</test.framework.version>
+                <docker.image.version>2.0.1.RELEASE</docker.image.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>gateway-scenario-2.0.0.RELEASE</id>
+            <properties>
+                <test.framework.version>2.0.0.RELEASE</test.framework.version>
+                <docker.image.version>2.0.0.RELEASE</docker.image.version>
             </properties>
         </profile>
     </profiles>
