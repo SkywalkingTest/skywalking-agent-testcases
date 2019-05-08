@@ -36,7 +36,7 @@ public class DataSourceUtil {
     public static void createDataSource(final String dataSourceName) {
         BasicDataSource result = new BasicDataSource();
         result.setDriverClassName("org.h2.Driver");
-        result.setUrl(String.format("jdbc:h2:~/%s", dataSourceName));
+        result.setUrl(String.format("jdbc:h2:mem:%s", dataSourceName));
         result.setUsername("sa");
         result.setPassword("");
         datasourceMap.put(dataSourceName, result);
@@ -47,7 +47,7 @@ public class DataSourceUtil {
     }
     
     public static void createSchema(final String dataSourceName) {
-        String sql = "CREATE DATABASE " + dataSourceName;
+        String sql = "CREATE SCHEMA " + dataSourceName;
         try (Connection connection = getDataSource(DEFAULT_SCHEMA).getConnection();
              Statement statement = connection.createStatement()) {
             statement.execute(sql);
