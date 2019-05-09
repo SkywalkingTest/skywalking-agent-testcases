@@ -6,11 +6,14 @@
 
     <groupId>org.apache.skywalking</groupId>
     <artifactId>apm-toolkit-trace-scenario</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+
+    <name>skywalking-apm-toolkit-trace-scenario</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <docker.image.version>6.2.0</docker.image.version>
+        <test.framework.version>1.0.0</test.framework.version>
+        <docker.image.version>${test.framework.version}</docker.image.version>
         <log4j.version>2.6.2</log4j.version>
         <spring.version>4.3.8.RELEASE</spring.version>
         <spring-boot-version>1.5.2.RELEASE</spring-boot-version>
@@ -54,6 +57,15 @@
             <version>${spring-boot-version}</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>apm-toolkit-trace-scenario-1.0.0</id>
+            <properties>
+                <test.framework.version>1.0.0</test.framework.version>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <finalName>apm-toolkit-trace-scenario</finalName>
@@ -101,7 +113,6 @@
             </plugin>
         </plugins>
     </build>
-
 
 
     <pluginRepositories>

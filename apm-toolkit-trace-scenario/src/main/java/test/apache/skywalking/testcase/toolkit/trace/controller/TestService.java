@@ -50,6 +50,6 @@ public class TestService {
 
     @Trace
     public void testInfo() {
-        ActiveSpan.debug("TestInfoMsg");
+        ActiveSpan.info("TestInfoMsg");
     }
 }

@@ -103,7 +103,7 @@ segmentItems:
         - {key: stack, value: not null}
     - operationName: /test
       operationId: 0
-      parentSpanId: 0
+      parentSpanId: -1
       spanId: 0
       spanLayer: null
       startTime: nq 0

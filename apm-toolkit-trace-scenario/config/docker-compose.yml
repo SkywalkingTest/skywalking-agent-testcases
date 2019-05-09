@@ -1,6 +1,6 @@
 version: '2.1'
 services:
-  activemq-scenario:
+  apm-toolkit-trace-scenario:
     image:  skywalking/apm-toolkit-trace-scenario:{CASES_IMAGE_VERSION}
     expose:
       - "8080"
@@ -11,7 +11,7 @@ services:
     links:
       - mock-collector
     volumes:
-     - {AGENT_FILE_PATH}:/usr/local/apm-toolkit-trace-scenario/agent
+     - {AGENT_FILE_PATH}:/usr/local/skywalking-apm-toolkit-trace-scenario/agent
     depends_on:
       mock-collector:
         condition: service_healthy

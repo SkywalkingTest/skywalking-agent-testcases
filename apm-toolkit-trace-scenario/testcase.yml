@@ -7,7 +7,10 @@ testcase:
   #
   # The request url of current test cases.
   #
-  request_url: http://localhost:{SERVER_OUTPUT_PORT}/test
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/apm-toolkit-trace-scenario/test
 
-    
+  test_framework: apm-toolkit-trace
+
+  support_versions:
+    - 1.0.0
   

@@ -1,24 +1,15 @@
-FROM openjdk:8-jdk
+FROM openjdk:8-jdk-alpine
 
-ENV COLLECTOR_SERVER=127.0.0.1:12800 \
-    ACTIVEMQ_BOOTSTRAP_SERVERS=127.0.0.1:61616 \
-    ACTIVEMQ_VERSION=5.15.8
+ENV COLLECTOR_SERVER=127.0.0.1:12800
 
-WORKDIR /usr/local/apm-toolkit-trace-scenario
+ADD startup.sh /usr/local/skywalking-apm-toolkit-trace-scenario/
+ADD apm-toolkit-trace-scenario.jar /usr/local/skywalking-apm-toolkit-trace-scenario/
 
-# copy required packages
-ADD start_up.sh /usr/local/apm-toolkit-trace-scenario/
-ADD apm-toolkit-trace-scenario.jar /usr/local/apm-toolkit-trace-scenario
 ADD docker-entrypoint.sh /
+RUN chmod +x /usr/local/skywalking-apm-toolkit-trace-scenario/startup.sh && chmod +x /docker-entrypoint.sh
 
-RUN chmod +x /docker-entrypoint.sh
-
-VOLUME /usr/local/apm-toolkit-trace-scenario/agent
-
-# port
 EXPOSE 8080
 
-#
-#ENTRYPOINT /docker-entrypoint.sh
-
-CMD sh /usr/local/apm-toolkit-trace-scenario/start_up.sh
+VOLUME /usr/local/skywalkingapm-toolkit-trace-scenario/agent
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/usr/local/skywalking-apm-toolkit-trace-scenario/startup.sh"]
