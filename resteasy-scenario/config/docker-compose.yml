@@ -4,6 +4,8 @@ services:
     image: skywalking/resteasy-server-scenario:{CASES_IMAGE_VERSION}
     expose:
       - "18080"
+    ports:
+      - "{SERVER_OUTPUT_PORT}:18080"
     links:
       - mock-collector
     environment:

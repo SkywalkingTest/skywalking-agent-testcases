@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {resteasy-server-scenario: 1}
   operationNames:
-  - resteasy-server-scenario: [/resteasy-server-case/case/sync]
+  - resteasy-server-scenario: [/case/sync]
 segmentItems:
 - applicationCode: resteasy-server-scenario
   segmentSize: 1
