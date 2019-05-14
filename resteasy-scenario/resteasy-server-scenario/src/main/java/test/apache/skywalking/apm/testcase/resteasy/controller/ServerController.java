@@ -1,5 +1,9 @@
 package test.apache.skywalking.apm.testcase.resteasy.controller;
 
+import org.jboss.resteasy.client.jaxrs.ResteasyClient;
+import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
+import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -28,12 +32,28 @@ public class ServerController {
         new Thread(new Runnable() {
             public void run() {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(100);
                     response.resume(Response.ok("Hello Async!").type(MediaType.TEXT_PLAIN).build());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }).start();
+    }
+
+    @GET
+    @Path("call")
+    @Produces("text/plain")
+    public String callAll() {
+        ResteasyClient client = new ResteasyClientBuilder().build();
+        ResteasyWebTarget target = client.target("http://localhost:18080/resteasy-server-case/case/sync");
+        Response response = target.request().get();
+        response.close();
+
+        target = client.target("http://localhost:18080/resteasy-server-case/case/async");
+        Response response1 = target.request().get();
+        response1.close();
+
+        return "success";
     }
 }
