@@ -4,10 +4,16 @@ registryItems:
   instances:
   - {resteasy-server-scenario: 1}
   operationNames:
-  - resteasy-server-scenario: [/case/sync]
+  - resteasy-server-scenario: [
+    "/case/call",
+    "/case/async",
+    "/resteasy-server-case/case/sync",
+    "/resteasy-server-case/case/async",
+    "/case/sync"
+  ]
 segmentItems:
 - applicationCode: resteasy-server-scenario
-  segmentSize: 1
+  segmentSize: 3
   segments:
   - segmentId: not null
     spans:
@@ -27,3 +33,83 @@ segmentItems:
       tags:
       - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/sync'}
       - {key: http.method, value: GET}
+      refs:
+        - {parentEndpointId: 0, parentEndpoint: "/case/call",
+           networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1,
+           parentTraceSegmentId: '${resteasy-server-scenario[2]}', parentServiceInstanceId: 1,
+           networkAddress: "localhost:{SERVER_OUTPUT_PORT}", entryEndpoint: "/case/call",
+           entryServiceInstanceId: 1}
+  - segmentId: not null
+    spans:
+    - operationName: /case/async
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 60
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/async'}
+        - {key: http.method, value: GET}
+      refs:
+        - {parentEndpointId: 0, parentEndpoint: "/case/call",
+           networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 2,
+           parentTraceSegmentId: '${resteasy-server-scenario[2]}', parentServiceInstanceId: 1,
+           networkAddress: "localhost:{SERVER_OUTPUT_PORT}", entryEndpoint: "/case/call",
+           entryServiceInstanceId: 1}
+  - segmentId: not null
+    spans:
+    - operationName: /resteasy-server-case/case/sync
+      operationId: 0
+      parentSpanId: 0
+      spanId: 1
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 2
+      componentName: ''
+      isError: false
+      spanType: Exit
+      peer: 'localhost:{SERVER_OUTPUT_PORT}'
+      peerId: 0
+      tags:
+        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/sync'}
+        - {key: http.method, value: GET}
+    - operationName: /resteasy-server-case/case/async
+      operationId: 0
+      parentSpanId: 0
+      spanId: 2
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 2
+      componentName: ''
+      isError: false
+      spanType: Exit
+      peer: 'localhost:{SERVER_OUTPUT_PORT}'
+      peerId: 0
+      tags:
+        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/async'}
+        - {key: http.method, value: GET}
+    - operationName: /case/call
+      operationId: 0
+      parentSpanId: -1
+      spanId: 0
+      spanLayer: Http
+      startTime: nq 0
+      endTime: nq 0
+      componentId: 60
+      componentName: ''
+      isError: false
+      spanType: Entry
+      peer: ''
+      peerId: 0
+      tags:
+        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/call'}
+        - {key: http.method, value: GET}
