@@ -16,8 +16,15 @@ testcase:
   # The framework version list of current test case supported
   #
   support_versions:
-    - 3.0.0.Final
     - 3.1.0.Final
+    - 3.1.1.Final
+    - 3.1.2.Final
+    - 3.1.3.Final
+    - 3.1.4.Final
     - 3.5.0.Final
+    - 3.5.1.Final
     - 3.6.0.Final
+    - 3.6.1.Final
+    - 3.6.2.Final
+    - 3.6.3.Final
     - 3.7.0.Final
