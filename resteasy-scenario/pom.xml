@@ -20,9 +20,33 @@
 
     <profiles>
         <profile>
-            <id>resteasy-jaxrs-3.1.4.Final</id>
+            <id>resteasy-jaxrs-3.0.0.Final</id>
             <properties>
-                <test.framework.version>3.1.4.Final</test.framework.version>
+                <test.framework.version>3.0.0.Final</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>resteasy-jaxrs-3.1.0.Final</id>
+            <properties>
+                <test.framework.version>3.1.0.Final</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>resteasy-jaxrs-3.5.0.Final</id>
+            <properties>
+                <test.framework.version>3.5.0.Final</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>resteasy-jaxrs-3.6.0.Final</id>
+            <properties>
+                <test.framework.version>3.6.0.Final</test.framework.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>resteasy-jaxrs-3.7.0.Final</id>
+            <properties>
+                <test.framework.version>3.7.0.Final</test.framework.version>
             </properties>
         </profile>
     </profiles>
