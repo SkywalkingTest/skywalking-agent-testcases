@@ -16,13 +16,13 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
-            <version>3.1.0.Final</version>
+            <version>${test.framework.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-netty4</artifactId>
-            <version>3.1.0.Final</version>
+            <version>${test.framework.version}</version>
         </dependency>
     </dependencies>
 
