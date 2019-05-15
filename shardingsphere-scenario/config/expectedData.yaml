@@ -48,7 +48,7 @@ segmentItems:
                 entryEndpointId: 0
                 refType: CrossThread
                 parentSpanId: 2
-                parentTraceSegmentId: not null
+                parentTraceSegmentId: "${Your_ApplicationName[3]}"
                 parentServiceInstanceId: 1
                 networkAddress: ''
                 entryEndpoint: "/case/execute"
@@ -95,7 +95,7 @@ segmentItems:
                 entryEndpointId: 0
                 refType: CrossThread
                 parentSpanId: 2
-                parentTraceSegmentId: not null
+                parentTraceSegmentId: "${Your_ApplicationName[3]}"
                 parentServiceInstanceId: 1
                 networkAddress: ''
                 entryEndpoint: "/case/execute"
@@ -142,7 +142,7 @@ segmentItems:
                 entryEndpointId: 0
                 refType: CrossThread
                 parentSpanId: 2
-                parentTraceSegmentId: not null
+                parentTraceSegmentId: "${Your_ApplicationName[3]}"
                 parentServiceInstanceId: 1
                 networkAddress: ''
                 entryEndpoint: "/case/execute"
