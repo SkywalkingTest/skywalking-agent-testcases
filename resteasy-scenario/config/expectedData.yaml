@@ -31,13 +31,13 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/sync'}
+      - {key: url, value: 'http://localhost:18080/resteasy-server-case/case/sync'}
       - {key: http.method, value: GET}
       refs:
         - {parentEndpointId: 0, parentEndpoint: "/case/call",
            networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1,
            parentTraceSegmentId: '${resteasy-server-scenario[2]}', parentServiceInstanceId: 1,
-           networkAddress: "localhost:{SERVER_OUTPUT_PORT}", entryEndpoint: "/case/call",
+           networkAddress: "localhost:18080", entryEndpoint: "/case/call",
            entryServiceInstanceId: 1}
   - segmentId: not null
     spans:
@@ -55,13 +55,13 @@ segmentItems:
       peer: ''
       peerId: 0
       tags:
-        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/async'}
+        - {key: url, value: 'http://localhost:18080/resteasy-server-case/case/async'}
         - {key: http.method, value: GET}
       refs:
         - {parentEndpointId: 0, parentEndpoint: "/case/call",
            networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 2,
            parentTraceSegmentId: '${resteasy-server-scenario[2]}', parentServiceInstanceId: 1,
-           networkAddress: "localhost:{SERVER_OUTPUT_PORT}", entryEndpoint: "/case/call",
+           networkAddress: "localhost:18080", entryEndpoint: "/case/call",
            entryServiceInstanceId: 1}
   - segmentId: not null
     spans:
@@ -76,10 +76,10 @@ segmentItems:
       componentName: ''
       isError: false
       spanType: Exit
-      peer: 'localhost:{SERVER_OUTPUT_PORT}'
+      peer: 'localhost:18080'
       peerId: 0
       tags:
-        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/sync'}
+        - {key: url, value: 'http://localhost:18080/resteasy-server-case/case/sync'}
         - {key: http.method, value: GET}
     - operationName: /resteasy-server-case/case/async
       operationId: 0
@@ -92,10 +92,10 @@ segmentItems:
       componentName: ''
       isError: false
       spanType: Exit
-      peer: 'localhost:{SERVER_OUTPUT_PORT}'
+      peer: 'localhost:18080'
       peerId: 0
       tags:
-        - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/resteasy-server-case/case/async'}
+        - {key: url, value: 'http://localhost:18080/resteasy-server-case/case/async'}
         - {key: http.method, value: GET}
     - operationName: /case/call
       operationId: 0
