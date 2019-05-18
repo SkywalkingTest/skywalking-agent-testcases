@@ -48,7 +48,7 @@ segmentItems:
             spanLayer: Unknown
             startTime: nq 0
             endTime: nq 0
-            componentId: 60
+            componentId: 61
             componentName: ''
             isError: false
             spanType: Local
@@ -72,21 +72,3 @@ segmentItems:
             tags:
               - {key: url, value: /provider/b/testcase}
               - {key: http.method, value: GET}
-      - segmentId: not null
-        spans:
-          - operationName: /provider/b/testcase
-            operationId: 0
-            parentSpanId: -1
-            spanId: 0
-            spanLayer: Http
-            startTime: nq 0
-            endTime: nq 0
-            componentId: 60
-            componentName: ''
-            isError: false
-            spanType: Exit
-            peer: projectB-service:18080
-            peerId: 0
-            tags:
-            - {key: url, value: 'projectB-service:18080/provider/b/testcase'}
-            - {key: http.method, value: GET}
