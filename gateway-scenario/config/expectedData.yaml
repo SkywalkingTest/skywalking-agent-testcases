@@ -41,21 +41,6 @@ segmentItems:
     segments:
       - segmentId: not null
         spans:
-          - operationName: Gateway/handle
-            operationId: 0
-            parentSpanId: 0
-            spanId: 1
-            spanLayer: Unknown
-            startTime: nq 0
-            endTime: nq 0
-            componentId: 61
-            componentName: ''
-            isError: false
-            spanType: Local
-            peerId: 0
-            tags:
-              - {key: route, value: 'provider_route'}
-              - {key: url, value: not null}
           - operationName: /provider/b/testcase
             operationId: 0
             parentSpanId: -1
@@ -72,3 +57,4 @@ segmentItems:
             tags:
               - {key: url, value: /provider/b/testcase}
               - {key: http.method, value: GET}
+              - {key: route, value: 'provider_route'}
