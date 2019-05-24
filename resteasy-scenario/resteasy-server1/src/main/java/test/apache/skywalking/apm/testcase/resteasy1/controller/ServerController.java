@@ -16,11 +16,16 @@
  *
  */
 
-package test.apache.skywalking.apm.testcase.resteasy.controller;
+package test.apache.skywalking.apm.testcase.resteasy1.controller;
+
+import org.jboss.resteasy.client.jaxrs.ResteasyClient;
+import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
+import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 /**
  * @author yan-fucheng
@@ -32,6 +37,17 @@ public class ServerController {
     @Path("sync")
     @Produces("text/plain")
     public String syncRequest() {
-        return "Hello Sync!";
+        String server2Host = getEnv("SERVER2_ADDRESS", "localhost:8080");
+        ResteasyClient client = new ResteasyClientBuilder().build();
+        ResteasyWebTarget target = client.target("http://" + server2Host + "/resteasy-server2-case/case/sync");
+        Response response = target.request().get();
+        response.close();
+
+        return "Hello Server1!";
+    }
+
+    private String getEnv(String key, String defaultValue) {
+        String result = System.getenv(key);
+        return result != null && !result.isEmpty() ? result : defaultValue;
     }
 }

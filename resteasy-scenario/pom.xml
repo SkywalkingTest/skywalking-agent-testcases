@@ -27,7 +27,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>resteasy-server-scenario</module>
+        <module>resteasy-server1</module>
+        <module>resteasy-server2</module>
     </modules>
 
     <properties>

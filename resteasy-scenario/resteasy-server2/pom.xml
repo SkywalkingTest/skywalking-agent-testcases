@@ -26,7 +26,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>resteasy-server-scenario</artifactId>
+    <artifactId>resteasy-server2</artifactId>
 
 
     <dependencies>
@@ -41,10 +41,16 @@
             <artifactId>resteasy-netty4</artifactId>
             <version>${test.framework.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>${test.framework.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>resteasy-server-scenario</finalName>
+        <finalName>resteasy-server2</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -69,7 +75,7 @@
                             </filters>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>test.apache.skywalking.apm.testcase.resteasy.Application</mainClass>
+                                    <mainClass>test.apache.skywalking.apm.testcase.resteasy2.Application</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -82,7 +88,7 @@
                 <version>0.4.13</version>
                 <configuration>
                     <skipDocker>false</skipDocker>
-                    <imageName>skywalking/resteasy-server-scenario</imageName>
+                    <imageName>skywalking/resteasy-server2</imageName>
                     <imageTags>
                         <imageTag>${docker.image.version}</imageTag>
                     </imageTags>

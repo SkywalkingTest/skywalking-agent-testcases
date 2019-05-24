@@ -1,18 +1,35 @@
 version: '2.1'
 services:
-  resteasy-server-scenario:
-    image: skywalking/resteasy-server-scenario:{CASES_IMAGE_VERSION}
+  resteasy-server1:
+    image: skywalking/resteasy-server1:{CASES_IMAGE_VERSION}
     expose:
       - "18080"
     ports:
       - "{SERVER_OUTPUT_PORT}:18080"
     links:
       - mock-collector
+      - resteasy-server2
     environment:
       - COLLECTOR_SERVER=mock-collector:19876
       - RESTEASY_PORT=18080
+      - SERVER2_ADDRESS=resteasy-server2:8080
     volumes:
-      - {AGENT_FILE_PATH}:/usr/local/resteasy-server-scenario/agent
+      - {AGENT_FILE_PATH}:/usr/local/resteasy-server1/agent
+    depends_on:
+      mock-collector:
+        condition: service_healthy
+
+  resteasy-server2:
+    image:  skywalking/resteasy-server2:{CASES_IMAGE_VERSION}
+    expose:
+      - "8080"
+    environment:
+      - COLLECTOR_SERVER=mock-collector:19876
+      - RESTEASY_PORT=8080
+    links:
+      - mock-collector
+    volumes:
+      - {AGENT_FILE_PATH}:/usr/local/resteasy-server2/agent
     depends_on:
       mock-collector:
         condition: service_healthy

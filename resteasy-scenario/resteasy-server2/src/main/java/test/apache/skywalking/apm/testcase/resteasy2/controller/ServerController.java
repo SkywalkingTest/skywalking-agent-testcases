@@ -16,22 +16,22 @@
  *
  */
 
-package test.apache.skywalking.apm.testcase.resteasy;
+package test.apache.skywalking.apm.testcase.resteasy2.controller;
 
-import org.jboss.resteasy.plugins.server.netty.NettyContainer;
-import org.jboss.resteasy.spi.ResteasyDeployment;
-import test.apache.skywalking.apm.testcase.resteasy.controller.ServerController;
-
-import java.util.Collections;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 /**
  * @author yan-fucheng
  */
-public class Application {
+@Path("/case")
+public class ServerController {
 
-    public static void main(String[] args) throws Exception {
-        ResteasyDeployment deployment = new ResteasyDeployment();
-        deployment.setResources(Collections.<Object>singletonList(new ServerController()));
-        NettyContainer.start("/resteasy-server-case", null, deployment);
+    @GET
+    @Path("sync")
+    @Produces("text/plain")
+    public String syncRequest() {
+        return "Hello Server2!";
     }
 }
