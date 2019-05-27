@@ -1,0 +1,79 @@
+registryItems:
+  applications:
+    - {hessian-client: nq 0}
+    - {hessian-server: nq 0}
+  instances:
+    - {hessian-client: 1}
+    - {hessian-server: 1}
+  operationNames:
+    -  hessian-client: [
+      "/hessian-case/hello",
+      "/hessian-case/HelloService"
+    ]
+    - hessian-server: [
+      "/hessian-case/HelloService"
+    ]
+segmentItems:
+  - applicationCode: hessian-client
+    segmentSize: 2
+    segments:
+      - segmentId: not null
+        spans:
+          - operationName: /hessian-case/hello
+            operationId: 0
+            parentSpanId: 0
+            spanId: 1
+            spanLayer: Http
+            startTime: nq 0
+            endTime: nq 0
+            componentId: 2
+            componentName: ''
+            isError: false
+            spanType: Exit
+            peer: localhost:8090
+            peerId: 0
+            tags:
+              - {key: url, value: 'http://localhost:8090/hessian-case/hello'}
+              - {key: http.method, value: GET}
+          - operationName: /hessian-case/HelloService
+            operationId: 0
+            parentSpanId: -1
+            spanId: 0
+            spanLayer: HESSIAN
+            startTime: nq 0
+            endTime: nq 0
+            componentId: 63
+            componentName: ''
+            isError: false
+            spanType: Entry
+            peer: ''
+            peerId: 0
+            tags:
+              - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/hessian-case/HelloService'}
+              - {key: http.method, value: GET}
+  - applicationCode: hessian-server
+    segmentSize: 1
+    segments:
+      - segmentId: not null
+        spans:
+          - operationName: /hessian-case/HelloService
+            operationId: 0
+            parentSpanId: -1
+            spanId: 0
+            spanLayer: HESSIAN
+            startTime: nq 0
+            endTime: nq 0
+            componentId: 63
+            componentName: ''
+            isError: false
+            spanType: Entry
+            peer: ''
+            peerId: 0
+            tags:
+              - {key: url, value: 'http://hessian-case:8080/hessian-case/HelloService'}
+              - {key: http.method, value: POST}
+            refs:
+              - {parentEndpointId: 0, parentEndpoint: /hessian-case/HelloService, networkAddressId: 0, entryEndpointId: 0,
+                 refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${hessian-server[0]}',
+                 parentServiceInstanceId: nq 0, networkAddress: 'hessian-server:8080', entryEndpoint: /hessina-case/HelloService,
+                 entryServiceInstanceId: nq 0}
