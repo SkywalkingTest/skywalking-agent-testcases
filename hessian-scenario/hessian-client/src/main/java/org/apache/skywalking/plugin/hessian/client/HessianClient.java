@@ -25,7 +25,7 @@ public class HessianClient
     public HessianProxyFactoryBean helloService() {
         HessianProxyFactoryBean bean = new HessianProxyFactoryBean();
         String host = System.getProperty(HESSIAN_PROVIDER_HOST);
-        String url = new StringBuilder("http://").append(host).append(":8080").append("/hessian-case//HelloService").toString();
+        String url = new StringBuilder("http://").append(host).append(":8080").append("/hessian-case/HelloService").toString();
 //        String url = "http://localhost:8080/hessian-case/HelloService";
         bean.setServiceUrl(url);
         bean.setServiceInterface(HelloService.class);
