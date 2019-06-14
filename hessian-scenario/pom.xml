@@ -21,8 +21,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <compiler.version>1.8</compiler.version>
-    <test.framework.version>4.0</test.framework.version>
-    <docker.image.version>v0.1</docker.image.version>
+    <test.framework.version>4.0.38</test.framework.version>
+    <docker.image.version>${test.framework.version}</docker.image.version>
   </properties>
 
   <!-- using springboot without parent-->
@@ -36,6 +36,12 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
+      <dependency>
+        <groupId>com.caucho</groupId>
+        <artifactId>hessian</artifactId>
+        <version>${test.framework.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -46,6 +52,36 @@
         <test.framework.version>4.0.38</test.framework.version>
       </properties>
     </profile>
+
+    <profile>
+      <id>hessian-scenario-4.0.51</id>
+      <properties>
+        <test.framework.version>4.0.51</test.framework.version>
+      </properties>
+    </profile>
   </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${compiler.version}</source>
+          <target>${compiler.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+        <version>3.6.1</version>
+      </plugin>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>0.4.13</version>
+        <configuration>
+          <skipDocker>true</skipDocker>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

@@ -6,71 +6,66 @@ registryItems:
     - {hessian-consumer: 1}
     - {hessian-provider: 1}
   operationNames:
-    -  hessian-consumer: [
-      "/hessian-case/HelloService"
-      "/hessian-case/hello",
-    ]
-    - hessian-server: [
-      "/hessian-case/HelloService"
-    ]
+    - hessian-consumer: [/hessian-case/HelloService,/hessian-case/hello]
+    - hessian-provider: ['interface org.apache.skywalking.plugin.hessian.service.HelloService/interface org.springframework.aop.SpringProxy/interface org.springframework.core.DecoratingProxy/invoke']
 segmentItems:
-  - applicationCode: hessian-client
+  - applicationCode: hessian-consumer
     segmentSize: 1
     segments:
       - segmentId: not null
         spans:
           - operationName: /hessian-case/HelloService
-            operationId: 0
+            operationId: eq 0
             parentSpanId: 0
             spanId: 1
-            spanLayer: RPCFramework
             startTime: nq 0
             endTime: nq 0
-            componentId: 62
-            componentName: ''
             isError: false
+            spanLayer: RPCFramework
+            tags:
+              - {key: url, value: '/hessian-case/HelloService'}
             spanType: Exit
-            peer:
-            peerId: 0
+            componentName: null
+            componentId: 63
+            logs: []
+            peer: null
+            peerId: eq 0
           - operationName: /hessian-case/hello
-            operationId: 0
+            operationId: eq 0
             parentSpanId: -1
             spanId: 0
+            startTime: nq 0
+            endTime: nq 0
             spanLayer: Http
             tags:
               - {key: url, value: 'http://localhost:18080/hessian-case/hello'}
               - {key: http.method, value: GET}
-            startTime: nq 0
-            endTime: nq 0
-            componentId: 1
-            componentName: ''
             isError: false
             spanType: Entry
-            peer: ''
-            peerId: 0
+            componentName: null
+            componentId: 1
+            logs: []
+            peer: null
+            peerId: eq 0
   - applicationCode: hessian-provider
     segmentSize: 1
     segments:
       - segmentId: not null
         spans:
-          - operationName: /hessian-case/HelloService
-            operationId: 0
+          - operationName: 'interface org.apache.skywalking.plugin.hessian.service.HelloService/interface org.springframework.aop.SpringProxy/interface org.springframework.core.DecoratingProxy/invoke'
+            operationId: eq 0
             parentSpanId: -1
             spanId: 0
-            spanLayer: HESSIAN
+            spanLayer: RPCFramework
             tags:
-              - {key: url, value: 'http://hessian-case:8080/hessian-case/HelloService'}
-              - {key: http.method, value: POST}
-            startTime: nq 0
-            endTime: nq 0
+              - {key: url, value: 'interface org.apache.skywalking.plugin.hessian.service.HelloService/interface org.springframework.aop.SpringProxy/interface org.springframework.core.DecoratingProxy/invoke'}
+            refs:
+              - {parentEndpointId: 0,parentEndpoint: "${hessian-consumer[0]}",networkAddressId: not null,refType: CrossProcess,parentSpanId: 1,parentTraceSegmentId: not null,parentServiceInstanceId: nq 0,networkAddress: not null,entryEndpoint: "/hessian-case/HelloService",entryServiceInstanceId: 1}
+            startTime: not null
+            endTime: not null
             componentId: 63
-            componentName: ''
+            componentName: null
             isError: false
             spanType: Entry
-            peer: ''
-            peerId: 0
-            refs:
-              - {parentEndpointId: 0, parentEndpoint: /hessian-case/HelloService, networkAddressId: 0, entryEndpointId: 0,
-                 refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${hessian-provider[0]}',
-                 parentServiceInstanceId: nq 0, networkAddress: 'hessian-server:8080', entryEndpoint: /hessina-case/HelloService,
-                 entryServiceInstanceId: nq 0}
+            peer: null
+            peerId: eq 0

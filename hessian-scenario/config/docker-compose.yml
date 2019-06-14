@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   hessian-consumer:
-    image:  skywalking/hessian-client:v0.1
+    image:  skywalking/hessian-client:{CASES_IMAGE_VERSION}
     expose:
       - "8090"
     ports:
@@ -18,7 +18,7 @@ services:
         condition: service_healthy
 
   hessian-provider:
-    image: skywalking/hessian-server:v0.1
+    image: skywalking/hessian-server:{CASES_IMAGE_VERSION}
     expose:
       - "18080"
     environment:
