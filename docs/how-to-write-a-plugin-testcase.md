@@ -365,9 +365,9 @@ Tomcat is supported, so in `SegmentA`, there is 2 spans. One is Tomcat, the othe
 ```
 
 ### Provide metadata file
-1. Add testcase.yaml
+1. Add testcase.yml
 
-testcase.yaml Format:
+testcase.yml Format:
 ```yml
 testcase:
   request_url: TESTCASE_REQUEST_URL
@@ -432,7 +432,7 @@ Add 14 profiles in pom.xml in HttpClient case.
 
 ```shell
 # export project_name=httpclient-4.3.x-scenario
-# sh ${SKYWALKING_AGENT_TESTCASES_HOME}/deploy-test.sh --scenario ${scenario_name} ${agent_repo} ${agent_repo_branch}
+# bash ${SKYWALKING_AGENT_TESTCASES_HOME}/deploy-test.sh --scenario ${scenario_name} ${agent_repo} ${agent_repo_branch}
 ```
 
 | Parameter                | Comment                                                             |
