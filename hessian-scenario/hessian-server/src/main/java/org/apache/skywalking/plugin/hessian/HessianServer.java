@@ -24,7 +24,7 @@ public class HessianServer
         SpringApplication.run(HessianServer.class, args);
     }
 
-    @Bean(name="/hessian-case/HelloService")
+    @Bean(name="/HelloService")
     public HessianServiceExporter getExporter() {
         HessianServiceExporter exporter = new HessianServiceExporter();
         exporter.setServiceInterface(HelloService.class);

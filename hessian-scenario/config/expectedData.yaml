@@ -6,30 +6,14 @@ registryItems:
     - {hessian-consumer: 1}
     - {hessian-provider: 1}
   operationNames:
-    - hessian-consumer: [/hessian-case/HelloService,/hessian-case/hello]
-    - hessian-provider: ['interface org.apache.skywalking.plugin.hessian.service.HelloService/interface org.springframework.aop.SpringProxy/interface org.springframework.core.DecoratingProxy/invoke']
+    - hessian-consumer: [/hessian-case/hello,/HelloService]
+    - hessian-provider: ['org.apache.skywalking.plugin.hessian.service.HelloService']
 segmentItems:
   - applicationCode: hessian-consumer
     segmentSize: 1
     segments:
       - segmentId: not null
         spans:
-          - operationName: /hessian-case/HelloService
-            operationId: eq 0
-            parentSpanId: 0
-            spanId: 1
-            startTime: nq 0
-            endTime: nq 0
-            isError: false
-            spanLayer: RPCFramework
-            tags:
-              - {key: url, value: '/hessian-case/HelloService'}
-            spanType: Exit
-            componentName: null
-            componentId: 63
-            logs: []
-            peer: null
-            peerId: eq 0
           - operationName: /hessian-case/hello
             operationId: eq 0
             parentSpanId: -1
@@ -47,23 +31,39 @@ segmentItems:
             logs: []
             peer: null
             peerId: eq 0
+          - operationName: /HelloService
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 1
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: RPCFramework
+            tags:
+              - {key: url, value: '/HelloService'}
+            spanType: Exit
+            componentName: null
+            componentId: 65
+            logs: []
+            peer: null
+            peerId: eq 0
   - applicationCode: hessian-provider
     segmentSize: 1
     segments:
       - segmentId: not null
         spans:
-          - operationName: 'interface org.apache.skywalking.plugin.hessian.service.HelloService/interface org.springframework.aop.SpringProxy/interface org.springframework.core.DecoratingProxy/invoke'
+          - operationName: 'org.apache.skywalking.plugin.hessian.service.HelloService'
             operationId: eq 0
             parentSpanId: -1
             spanId: 0
             spanLayer: RPCFramework
             tags:
-              - {key: url, value: 'interface org.apache.skywalking.plugin.hessian.service.HelloService/interface org.springframework.aop.SpringProxy/interface org.springframework.core.DecoratingProxy/invoke'}
+              - {key: url, value: 'org.apache.skywalking.plugin.hessian.service.HelloService'}
             refs:
-              - {parentEndpointId: 0,parentEndpoint: "${hessian-consumer[0]}",networkAddressId: not null,refType: CrossProcess,parentSpanId: 1,parentTraceSegmentId: not null,parentServiceInstanceId: nq 0,networkAddress: not null,entryEndpoint: "/hessian-case/HelloService",entryServiceInstanceId: 1}
+              - {parentEndpointId: 0,parentEndpoint: "/HelloService",networkAddressId: not null,refType: CrossProcess,parentSpanId: 1,parentTraceSegmentId: not null,parentServiceInstanceId: nq 0,networkAddress: not null,entryEndpoint: "/HelloService",entryServiceInstanceId: 1}
             startTime: not null
             endTime: not null
-            componentId: 63
+            componentId: 65
             componentName: null
             isError: false
             spanType: Entry
