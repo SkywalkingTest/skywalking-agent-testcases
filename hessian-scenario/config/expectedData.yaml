@@ -6,7 +6,7 @@ registryItems:
     - {hessian-consumer: 1}
     - {hessian-provider: 1}
   operationNames:
-    - hessian-consumer: [/hessian-case/hello,/HelloService]
+    - hessian-consumer: [/HelloService,/hessian-case/hello]
     - hessian-provider: ['org.apache.skywalking.plugin.hessian.service.HelloService']
 segmentItems:
   - applicationCode: hessian-consumer
@@ -14,6 +14,21 @@ segmentItems:
     segments:
       - segmentId: not null
         spans:
+          - operationName: /HelloService
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 1
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: RPCFramework
+            tags:
+              - {key: url, value: '/HelloService'}
+            spanType: Exit
+            componentName: null
+            componentId: 65
+            peer: null
+            peerId: eq 0
           - operationName: /hessian-case/hello
             operationId: eq 0
             parentSpanId: -1
@@ -28,23 +43,6 @@ segmentItems:
             spanType: Entry
             componentName: null
             componentId: 1
-            logs: []
-            peer: null
-            peerId: eq 0
-          - operationName: /HelloService
-            operationId: eq 0
-            parentSpanId: 0
-            spanId: 1
-            startTime: nq 0
-            endTime: nq 0
-            isError: false
-            spanLayer: RPCFramework
-            tags:
-              - {key: url, value: '/HelloService'}
-            spanType: Exit
-            componentName: null
-            componentId: 65
-            logs: []
             peer: null
             peerId: eq 0
   - applicationCode: hessian-provider
@@ -60,7 +58,7 @@ segmentItems:
             tags:
               - {key: url, value: 'org.apache.skywalking.plugin.hessian.service.HelloService'}
             refs:
-              - {parentEndpointId: 0,parentEndpoint: "/HelloService",networkAddressId: not null,refType: CrossProcess,parentSpanId: 1,parentTraceSegmentId: not null,parentServiceInstanceId: nq 0,networkAddress: not null,entryEndpoint: "/HelloService",entryServiceInstanceId: 1}
+              - {parentEndpointId: 0,parentEndpoint: "/hessian-case/hello",networkAddressId: 0,entryEndpointId: 0, refType: CrossProcess,parentSpanId: 1,parentTraceSegmentId: not null,parentServiceInstanceId: nq 0,networkAddress: ':',entryEndpoint: "/hessian-case/hello",entryServiceInstanceId: nq 0}
             startTime: not null
             endTime: not null
             componentId: 65
