@@ -6,7 +6,7 @@ registryItems:
     - {hessian-consumer: 1}
     - {hessian-provider: 1}
   operationNames:
-    - hessian-consumer: [/HelloService,/hessian-case/hello]
+    - hessian-consumer: [/hessian-case/hello,/HelloService]
     - hessian-provider: ['org.apache.skywalking.plugin.hessian.service.HelloService']
 segmentItems:
   - applicationCode: hessian-consumer
@@ -15,7 +15,7 @@ segmentItems:
       - segmentId: not null
         spans:
           - operationName: /HelloService
-            operationId: eq 0
+            operationId: 0
             parentSpanId: 0
             spanId: 1
             startTime: nq 0
@@ -23,14 +23,14 @@ segmentItems:
             isError: false
             spanLayer: RPCFramework
             tags:
-              - {key: url, value: '/HelloService'}
+              - {key: hessian_uri, value: '/HelloService'}
             spanType: Exit
             componentName: null
             componentId: 65
             peer: null
             peerId: eq 0
           - operationName: /hessian-case/hello
-            operationId: eq 0
+            operationId: 0
             parentSpanId: -1
             spanId: 0
             startTime: nq 0
@@ -51,7 +51,7 @@ segmentItems:
       - segmentId: not null
         spans:
           - operationName: 'org.apache.skywalking.plugin.hessian.service.HelloService'
-            operationId: eq 0
+            operationId: 0
             parentSpanId: -1
             spanId: 0
             spanLayer: RPCFramework

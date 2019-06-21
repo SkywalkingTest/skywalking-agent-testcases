@@ -59,6 +59,35 @@
         <test.framework.version>4.0.51</test.framework.version>
       </properties>
     </profile>
+
+    <profile>
+      <id>hessian-scenario-4.0.52</id>
+      <properties>
+        <test.framework.version>4.0.52</test.framework.version>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>hessian-scenario-4.0.53</id>
+      <properties>
+        <test.framework.version>4.0.53</test.framework.version>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>hessian-scenario-4.0.59</id>
+      <properties>
+        <test.framework.version>4.0.59</test.framework.version>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>hessian-scenario-4.0.60</id>
+      <properties>
+        <test.framework.version>4.0.60</test.framework.version>
+      </properties>
+    </profile>
+
   </profiles>
 
   <build>
