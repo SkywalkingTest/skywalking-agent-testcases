@@ -19,13 +19,12 @@ public class AsyncBean {
 
 
     @Async
-    public void sendVisit() throws IOException {
+    public void sendVisitBySystem() throws IOException {
         httpBean.visit("http://skywalking.apache.org/?k=v");
     }
 
-    @Async
-    public Future<String> sendVisit(String k) throws IOException {
+    @Async("customizeAsync")
+    public void sendVisitByCustomize() throws IOException {
         httpBean.visit("http://skywalking.apache.org/?k=v");
-        return new AsyncResult<>(k);
     }
 }

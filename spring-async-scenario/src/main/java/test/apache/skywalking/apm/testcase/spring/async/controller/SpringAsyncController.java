@@ -24,6 +24,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.concurrent.Future;
+
 
 @Controller
 @RequestMapping("/spring-async")
@@ -36,7 +38,8 @@ public class SpringAsyncController {
     @ResponseBody
     public String springAsyncCase() {
         try {
-            asyncBean.sendVisit();
+            asyncBean.sendVisitBySystem();
+            asyncBean.sendVisitByCustomize();
         } catch (Exception e) {
         }
         return "Success";
