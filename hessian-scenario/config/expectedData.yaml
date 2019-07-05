@@ -37,7 +37,7 @@ segmentItems:
       endTime: nq 0
       spanLayer: Http
       tags:
-      - {key: url, value: 'http://localhost:18080/hessian-case/hello'}
+      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/hessian-case/hello'}
       - {key: http.method, value: GET}
       isError: false
       spanType: Entry
