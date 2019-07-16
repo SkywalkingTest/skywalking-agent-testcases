@@ -86,7 +86,7 @@ segmentItems:
       spanId: 0
       spanLayer: Http
       tags:
-      - {key: url, value: 'http://hessian-provider:18080/HelloService'}
+      - {key: url, value: 'http://hessian-provider:8080/HelloService'}
       - {key: http.method, value: POST}
       refs:
       - {parentEndpointId: 0,parentEndpoint: "/hessian-case/hello",networkAddressId: 0,entryEndpointId: 0, refType: CrossProcess,parentSpanId: 1,parentTraceSegmentId: not null,parentServiceInstanceId: nq 0,networkAddress: ':',entryEndpoint: "/hessian-case/hello",entryServiceInstanceId: nq 0}
