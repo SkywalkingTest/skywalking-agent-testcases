@@ -9,7 +9,7 @@ services:
     environment:
       - COLLECTOR_SERVER=mock-collector:19876
       - HESSIAN_PROVIDER_HOST=hessian-provider
-      - HESSIAN_PROVIDER_PORT=8080
+      - HESSIAN_PROVIDER_PORT=18080
     links:
       - mock-collector
     volumes:
