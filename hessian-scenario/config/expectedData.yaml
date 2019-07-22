@@ -23,7 +23,7 @@ segmentItems:
       isError: false
       spanLayer: RPCFramework
       tags:
-      - {key: hessian_uri, value: '/HelloService'}
+      - {key: url, value: '/HelloService'}
       spanType: Exit
       componentName: null
       componentId: 66
