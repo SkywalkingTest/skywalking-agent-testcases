@@ -6,15 +6,15 @@ registryItems:
     - {hessian-consumer: 1}
     - {hessian-provider: 1}
   operationNames:
-    - hessian-consumer: [/HelloService,/hessian-case/hello]
-    - hessian-provider: [/HelloService,org.apache.skywalking.plugin.hessian.service.HelloService]
+    - hessian-consumer: [org.apache.skywalking.plugin.hessian.client.service.HelloService,/hessian-case/hello]
+    - hessian-provider: [org.apache.skywalking.plugin.hessian.service.HelloService]
 segmentItems:
 - applicationCode: hessian-consumer
   segmentSize: 1
   segments:
   - segmentId: not null
     spans:
-    - operationName: /HelloService
+    - operationName: org.apache.skywalking.plugin.hessian.client.service.HelloService
       operationId: 0
       parentSpanId: 0
       spanId: 1
@@ -23,7 +23,7 @@ segmentItems:
       isError: false
       spanLayer: RPCFramework
       tags:
-      - {key: url, value: '/HelloService'}
+      - {key: url, value: org.apache.skywalking.plugin.hessian.client.service.HelloService}
       spanType: Exit
       componentName: null
       componentId: 66
@@ -52,49 +52,18 @@ segmentItems:
     spans:
     - operationName: org.apache.skywalking.plugin.hessian.service.HelloService
       operationId: 0
-      parentSpanId: 1
-      spanId: 2
+      parentSpanId: -1
+      spanId: 0
       spanLayer: RPCFramework
       tags:
       - {key: url, value: org.apache.skywalking.plugin.hessian.service.HelloService}
-      startTime: not null
-      endTime: not null
-      componentId: 66
-      isError: false
-      componentName: null
-      spanType: Entry
-      peer:
-      peerId: 0
-    - operationName: /HelloService
-      operationId: 0
-      parentSpanId: 0
-      spanId: 1
-      spanLayer: RPCFramework
-      tags:
-      - {key: url, value: /HelloService}
-      startTime: not null
-      endTime: not null
-      componentId: 66
-      isError: false
-      componentName: null
-      spanType: Local
-      peer:
-      peerId: 0
-    - operationName: '/HelloService'
-      operationId: 0
-      parentSpanId: -1
-      spanId: 0
-      spanLayer: Http
-      tags:
-      - {key: url, value: 'http://hessian-provider:8080/HelloService'}
-      - {key: http.method, value: POST}
       refs:
       - {parentEndpointId: 0,parentEndpoint: "/hessian-case/hello",networkAddressId: 0,entryEndpointId: 0, refType: CrossProcess,parentSpanId: 1,parentTraceSegmentId: not null,parentServiceInstanceId: nq 0,networkAddress: ':',entryEndpoint: "/hessian-case/hello",entryServiceInstanceId: nq 0}
       startTime: not null
       endTime: not null
-      componentId: 1
-      componentName: null
+      componentId: 66
       isError: false
+      componentName: null
       spanType: Entry
-      peer: null
-      peerId: eq 0
+      peer:
+      peerId: 0
