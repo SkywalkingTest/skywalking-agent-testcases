@@ -4,7 +4,7 @@ registryItems:
   instances:
   - {undertow-routing-scenario: 1}
   operationNames:
-  - undertow-scenario: [/projects/{projectId}]
+  - undertow-routing-scenario: [/projects/{projectId}]
 segmentItems:
 - applicationCode: undertow-routing-scenario
   segmentSize: 1
