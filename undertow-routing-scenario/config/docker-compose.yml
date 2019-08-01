@@ -11,7 +11,7 @@ services:
     environment:
       - COLLECTOR_SERVER=mock-collector:19876
     volumes:
-      - {AGENT_FILE_PATH}:/usr/local/skywalking-undertow-routing-scenario/agent
+      - "{AGENT_FILE_PATH}:/usr/local/skywalking-undertow-routing-scenario/agent"
     depends_on:
       mock-collector:
         condition: service_healthy
