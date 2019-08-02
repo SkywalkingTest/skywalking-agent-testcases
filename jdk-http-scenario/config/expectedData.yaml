@@ -24,8 +24,8 @@ segmentItems:
             componentName: null
             componentId: eq 66
             tags:
-              - {key: url, value: 'http://127.0.0.1:8080/jdk-http-case/case/receiveContext-0'}
               - {key: http.method, value: GET}
+              - {key: url, value: 'http://127.0.0.1:8080/jdk-http-case/case/receiveContext-0'}
             logs: []
             peer: null
             peerId: eq 0
