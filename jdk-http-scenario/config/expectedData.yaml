@@ -67,4 +67,4 @@ segmentItems:
             peer: null
             peerId: eq 0
             refs:
-              - {parentSpanId: 1, parentTraceSegmentId: "${jdk-http-case[0]}", entryEndpoint: "/case/jdk-http-case", networkAddress: "127.0.0.1:8080",parentEndpoint: "/case/jdk-http-case",entryServiceInstanceId: nq 0 }
+              - {parentSpanId: 1, parentTraceSegmentId: "${jdk-http-scenario[0]}", entryEndpoint: "/case/jdk-http-case", networkAddress: "127.0.0.1:8080",parentEndpoint: "/case/jdk-http-case",entryServiceInstanceId: nq 0 }
