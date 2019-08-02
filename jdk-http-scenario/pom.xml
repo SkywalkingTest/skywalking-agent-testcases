@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <test.framework.version>3.0.0</test.framework.version>
+        <test.framework.version>all</test.framework.version>
         <docker.image.version>${test.framework.version}</docker.image.version>
 
         <log4j.version>2.6.2</log4j.version>
@@ -60,6 +60,14 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>jdk-http-scenario-all</id>
+            <properties>
+                <test.framework.version>all</test.framework.version>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <finalName>jdk-http-scenario</finalName>
