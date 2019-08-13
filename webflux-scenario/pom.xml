@@ -162,7 +162,6 @@
                 <docker.image.version>spring-webflux_5.1.9.RELEASE-spring-mvc_5.1.9.RELEASE</docker.image.version>
             </properties>
         </profile>
-
     </profiles>
 
     <build>
