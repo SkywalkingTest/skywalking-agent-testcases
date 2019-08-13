@@ -100,7 +100,7 @@
             </properties>
         </profile>
         <profile>
-            <id>webflux-scenario-spring-webflux_5.0.13.RELEASE-spring-mvc_5.0.131.RELEASE</id>
+            <id>webflux-scenario-spring-webflux_5.0.13.RELEASE-spring-mvc_5.0.13.RELEASE</id>
             <properties>
                 <test.framework.version>2.0.9.RELEASE</test.framework.version>
                 <docker.image.version>spring-webflux_5.0.13.RELEASE-spring-mvc_5.0.13.RELEASE</docker.image.version>
