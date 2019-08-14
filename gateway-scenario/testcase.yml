@@ -11,7 +11,7 @@ testcase:
   #
   # The framework name that need tested.
   #
-  test_framework: spring-gateway#
+  test_framework: spring-gateway
   # The running mode:  TOGETHER(default), SINGLE, WITH_OPTIONAL
   #
   running_mode: WITH_OPTIONAL
@@ -19,5 +19,6 @@ testcase:
   # The framework version list of current test case supported
   #
   support_versions:
+    - 2.1.2.RELEASE
     - 2.1.1.RELEASE
     - 2.1.0.RELEASE

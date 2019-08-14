@@ -37,6 +37,13 @@
 
     <profiles>
         <profile>
+            <id>gateway-scenario-2.1.2.RELEASE</id>
+            <properties>
+                <test.framework.version>2.1.2.RELEASE</test.framework.version>
+                <docker.image.version>2.1.2.RELEASE</docker.image.version>
+            </properties>
+        </profile>
+        <profile>
             <id>gateway-scenario-2.1.1.RELEASE</id>
             <properties>
                 <test.framework.version>2.1.1.RELEASE</test.framework.version>
