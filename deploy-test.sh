@@ -46,7 +46,6 @@ _arg_testcase_branch=
 _arg_scenario=()
 _arg_issue_no="UNKNOWN"
 _arg_build="on"
-_arg_sbt_build="off"
 _arg_report="off"
 _arg_clone_code="on"
 _arg_fetch_latest_code="on"
@@ -111,9 +110,6 @@ parse_commandline()
 				_arg_build="on"
 				test "${1:0:5}" = "--no-" && _arg_build="off"
 				;;
-			--sbt-build)
- 				_arg_sbt_build="on"
-			    ;;	
 			--no-report|--report)
 				_arg_report="on"
 				test "${1:0:5}" = "--no-" && _arg_report="off"
@@ -246,7 +242,6 @@ echo -e "  - Testcase repository:\t${TESTCASE_REPO}"
 echo -e "  - Testcase repository branch:\t${TESTCASE_REPO_BRANCH}"
 echo -e "  - Issue No:\t\t\t${_arg_issue_no}"
 echo -e "  - Build:\t\t\t${_arg_build}"
-echo -e "  - Sbt build:\t\t\t${_arg_sbt_build}"
 echo -e "  - Report:\t\t\t${_arg_report}"
 echo -e "  - Image version of collector:\t${_arg_collector_image_version}"
 echo -e "  - parallel running number:\t${_arg_parallel_run_size}"
@@ -267,7 +262,7 @@ TESTCASE_COMMIT_ID=$(cd $AGENT_TEST_HOME && git rev-parse HEAD)
 
 # build testcase
 echo "[INFO] build test case projects"
-${AGENT_TEST_HOME}/build_testcases.sh --sbt-build ${_arg_sbt_build} --collector_image_version ${_arg_collector_image_version} --skip_single_mode ${_arg_skip_single_mode_scenario} ${AGENT_TEST_HOME} ${SCENARIOS[@]} > ${LOGS_DIR}/testcase-build.log
+${AGENT_TEST_HOME}/build_testcases.sh --collector_image_version ${_arg_collector_image_version} --skip_single_mode ${_arg_skip_single_mode_scenario} ${AGENT_TEST_HOME} ${SCENARIOS[@]} > ${LOGS_DIR}/testcase-build.log
 
 # run test_case
 ${AGENT_TEST_HOME}/run.sh -m ${_arg_parallel_run_size} ${TESTCASES_HOME} >/dev/null

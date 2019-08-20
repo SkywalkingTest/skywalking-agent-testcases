@@ -44,7 +44,6 @@ _arg_agent_with_bootstrap_dir="workspace/agent-with-bootstrap-plugins"
 _arg_collector_image_version="6.0.0-2018"
 _arg_skip_single_mode="on"
 _arg_skip_build="on"
-_arg_sbt_build="off"
 
 
 print_help()
@@ -125,9 +124,6 @@ parse_commandline()
 				_arg_skip_build="on"
 				test "${1:0:5}" = "--no-" && _arg_skip_build="off"
 				;;
-			--sbt-build)
-				_arg_sbt_build="on"
-			    ;;	
 			-h|--help)
 				print_help
 				exit 0
@@ -270,13 +266,8 @@ do
 	for SUPPORT_VERSION in ${SUPPORT_VERSIONS[@]}
 	do
     if [ "${_arg_skip_build}" = "on" ]; then
-      if [ "${_arg_sbt_build}" = "on" ]; then
-      	echo "[INFO] execute sbt package sbt dist -P${SCENARIO}-${SUPPORT_VERSION}"
-        sbt dist -P${SCENARIO}-${SUPPORT_VERSION}
-      else
-      	echo "[INFO] execute mvn package docker:build -P${SCENARIO}-${SUPPORT_VERSION}"
-        mvn clean package docker:build -P${SCENARIO}-${SUPPORT_VERSION}
-      fi
+      echo "[INFO] execute mvn package docker:build -P${SCENARIO}-${SUPPORT_VERSION}"
+      mvn clean package docker:build -P${SCENARIO}-${SUPPORT_VERSION}
     else
       echo "[INFO] skip build the case ${SCENARIO} - ${SUPPORT_VERSION}"
     fi
