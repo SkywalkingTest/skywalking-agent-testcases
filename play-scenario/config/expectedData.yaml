@@ -25,5 +25,5 @@ segmentItems:
             peer: ''
             peerId: 0
             tags:
-              - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/projects/1'}
+              - {key: url, value: 'localhost:{SERVER_OUTPUT_PORT}/projects/1'}
               - {key: http.method, value: GET}
