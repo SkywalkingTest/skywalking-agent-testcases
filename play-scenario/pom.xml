@@ -16,6 +16,7 @@
 
         <play2.version>2.6.0</play2.version>
         <scala.version>2.12.9</scala.version>
+        <docker.image.version>${play2.version}</docker.image.version>
     </properties>
 
     <dependencies>
