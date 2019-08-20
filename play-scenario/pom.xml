@@ -55,15 +55,15 @@
 
     <profiles>
         <profile>
-            <id>play-scenario-2.6.x</id>
+            <id>play-scenario-2.6.0</id>
             <properties>
                 <play2.version>2.6.0</play2.version>
             </properties>
         </profile>
         <profile>
-            <id>play-scenario-2.7.x</id>
+            <id>play-scenario-2.7.0</id>
             <properties>
-                <play2.version>2.6.0</play2.version>
+                <play2.version>2.7.0</play2.version>
             </properties>
         </profile>
     </profiles>
