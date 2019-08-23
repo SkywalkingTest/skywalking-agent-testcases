@@ -3,23 +3,22 @@ package test.apache.skywalking.testcase.cassandra.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 @RequestMapping("/case")
-@PropertySource("classpath:application.properties")
 public class CaseController {
 
     private Logger logger = LogManager.getLogger(CaseController.class);
-    @Value(value = "${mongodb.host}")
-    private String mongoDBHost;
+    @Value("${cassandra.contact-points}")
+    private String contactPoints;
 
     @GetMapping("/cassandra")
-    @ResponseBody
     public String mongoDBCase() {
-        logger.info("mongodb host: {} ", mongoDBHost);
+        logger.info("cassandra contact points: {} ", contactPoints);
 //        MongoClient mongoClient = new MongoClient(mongoDBHost, 27017);
 //        MongoDatabase db = mongoClient.getDatabase("test-database");
 //        db.createCollection("testCollection");

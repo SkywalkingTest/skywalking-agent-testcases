@@ -1,0 +1,10 @@
+---
+
+server:
+  port: 8090
+  context-path: /cassandra-case
+
+cassandra:
+  contact-points: localhost:9042
+
+...

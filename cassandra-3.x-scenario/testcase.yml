@@ -7,7 +7,7 @@ testcase:
   #
   # The request url of current test cases.
   #
-  request_url: http://localhost:{SERVER_OUTPUT_PORT}/case/cassandra
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/cassandra-case/case/cassandra
   #
   # The framework name that need tested.
   #
