@@ -45,6 +45,7 @@
     </dependencies>
 
     <build>
+        <finalName>cassandra-scenario</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -57,6 +58,25 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <configuration>
+                    <skipDocker>false</skipDocker>
+                    <imageName>skywalking/cassandra-scenario</imageName>
+                    <imageTags>
+                        <imageTag>${docker.image.version}</imageTag>
+                    </imageTags>
+                    <dockerDirectory>${project.basedir}/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/${build.finalName}</targetPath>
+                            <directory>${project.build.directory}/${build.finalName}</directory>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

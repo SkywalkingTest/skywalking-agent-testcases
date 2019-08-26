@@ -1,24 +1,25 @@
 version: '2.1'
 services:
-  mongo-server:
-    image: mongo:3.4.10-jessie
+  cassandra-server:
+    image: cassandra:3.11.4
     expose:
-      - "27017"
+      - "9042"
 
-  mongo-scenario:
-    image:  skywalking/mongodb-scenario:{CASES_IMAGE_VERSION}
+  cassandra-scenario:
+    image:  skywalking/cassandra-scenario:{CASES_IMAGE_VERSION}
     expose:
       - "8080"
     ports:
       - "{SERVER_OUTPUT_PORT}:8080"
     environment:
       - COLLECTOR_SERVER=mock-collector:19876
-      - MONGO_HOST=mongo-server
+      - CASSANDRA_HOST=cassandra-server
+      - CASSANDRA_PORT=9042
     links:
       - mock-collector
-      - mongo-server
+      - cassandra-server
     volumes:
-     - {AGENT_FILE_PATH}:/usr/local/skywalking-mongodb-scenario/agent
+     - {AGENT_FILE_PATH}:/usr/local/skywalking-cassandra-scenario/agent
     depends_on:
       mock-collector:
         condition: service_healthy

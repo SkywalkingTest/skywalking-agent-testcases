@@ -1,10 +1,11 @@
 FROM openjdk:8-jdk-alpine
 
 ENV COLLECTOR_SERVER=127.0.0.1:12800 \
-    CASSANDRA_HOST=127.0.0.1
+    CASSANDRA_HOST=127.0.0.1 \
+    CASSANDRA_PORT=9042
 
 ADD startup.sh /usr/local/skywalking-cassandra-scenario/
-ADD cassandra-3.x-scenario.jar /usr/local/skywalking-cassandra-scenario/cassandra-scenario.jar
+ADD cassandra-scenario.jar /usr/local/skywalking-cassandra-scenario/cassandra-scenario.jar
 
 ADD docker-entrypoint.sh /
 RUN chmod +x /usr/local/skywalking-cassandra-scenario/startup.sh && chmod +x /docker-entrypoint.sh

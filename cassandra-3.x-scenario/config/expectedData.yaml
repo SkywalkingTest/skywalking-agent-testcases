@@ -1,135 +1,168 @@
+---
+
 registryItems:
   applications:
-  - {mongodb-scenario: nq 0}
+    - {cassandra-scenario: nq 0}
   instances:
-  - {mongodb-scenario: 1}
+    - {cassandra-scenario: 1}
   operationNames:
-  - mongodb-scenario: [MongoDB/DropDatabaseOperation, MongoDB/FindOperation, MongoDB/CreateCollectionOperation, /case/mongodb, MongoDB/MixedBulkWriteOperation]
-  heartbeat: []
+    - cassandra-scenario: [/cassandra-scenario/case/cassandra]
 segmentItems:
-- applicationCode: mongodb-scenario
-  segmentSize: 1
-  segments:
-  - segmentId: not null
-    spans:
-    - operationName: MongoDB/CreateCollectionOperation
-      operationId: 0
-      parentSpanId: 0
-      spanId: 1
-      spanLayer: Database
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 42
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: mongo-server:27017
-      peerId: 0
-      tags:
-      - {key: db.type, value: MongoDB}
-    - operationName: MongoDB/MixedBulkWriteOperation
-      operationId: 0
-      parentSpanId: 0
-      spanId: 2
-      spanLayer: Database
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 42
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: mongo-server:27017
-      peerId: 0
-      tags:
-      - {key: db.type, value: MongoDB}
-    - operationName: MongoDB/FindOperation
-      operationId: 0
-      parentSpanId: 0
-      spanId: 3
-      spanLayer: Database
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 42
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: mongo-server:27017
-      peerId: 0
-      tags:
-      - {key: db.type, value: MongoDB}
-    - operationName: MongoDB/MixedBulkWriteOperation
-      operationId: 0
-      parentSpanId: 0
-      spanId: 4
-      spanLayer: Database
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 42
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: mongo-server:27017
-      peerId: 0
-      tags:
-      - {key: db.type, value: MongoDB}
-    - operationName: MongoDB/FindOperation
-      operationId: 0
-      parentSpanId: 0
-      spanId: 5
-      spanLayer: Database
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 42
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: mongo-server:27017
-      peerId: 0
-      tags:
-      - {key: db.type, value: MongoDB}
-    - operationName: MongoDB/MixedBulkWriteOperation
-      operationId: 0
-      parentSpanId: 0
-      spanId: 6
-      spanLayer: Database
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 42
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: mongo-server:27017
-      peerId: 0
-      tags:
-      - {key: db.type, value: MongoDB}
-    - operationName: MongoDB/DropDatabaseOperation
-      operationId: 0
-      parentSpanId: 0
-      spanId: 7
-      spanLayer: Database
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 42
-      componentName: ''
-      isError: false
-      spanType: Exit
-      peer: mongo-server:27017
-      peerId: 0
-      tags:
-      - {key: db.type, value: MongoDB}
-    - operationName: /case/mongodb
-      operationId: 0
-      parentSpanId: -1
-      spanId: 0
-      spanLayer: Http
-      startTime: nq 0
-      endTime: nq 0
-      componentId: 14
-      componentName: ''
-      isError: false
-      spanType: Entry
-      peer: ''
-      peerId: 0
-      tags:
-      - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/mongodb-case/case/mongodb'}
-      - {key: http.method, value: GET}
+  - applicationCode: cassandra-scenario
+    segmentSize: ge 1
+    segments:
+      - segmentId: not null
+        spans:
+          -
+            operationName: Cassandra/executeAsync
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 1
+            tags:
+              - {key: "db.type", value: "cassandra"}
+              - {key: "db.instance", value: ""}
+              - {key: "db.statement", value: "CREATE KEYSPACE IF NOT EXISTS demo WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}"}
+            logs: []
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: Database
+            spanType: Exit
+            componentName: null
+            componentId: 68
+            peer: cassandra-server:9042
+            peerId: eq 0
+          -
+            operationName: Cassandra/executeAsync
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 2
+            tags:
+              - {key: "db.type", value: "cassandra"}
+              - {key: "db.instance", value: ""}
+              - {key: "db.statement", value: "CREATE TABLE IF NOT EXISTS demo.test(id TEXT PRIMARY KEY, value TEXT)"}
+            logs: []
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: Database
+            spanType: Exit
+            componentName: null
+            componentId: 68
+            peer: cassandra-server:9042
+            peerId: eq 0
+          -
+            operationName: Cassandra/executeAsync
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 3
+            tags:
+              - {key: "db.type", value: "cassandra"}
+              - {key: "db.instance", value: ""}
+              - {key: "db.statement", value: "INSERT INTO demo.test(id, value) VALUES(?,?)"}
+            logs: []
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: Database
+            spanType: Exit
+            componentName: null
+            componentId: 68
+            peer: cassandra-server:9042
+            peerId: eq 0
+          -
+            operationName: Cassandra/executeAsync
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 4
+            tags:
+              - {key: "db.type", value: "cassandra"}
+              - {key: "db.instance", value: ""}
+              - {key: "db.statement", value: "SELECT * FROM demo.test WHERE id = ?"}
+            logs: []
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: Database
+            spanType: Exit
+            componentName: null
+            componentId: 68
+            peer: cassandra-server:9042
+            peerId: eq 0
+          -
+            operationName: Cassandra/executeAsync
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 5
+            tags:
+              - {key: "db.type", value: "cassandra"}
+              - {key: "db.instance", value: ""}
+              - {key: "db.statement", value: "DELETE FROM demo.test WHERE id = ?"}
+            logs: []
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: Database
+            spanType: Exit
+            componentName: null
+            componentId: 68
+            peer: cassandra-server:9042
+            peerId: eq 0
+          -
+            operationName: Cassandra/executeAsync
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 5
+            tags:
+              - {key: "db.type", value: "cassandra"}
+              - {key: "db.instance", value: ""}
+              - {key: "db.statement", value: "DROP TABLE IF EXISTS demo.test"}
+            logs: []
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: Database
+            spanType: Exit
+            componentName: null
+            componentId: 68
+            peer: cassandra-server:9042
+            peerId: eq 0
+          -
+            operationName: Cassandra/executeAsync
+            operationId: eq 0
+            parentSpanId: 0
+            spanId: 5
+            tags:
+              - {key: "db.type", value: "cassandra"}
+              - {key: "db.instance", value: ""}
+              - {key: "db.statement", value: "DROP KEYSPACE IF EXISTS demo"}
+            logs: []
+            startTime: nq 0
+            endTime: nq 0
+            isError: false
+            spanLayer: Database
+            spanType: Exit
+            componentName: null
+            componentId: 68
+            peer: cassandra-server:9042
+            peerId: eq 0
+          -
+            operationName: /cassandra-scenario/case/cassandra
+            operationId: eq 0
+            parentSpanId: -1
+            spanId: 0
+            startTime: nq 0
+            endTime: nq 0
+            spanLayer: Http
+            isError: false
+            spanType: Entry
+            componentName: null
+            componentId: 1
+            tags:
+              - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/cassandra-scenario/case/cassandra'}
+              - {key: http.method, value: GET}
+            logs: []
+            peer: null
+            peerId: eq 0
+
+...
