@@ -72,8 +72,9 @@
                     <dockerDirectory>${project.basedir}/docker</dockerDirectory>
                     <resources>
                         <resource>
-                            <targetPath>/${build.finalName}</targetPath>
-                            <directory>${project.build.directory}/${build.finalName}</directory>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${build.finalName}.jar</include>
                         </resource>
                     </resources>
                 </configuration>
