@@ -26,8 +26,8 @@ segmentItems:
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: "cassandra-java-driver"
-            componentId: 0
+            componentName: ""
+            componentId: 68
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -43,8 +43,8 @@ segmentItems:
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: "cassandra-java-driver"
-            componentId: 0
+            componentName: ""
+            componentId: 68
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -60,8 +60,8 @@ segmentItems:
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: "cassandra-java-driver"
-            componentId: 0
+            componentName: ""
+            componentId: 68
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -77,8 +77,8 @@ segmentItems:
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: "cassandra-java-driver"
-            componentId: 0
+            componentName: ""
+            componentId: 68
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -94,8 +94,8 @@ segmentItems:
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: "cassandra-java-driver"
-            componentId: 0
+            componentName: ""
+            componentId: 68
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -111,8 +111,8 @@ segmentItems:
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: "cassandra-java-driver"
-            componentId: 0
+            componentName: ""
+            componentId: 68
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -128,8 +128,8 @@ segmentItems:
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: "cassandra-java-driver"
-            componentId: 0
+            componentName: ""
+            componentId: 68
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: /case/cassandra
