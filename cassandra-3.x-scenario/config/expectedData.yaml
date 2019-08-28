@@ -6,15 +6,14 @@ registryItems:
   instances:
     - {cassandra-scenario: 1}
   operationNames:
-    - cassandra-scenario: [/cassandra-scenario/case/cassandra]
+    - cassandra-scenario: [Cassandra/executeAsync, /case/cassandra]
 segmentItems:
   - applicationCode: cassandra-scenario
     segmentSize: ge 1
     segments:
       - segmentId: not null
         spans:
-          -
-            operationName: Cassandra/executeAsync
+          - operationName: Cassandra/executeAsync
             operationId: eq 0
             parentSpanId: 0
             spanId: 1
@@ -22,18 +21,16 @@ segmentItems:
               - {key: "db.type", value: "cassandra"}
               - {key: "db.instance", value: ""}
               - {key: "db.statement", value: "CREATE KEYSPACE IF NOT EXISTS demo WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}"}
-            logs: []
             startTime: nq 0
             endTime: nq 0
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: null
-            componentId: 68
+            componentName: "cassandra-java-driver"
+            componentId: 0
             peer: cassandra-server:9042
             peerId: eq 0
-          -
-            operationName: Cassandra/executeAsync
+          - operationName: Cassandra/executeAsync
             operationId: eq 0
             parentSpanId: 0
             spanId: 2
@@ -41,113 +38,101 @@ segmentItems:
               - {key: "db.type", value: "cassandra"}
               - {key: "db.instance", value: ""}
               - {key: "db.statement", value: "CREATE TABLE IF NOT EXISTS demo.test(id TEXT PRIMARY KEY, value TEXT)"}
-            logs: []
             startTime: nq 0
             endTime: nq 0
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: null
-            componentId: 68
+            componentName: "cassandra-java-driver"
+            componentId: 0
             peer: cassandra-server:9042
             peerId: eq 0
-          -
-            operationName: Cassandra/executeAsync
+          - operationName: Cassandra/executeAsync
             operationId: eq 0
             parentSpanId: 0
             spanId: 3
             tags:
               - {key: "db.type", value: "cassandra"}
-              - {key: "db.instance", value: ""}
+              - {key: "db.instance", value: "demo"}
               - {key: "db.statement", value: "INSERT INTO demo.test(id, value) VALUES(?,?)"}
-            logs: []
             startTime: nq 0
             endTime: nq 0
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: null
-            componentId: 68
+            componentName: "cassandra-java-driver"
+            componentId: 0
             peer: cassandra-server:9042
             peerId: eq 0
-          -
-            operationName: Cassandra/executeAsync
+          - operationName: Cassandra/executeAsync
             operationId: eq 0
             parentSpanId: 0
             spanId: 4
             tags:
               - {key: "db.type", value: "cassandra"}
-              - {key: "db.instance", value: ""}
+              - {key: "db.instance", value: "demo"}
               - {key: "db.statement", value: "SELECT * FROM demo.test WHERE id = ?"}
-            logs: []
             startTime: nq 0
             endTime: nq 0
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: null
-            componentId: 68
+            componentName: "cassandra-java-driver"
+            componentId: 0
             peer: cassandra-server:9042
             peerId: eq 0
-          -
-            operationName: Cassandra/executeAsync
+          - operationName: Cassandra/executeAsync
             operationId: eq 0
             parentSpanId: 0
             spanId: 5
             tags:
               - {key: "db.type", value: "cassandra"}
-              - {key: "db.instance", value: ""}
+              - {key: "db.instance", value: "demo"}
               - {key: "db.statement", value: "DELETE FROM demo.test WHERE id = ?"}
-            logs: []
             startTime: nq 0
             endTime: nq 0
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: null
-            componentId: 68
+            componentName: "cassandra-java-driver"
+            componentId: 0
             peer: cassandra-server:9042
             peerId: eq 0
-          -
-            operationName: Cassandra/executeAsync
+          - operationName: Cassandra/executeAsync
             operationId: eq 0
             parentSpanId: 0
-            spanId: 5
+            spanId: 6
             tags:
               - {key: "db.type", value: "cassandra"}
               - {key: "db.instance", value: ""}
               - {key: "db.statement", value: "DROP TABLE IF EXISTS demo.test"}
-            logs: []
             startTime: nq 0
             endTime: nq 0
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: null
-            componentId: 68
+            componentName: "cassandra-java-driver"
+            componentId: 0
             peer: cassandra-server:9042
             peerId: eq 0
-          -
-            operationName: Cassandra/executeAsync
+          - operationName: Cassandra/executeAsync
             operationId: eq 0
             parentSpanId: 0
-            spanId: 5
+            spanId: 7
             tags:
               - {key: "db.type", value: "cassandra"}
               - {key: "db.instance", value: ""}
               - {key: "db.statement", value: "DROP KEYSPACE IF EXISTS demo"}
-            logs: []
             startTime: nq 0
             endTime: nq 0
             isError: false
             spanLayer: Database
             spanType: Exit
-            componentName: null
-            componentId: 68
+            componentName: "cassandra-java-driver"
+            componentId: 0
             peer: cassandra-server:9042
             peerId: eq 0
-          -
-            operationName: /cassandra-scenario/case/cassandra
+          - operationName: /case/cassandra
             operationId: eq 0
             parentSpanId: -1
             spanId: 0
@@ -156,13 +141,13 @@ segmentItems:
             spanLayer: Http
             isError: false
             spanType: Entry
-            componentName: null
-            componentId: 1
+            componentName: ""
+            componentId: 14
             tags:
-              - {key: url, value: 'http://localhost:{SERVER_OUTPUT_PORT}/cassandra-scenario/case/cassandra'}
+              - {key: url, value: "http://localhost:{SERVER_OUTPUT_PORT}/cassandra-case/case/cassandra"}
               - {key: http.method, value: GET}
             logs: []
-            peer: null
+            peer: ""
             peerId: eq 0
 
 ...

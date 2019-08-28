@@ -7,6 +7,6 @@ server:
 
 cassandra:
   host: localhost
-  port: 32780
+  port: 9042
 
 ...

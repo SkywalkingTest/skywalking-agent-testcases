@@ -35,28 +35,36 @@ public class CaseController {
         try {
             cluster = Cluster.builder().addContactPoint(host).withPort(port).build();
             session = cluster.connect();
+            logger.info("cassandra connection open");
 
-            session.execute(CREATE_KEYSPACE_SQL);
-            session.execute(CREATE_TABLE_SQL);
+            ResultSet createKeyspaceDataResultSet = session.execute(CREATE_KEYSPACE_SQL);
+            logger.info("CREATE KEYSPACE result: " + createKeyspaceDataResultSet.toString());
+
+            ResultSet createTableDataResultSet = session.execute(CREATE_TABLE_SQL);
+            logger.info("CREATE TABLE result: " + createTableDataResultSet.toString());
 
             PreparedStatement insertDataPreparedStatement = session.prepare(INSERT_DATA_SQL);
             ResultSet insertDataResultSet = session.execute(insertDataPreparedStatement.bind("101", "foobar"));
-            logger.info(insertDataResultSet.toString());
+            logger.info("INSERT result: " + insertDataResultSet.toString());
 
             PreparedStatement selectDataPreparedStatement = session.prepare(SELECT_DATA_SQL);
             ResultSet resultSet = session.execute(selectDataPreparedStatement.bind("101"));
             Row row = resultSet.one();
-            logger.info("id: {}, value: {}", row.getString("id"), row.getString("value"));
+            logger.info("SELECT result: id: {}, value: {}", row.getString("id"), row.getString("value"));
 
             PreparedStatement deleteDataPreparedStatement = session.prepare(DELETE_DATA_SQL);
             ResultSet deleteDataResultSet = session.execute(deleteDataPreparedStatement.bind("101"));
-            logger.info(deleteDataResultSet.toString());
+            logger.info("DELETE result: " + deleteDataResultSet.toString());
 
-            session.execute(DROP_TABLE_SQL);
-            session.execute(DROP_KEYSPACE);
+            ResultSet dropTableDataResultSet = session.execute(DROP_TABLE_SQL);
+            logger.info("DROP TABLE result: " + dropTableDataResultSet.toString());
+
+            ResultSet dropKeyspaceDataResultSet = session.execute(DROP_KEYSPACE);
+            logger.info("DROP KEYSPACE result: " + dropKeyspaceDataResultSet.toString());
         } finally {
             session.close();
             cluster.close();
+            logger.info("cassandra connection close");
         }
 
         return "ok";
