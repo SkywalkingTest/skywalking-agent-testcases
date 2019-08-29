@@ -62,8 +62,12 @@ public class CaseController {
             ResultSet dropKeyspaceDataResultSet = session.execute(DROP_KEYSPACE);
             logger.info("DROP KEYSPACE result: " + dropKeyspaceDataResultSet.toString());
         } finally {
-            session.close();
-            cluster.close();
+            if (session != null) {
+                session.close();
+            }
+            if (cluster != null) {
+                cluster.close();
+            }
             logger.info("cassandra connection close");
         }
 
