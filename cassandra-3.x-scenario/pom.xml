@@ -57,18 +57,18 @@
                 <test.framework.version>3.7.1</test.framework.version>
             </properties>
         </profile>
-        <profile>
-            <id>cassandra-3.x-scenario-3.7.0</id>
-            <properties>
-                <test.framework.version>3.7.0</test.framework.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>cassandra-3.x-scenario-3.6.0</id>
-            <properties>
-                <test.framework.version>3.6.0</test.framework.version>
-            </properties>
-        </profile>
+<!--        <profile>-->
+<!--            <id>cassandra-3.x-scenario-3.7.0</id>-->
+<!--            <properties>-->
+<!--                <test.framework.version>3.7.0</test.framework.version>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            <id>cassandra-3.x-scenario-3.6.0</id>-->
+<!--            <properties>-->
+<!--                <test.framework.version>3.6.0</test.framework.version>-->
+<!--            </properties>-->
+<!--        </profile>-->
     </profiles>
 
     <build>
