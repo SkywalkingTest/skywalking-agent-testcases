@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/case")
 public class CaseController {
 
+    private static final int CONNECT_MAX_RETRY = 10;
     private static final String CREATE_KEYSPACE_SQL = "CREATE KEYSPACE IF NOT EXISTS demo WITH replication = " +
         "{'class': 'SimpleStrategy', 'replication_factor': 1}";
     private static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS demo.test(id TEXT PRIMARY KEY, value TEXT)";
@@ -32,11 +33,25 @@ public class CaseController {
     public String cassandraCase() {
         logger.info("cassandra contact points: {}:{}", host, port);
 
-        try {
-            cluster = Cluster.builder().addContactPoint(host).withPort(port).build();
-            session = cluster.connect();
-            logger.info("cassandra connection open");
+        int retry = 0;
+        while (retry < CONNECT_MAX_RETRY) {
+            try {
+                cluster = Cluster.builder().addContactPoint(host).withPort(port).build();
+                session = cluster.connect();
+                logger.info("cassandra connection open");
+                break;
+            } catch (Exception ex) {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                retry++;
+                logger.info("cassandra connection retry: {}", retry);
+            }
+        }
 
+        try {
             ResultSet createKeyspaceDataResultSet = session.execute(CREATE_KEYSPACE_SQL);
             logger.info("CREATE KEYSPACE result: " + createKeyspaceDataResultSet.toString());
 
@@ -61,6 +76,8 @@ public class CaseController {
 
             ResultSet dropKeyspaceDataResultSet = session.execute(DROP_KEYSPACE);
             logger.info("DROP KEYSPACE result: " + dropKeyspaceDataResultSet.toString());
+
+            return "success";
         } finally {
             if (session != null) {
                 session.close();
@@ -70,7 +87,5 @@ public class CaseController {
             }
             logger.info("cassandra connection close");
         }
-
-        return "ok";
     }
 }
