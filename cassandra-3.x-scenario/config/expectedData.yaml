@@ -27,7 +27,7 @@ segmentItems:
             spanLayer: Database
             spanType: Exit
             componentName: ""
-            componentId: 68
+            componentId: 69
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -44,7 +44,7 @@ segmentItems:
             spanLayer: Database
             spanType: Exit
             componentName: ""
-            componentId: 68
+            componentId: 69
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -61,7 +61,7 @@ segmentItems:
             spanLayer: Database
             spanType: Exit
             componentName: ""
-            componentId: 68
+            componentId: 69
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -78,7 +78,7 @@ segmentItems:
             spanLayer: Database
             spanType: Exit
             componentName: ""
-            componentId: 68
+            componentId: 69
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -95,7 +95,7 @@ segmentItems:
             spanLayer: Database
             spanType: Exit
             componentName: ""
-            componentId: 68
+            componentId: 69
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -112,7 +112,7 @@ segmentItems:
             spanLayer: Database
             spanType: Exit
             componentName: ""
-            componentId: 68
+            componentId: 69
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: Cassandra/executeAsync
@@ -129,7 +129,7 @@ segmentItems:
             spanLayer: Database
             spanType: Exit
             componentName: ""
-            componentId: 68
+            componentId: 69
             peer: cassandra-server:9042
             peerId: eq 0
           - operationName: /case/cassandra
