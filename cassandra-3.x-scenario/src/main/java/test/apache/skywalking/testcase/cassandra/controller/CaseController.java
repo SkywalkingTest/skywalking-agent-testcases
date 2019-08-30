@@ -33,25 +33,11 @@ public class CaseController {
     public String cassandraCase() {
         logger.info("cassandra contact points: {}:{}", host, port);
 
-        int retry = 0;
-        while (retry < CONNECT_MAX_RETRY) {
-            try {
-                cluster = Cluster.builder().addContactPoint(host).withPort(port).build();
-                session = cluster.connect();
-                logger.info("cassandra connection open");
-                break;
-            } catch (Exception ex) {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                retry++;
-                logger.info("cassandra connection retry: {}", retry);
-            }
-        }
-
         try {
+            cluster = Cluster.builder().addContactPoint(host).withPort(port).build();
+            session = cluster.connect();
+            logger.info("cassandra connection open");
+
             ResultSet createKeyspaceDataResultSet = session.execute(CREATE_KEYSPACE_SQL);
             logger.info("CREATE KEYSPACE result: " + createKeyspaceDataResultSet.toString());
 

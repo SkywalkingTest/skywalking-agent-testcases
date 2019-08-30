@@ -4,6 +4,11 @@ services:
     image: cassandra:3.11.4
     expose:
       - "9042"
+    healthcheck:
+      test: ["CMD", "cqlsh"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
 
   cassandra-scenario:
     image:  skywalking/cassandra-scenario:{CASES_IMAGE_VERSION}
