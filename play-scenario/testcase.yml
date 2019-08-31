@@ -7,12 +7,11 @@ testcase:
   #
   # The request url of current test cases.
   #
-  request_url: http://localhost:{SERVER_OUTPUT_PORT}/zookeeper-scenario/zookeeper/zookeeper-case
+  request_url: http://localhost:{SERVER_OUTPUT_PORT}/projects/1
   #
   # The framework name that need tested.
   #
-  test_framework: Zookeeper
-  #
+  test_framework: Play
   # The running mode:  TOGETHER(default), SINGLE, WITH_OPTIONAL
   #
   running_mode: WITH_OPTIONAL
@@ -20,19 +19,5 @@ testcase:
   # The framework version list of current test case supported
   #
   support_versions:
-    - 3.5.5
-    - 3.4.14
-    - 3.4.13
-    - 3.4.12
-    - 3.4.11
-    - 3.4.10
-    - 3.4.9
-    - 3.4.8
-    - 3.4.7
-    - 3.4.6
-    - 3.4.5
-    - 3.4.4
-    - 3.4.3
-    - 3.4.2
-    - 3.4.1
-    - 3.4.0
+    - 2.6.0
+    - 2.7.0
