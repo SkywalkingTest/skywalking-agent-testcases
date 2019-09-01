@@ -73,7 +73,7 @@ public class CaseController {
         record.headers().add("TEST", "TEST".getBytes());
         producer.send(record, new Callback() {
             @Override public void onCompletion(RecordMetadata metadata, Exception exception) {
-
+                logger.info("send success metadata={}", metadata);
             }
         });
         producer.close();
