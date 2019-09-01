@@ -7,7 +7,7 @@ ENV COLLECTOR_SERVER=127.0.0.1:12800 \
 
 WORKDIR /usr/local/kafka-scenario
 # download the kafka
-RUN  wget -q "http://mirror.bit.edu.cn/apache/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz"  -O "/usr/local/kafka-scenario/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" && tar -xvf /usr/local/kafka-scenario/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
+RUN  wget -q "https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz"  -O "/usr/local/kafka-scenario/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" && tar -xvf /usr/local/kafka-scenario/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
 # copy required packages
 ADD start_up.sh /usr/local/kafka-scenario/

@@ -4,14 +4,14 @@ registryItems:
   instances:
   - {kafka-scenario: nq 0}
   operationNames:
-  - kafka-scenario: [Kafka/test/Producer, Kafka/test/Consumer, /case/kafka-case]
+  - kafka-scenario: [Kafka/test/testKey/Producer, Kafka/test/testGroup/Consumer, /case/kafka-case]
 segmentItems:
 - applicationCode: kafka-scenario
   segmentSize: ge 3
   segments:
   - segmentId: not null
     spans:
-    - operationName: Kafka/test/Producer
+    - operationName: Kafka/test/testKey/Producer
       operationId: 0
       parentSpanId: 0
       spanId: 1
@@ -45,7 +45,7 @@ segmentItems:
       - {key: http.method, value: GET}
   - segmentId: not null
     spans:
-    - operationName: Producer/Callback
+    - operationName: Kafka/Producer/Callback
       operationId: 0
       parentSpanId: -1
       spanId: 0
@@ -62,7 +62,7 @@ segmentItems:
       - {parentEndpointId: 0, parentEndpoint: /case/kafka-case, networkAddressId: 0, entryEndpointId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: '${kafka-scenario[0]}', parentServiceInstanceId: nq 0, networkAddress: '', entryEndpoint: /case/kafka-case, entryServiceInstanceId: nq 0 }
   - segmentId: not null
     spans:
-    - operationName: Kafka/test/Consumer
+    - operationName: Kafka/test/testGroup/Consumer
       operationId: 0
       parentSpanId: -1
       spanId: 0
