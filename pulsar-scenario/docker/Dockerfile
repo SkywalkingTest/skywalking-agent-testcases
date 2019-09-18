@@ -1,6 +1,7 @@
 FROM openjdk:8-jdk
 
 ENV COLLECTOR_SERVER=127.0.0.1:12800 \
+    PULSAR_SERVICE_URL=pulsar://127.0.0.1:6650 \
     PULSAR_VERSION=2.4.1
 WORKDIR /usr/local/pulsar-scenario
 # download the pulsar

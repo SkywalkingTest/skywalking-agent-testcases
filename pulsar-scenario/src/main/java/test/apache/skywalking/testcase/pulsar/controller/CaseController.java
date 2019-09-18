@@ -30,6 +30,7 @@ import org.apache.pulsar.client.api.Producer;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,13 +43,13 @@ public class CaseController {
 
     private Logger logger = LogManager.getLogger(CaseController.class);
 
+    @Value("${service.url:pulsar://127.0.0.1:6650}")
     private String serviceUrl;
 
     private String topicName;
 
     @PostConstruct
     private void setUp() {
-        serviceUrl = "pulsar://127.0.0.1:6650";
         topicName = "persistent://public/default/test";
     }
 
@@ -75,10 +76,13 @@ public class CaseController {
                 .send();
 
         Message<byte[]> msg = consumer.receive(3, TimeUnit.SECONDS);
+
         producer.close();
         consumer.close();
 
         if (msg != null) {
+            logger.info("properties: {}", msg.getProperty("TEST"));
+            logger.info("messageId = {}, key = {}, value = {}", msg.getMessageId(), msg.getKey(), new String(msg.getValue()));
             return String.format("Success, consumer received message with key=%s and value=%s", msg.getKey(), new String(msg.getValue()));
         } else {
             return "Failed, consumer can't receive the message in 3 seconds";
