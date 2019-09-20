@@ -4,14 +4,14 @@ registryItems:
   instances:
   - {pulsar-scenario: nq 0}
   operationNames:
-  - pulsar-scenario: [Pulsar/persistent://public/default/test/Producer, /case/pulsar-case, Pulsar/persistent://public/default/test/Consumer/test]
+  - pulsar-scenario: [Pulsar/test/Producer, /case/pulsar-case, Pulsar/test/Consumer/test]
 segmentItems:
 - applicationCode: pulsar-scenario
   segmentSize: ge 3
   segments:
   - segmentId: not null
     spans:
-    - operationName: Pulsar/persistent://public/default/test/Producer
+    - operationName: Pulsar/test/Producer
       operationId: 0
       parentSpanId: 0
       spanId: 1
@@ -64,7 +64,7 @@ segmentItems:
       - {parentEndpointId: 0, parentEndpoint: /case/pulsar-case, networkAddressId: 0, entryEndpointId: 0, refType: CrossThread, parentSpanId: 1, parentTraceSegmentId: '${pulsar-scenario[0]}', parentServiceInstanceId: nq 0, networkAddress: '', entryEndpoint: /case/pulsar-case, entryServiceInstanceId: nq 0 }
   - segmentId: not null
     spans:
-    - operationName: Pulsar/persistent://public/default/test/Consumer/test
+    - operationName: Pulsar/test/Consumer/test
       operationId: 0
       parentSpanId: -1
       spanId: 0
