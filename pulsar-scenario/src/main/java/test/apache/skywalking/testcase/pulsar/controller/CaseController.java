@@ -50,7 +50,7 @@ public class CaseController {
 
     @PostConstruct
     private void setUp() {
-        topicName = "persistent://public/default/test";
+        topicName = "test";
     }
 
     @RequestMapping("/pulsar-case")
