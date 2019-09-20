@@ -18,7 +18,7 @@ segmentItems:
       spanLayer: MQ
       startTime: nq 0
       endTime: nq 0
-      componentId: 40
+      componentId: 73
       componentName: ''
       isError: false
       spanType: Exit
@@ -52,7 +52,7 @@ segmentItems:
       spanLayer: Unknown
       startTime: nq 0
       endTime: nq 0
-      componentId: 40
+      componentId: 73
       componentName: ''
       isError: false
       spanType: Local
@@ -71,7 +71,7 @@ segmentItems:
       spanLayer: MQ
       startTime: nq 0
       endTime: nq 0
-      componentId: 41
+      componentId: 74
       componentName: ''
       isError: false
       spanType: Entry
