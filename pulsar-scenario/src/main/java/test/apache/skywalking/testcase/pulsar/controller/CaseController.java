@@ -18,9 +18,8 @@
 
 package test.apache.skywalking.testcase.pulsar.controller;
 
-
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.PostConstruct;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,26 +45,22 @@ public class CaseController {
     @Value("${service.url:pulsar://127.0.0.1:6650}")
     private String serviceUrl;
 
-    private String topicName;
-
-    @PostConstruct
-    private void setUp() {
-        topicName = "test";
-    }
-
     @RequestMapping("/pulsar-case")
     @ResponseBody
-    public String pulsarCase() throws PulsarClientException {
+    public String pulsarCase() throws PulsarClientException, InterruptedException {
+
+        String topic = "test";
+
         PulsarClient pulsarClient = PulsarClient.builder()
                 .serviceUrl(serviceUrl)
                 .build();
 
         Producer<byte[]> producer = pulsarClient.newProducer()
-                .topic(topicName)
+                .topic(topic)
                 .create();
 
         Consumer<byte[]> consumer = pulsarClient.newConsumer()
-                .topic(topicName)
+                .topic(topic)
                 .subscriptionName("test")
                 .subscribe();
 
@@ -75,17 +70,40 @@ public class CaseController {
                 .property("TEST", "TEST")
                 .send();
 
-        Message<byte[]> msg = consumer.receive(3, TimeUnit.SECONDS);
+        CountDownLatch latch = new CountDownLatch(1);
+
+        Thread t = new Thread(() -> {
+            try {
+                Message<byte[]> msg = consumer.receive(3, TimeUnit.SECONDS);
+                if (msg != null) {
+                    String propertiesFormat = "key = %s, value = %s";
+                    StringBuilder builder = new StringBuilder();
+                    msg.getProperties().forEach((k, v) -> builder.append(String.format(propertiesFormat, k, v)).append(", "));
+                    logger.info("Received message with messageId = {}, key = {}, value = {}, properties = {}",
+                            msg.getMessageId(), msg.getKey(), new String(msg.getValue()), builder.toString());
+
+                }
+                consumer.acknowledge(msg);
+            } catch (PulsarClientException e) {
+                logger.error("Receive message error", e);
+            } finally {
+                latch.countDown();
+            }
+        });
+
+        t.start();
+
+        try {
+            latch.await(3, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            logger.error("Can get message from consumer", e);
+            t.interrupt();
+            throw e;
+        }
 
         producer.close();
         consumer.close();
 
-        if (msg != null) {
-            logger.info("properties: {}", msg.getProperty("TEST"));
-            logger.info("messageId = {}, key = {}, value = {}", msg.getMessageId(), msg.getKey(), new String(msg.getValue()));
-            return String.format("Success, consumer received message with key=%s and value=%s", msg.getKey(), new String(msg.getValue()));
-        } else {
-            return "Failed, consumer can't receive the message in 3 seconds";
-        }
+        return "Success";
     }
 }
