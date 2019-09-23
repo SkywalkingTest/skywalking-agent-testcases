@@ -45,7 +45,7 @@ segmentItems:
       - {key: http.method, value: GET}
   - segmentId: not null
     spans:
-    - operationName: Pulsar/Producer/SendCallback
+    - operationName: Pulsar/Producer/Callback
       operationId: 0
       parentSpanId: -1
       spanId: 0
