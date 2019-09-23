@@ -49,7 +49,7 @@ segmentItems:
       operationId: 0
       parentSpanId: -1
       spanId: 0
-      spanLayer: Unknown
+      spanLayer: MQ
       startTime: nq 0
       endTime: nq 0
       componentId: 73
