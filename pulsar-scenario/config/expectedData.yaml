@@ -22,7 +22,7 @@ segmentItems:
       componentName: ''
       isError: false
       spanType: Exit
-      peer: pulsar://127.0.0.1:6650
+      peer: not null
       peerId: 0
       tags:
       - {key: mq.broker, value: not null}
@@ -81,4 +81,4 @@ segmentItems:
       - {key: mq.broker, value: not null}
       - {key: mq.topic, value: 'test'}
       refs:
-      - {parentEndpointId: 0, parentEndpoint: /case/pulsar-case, networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${pulsar-scenario[0]}', parentServiceInstanceId: nq 0, networkAddress: 'pulsar://127.0.0.1:6650', entryEndpoint: /case/pulsar-case, entryServiceInstanceId: nq 0}
+      - {parentEndpointId: 0, parentEndpoint: /case/pulsar-case, networkAddressId: 0, entryEndpointId: 0, refType: CrossProcess, parentSpanId: 1, parentTraceSegmentId: '${pulsar-scenario[0]}', parentServiceInstanceId: nq 0, networkAddress: not null, entryEndpoint: /case/pulsar-case, entryServiceInstanceId: nq 0}
