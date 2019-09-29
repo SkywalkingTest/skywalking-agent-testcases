@@ -25,3 +25,12 @@ spring:
         uri: http://${projectB.host}
         predicates:
         - Path=/provider/b/*
+        filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 10
+            key-resolver: "#{@apiKeyResolver}"
+  redis:
+    host: 127.0.0.1
+    port:  6379

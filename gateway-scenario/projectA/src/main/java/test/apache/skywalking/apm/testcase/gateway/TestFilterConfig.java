@@ -3,7 +3,7 @@ package test.apache.skywalking.apm.testcase.gateway;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class TestFilterConfig {
 
     @Bean
